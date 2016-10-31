@@ -2,9 +2,9 @@
 
  loggingEnabled: true
  logDirectory: iisnode
-# debuggingEnabled: false
-# devErrorsEnabled: false
-# node_env: production
+ debuggingEnabled: true
+ devErrorsEnabled: true
+ node_env: production
 # nodeProcessCountPerApplication: 1
 # maxConcurrentRequestsPerProcess: 1024
 # maxNamedPipeConnectionRetry: 24
