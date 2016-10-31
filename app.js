@@ -22,8 +22,8 @@ var upload = multer({ storage: storage }).array('files');
 var routes = require('./routes/index');
 var adminActions = require('./routes/adminActions');
 var mongoose=require('mongoose');
-// mongoose.Promise=global.Promise;
-// mongoose.connect('https://3aauctiondb.documents.azure.com:443/').then(() => console.log('database connected')).catch((err) => console.error(err))
+mongoose.Promise=global.Promise;
+mongoose.connect('mongodb://3aauctiondb:dkCxSfuN2uUkty5QbyFKuwIG2nF3nCbBJVy3UYQHVS3uReUxb2RBTbSfhyTWtrFalIJQFpcRLH9fSd6uk8s4uA==@3aauctiondb.documents.azure.com:10250/?ssl=true').then(() => console.log('database connected')).catch((err) => console.error(err))
 var app = express();
 var server = require('http').Server(app);
 var io = require('socket.io')(server);
