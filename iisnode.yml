@@ -1,10 +1,10 @@
 # For documentation see https://github.com/tjanczuk/iisnode/blob/master/src/samples/configuration/iisnode.yml
 
- loggingEnabled: true
- logDirectory: iisnode
- debuggingEnabled: true
- devErrorsEnabled: true
- node_env: production
+# loggingEnabled: true
+# logDirectory: iisnode
+# debuggingEnabled: true
+# devErrorsEnabled: true
+# node_env: production
 # nodeProcessCountPerApplication: 1
 # maxConcurrentRequestsPerProcess: 1024
 # maxNamedPipeConnectionRetry: 24
