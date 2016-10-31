@@ -1,5 +1,5 @@
 var express = require('express');
-  config = require('./config/config');
+//  config = require('./config/config');
 var path = require('path');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
