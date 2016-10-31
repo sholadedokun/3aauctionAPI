@@ -22,7 +22,7 @@ var config = {
   production: {
     root: rootPath,
     app: {
-      name: '3aauctions'
+      name: '3aauctionsapi'
     },
     port: process.env.port,
   }
