@@ -1,0 +1,113 @@
+<div class="main_body" >
+    <div class="container" >
+        <div class="col-xs-12 np">
+            <div class="col-xs-12 col-sm-3 profileCon">
+                <div class="col-xs-12 np shadow bidCon ">
+                    <div class="col-xs-12 np profile imgCon glyphicon glyphicon-user">
+
+                    </div>
+                    <div class="col-xs-12 np profile_det">
+                        <div class="col-xs-12 profileName" ng-bind="user.fullname"></div>
+                        <div class="col-xs-12 profileState np">
+                            <span class="glyphicon glyphicon-map-marker"></span>
+                            <span>Lagos, Nigeria</span>
+                        </div>
+                        <div class="col-xs-12 divider"></div>
+                        <div class="col-xs-6 np">
+                            <a href="" class="col-xs-11 secondary_but s_but_sm">Update Profile</a>
+                        </div>
+                        <div class="col-xs-6 np">
+                            <a href="" class=" col-xs-11 col-xs-offset-1 secondary_but s_but_sm">Settings</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12  shadow bidCon">
+                    <div class="col-xs-6 np">
+                        <span class="col-xs-12 price_big np">
+                            <span ng-bind="user.userAuctions.length"></span>
+                        </span>
+                        <span class="col-xs-12 np timeTitle">Total Auctions</span>
+                    </div>
+                    <span class="dividerh"></span>
+                    <div class="col-xs-6 np priceCon">
+
+                        <span class="col-xs-12 price_big np">
+                            <span  ng-bind="inventory.length"></span>
+                        </span>
+                        <span class="col-xs-12 np timeTitle">Total Biddings</span>
+                    </div>
+                </div>
+                <div class="col-xs-12 np">
+                    <a href="" class="col-xs-12 primary_button shadow bidCon">
+                        Log out
+                    </a>
+                </div>
+
+            </div>
+
+            <div class="col-xs-12 col-sm-9 historyCon" ng-switch="Profilestate">
+                <div class="col-xs-12 np" ng-switch-default>
+                    <div class="col-xs-12 np formMenu">
+                        <div class="col-xs-6 np menuList act" ng-click="changeState('')">My Biddings</div>
+                        <div class="col-xs-6 np menuList " ng-click="changeState('myauctions')">My Auctions</div>
+
+                    </div>
+                    <div class="col-xs-12 np" ng-switch="pageControl">
+                        <div class="col-xs-12 np" ng-switch-default>
+                            <div class="pull-right col-sm-2 np">
+                                <span class="col-xs-12 np">
+                                    <a href="#/auction" class="col-xs-12 primary_button form">
+                                        <span class="glyphicon glyphicon-plus pull-left"></span>
+                                        <span class="pull-right">New Bidding</span>
+                                    </a>
+                                </span>
+                            </div>
+                            <div class="col-xs-12 auction_container">
+                                <div class="col-xs-12  col-sm-6 col-md-4  auction_item  np" ng-class="auctionClass($index)" ng-repeat="item in inventory track by $index">
+                                    <div class="col-xs-12 shadow  auction_content">
+                                        <div class="col-xs-12 np img_container">
+                                            <img ng-src="uploads/{{item.profilePic}}" height="auto" class="col-xs-12 np" />
+                                            <span class="auction_notification shadow">
+                                                <span class="close_icon icon"></span>
+                                                Closes <span ng-bind="item.biddingSettings.closeTimeStamp | date:'dd MMM. yyyy'"></span>
+                                            </span>
+                                        </div>
+                                        <div class="col-xs-12 auction_thumbDetails ">
+                                            <span class="col-xs-12 title np" ng-bind="item.name"></span>
+                                            <span class="col-xs-12 price np"><span> &#8358; </span><span ng-bind="item | getHighestBid | number"></span></span>
+                                            <span class="col-xs-12 secondary_but s_but" ng-click="auctionMiniview(inventory, $index)">Bid Now <span class="icon left_arrow"></span></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 np" ng-switch-when="signup">
+                            <input type="text" class="col-xs-12 forms" placeholder="Email Address" />
+                            <input type="password" class="col-xs-12 forms" placeholder="Password" />
+                            <input type="submit" class="col-xs-12 primary_button form" Value="SIGN IN" />
+                        </div>
+                        <div class="col-xs-12 np" ng-switch-when="forgotPass">
+                            <input type="text" class="col-xs-12 forms" placeholder="Email Address" />
+                            <input type="submit" class="col-xs-12 primary_button form" Value="RECOVER PASSWORD" />
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12 np" ng-switch-when="settings">
+                    <div class="col-xs-12 np formMenu">
+                        <div class="col-xs-12 content_main_header">Settings</div>
+                    </div>
+                    <div class="col-xs-12 np">
+                        <div class="col-xs-12 content_sub_header">Change Password</div>
+                        <div class="col-xs-12 np">
+
+                            <input type="password" class="col-xs-12 forms" placeholder="Previous Password" />
+                            <input type="password" class="col-xs-12 forms" placeholder="New Password" />
+                            <input type="password" class="col-xs-12 forms" placeholder="Confirm New Password" />
+                            <input type="submit" class="col-xs-12 primary_button form" Value="Change" />
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+</div>

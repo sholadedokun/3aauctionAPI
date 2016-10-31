@@ -1,0 +1,57 @@
+<div class="main_body" >
+    <div class="container-fluid np">
+        <div class="col-xs-12 col-sm-6 regSignBg">
+        </div>
+    </div>
+    <div class="container" >
+        <div class="col-xs-12 np">
+            <div class="col-xs-12 signupbg col-sm-6 ">
+                <div class="col-xs-12 signupintro ">
+                    <span class="content_main_header regHead">Sign Up to Bid & Auction on 3A Auction House</span>
+                </div>
+                <div class="col-xs-12 np">
+                    <div class="col-md-5 col-sm-6 np ">Already Registered ?</div>
+                    <div class="col-sm-6 col-md-5">
+                        <a href="" class="primary_button" ng-click="changeState('signup')" >Sign In</a>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-xs-12 col-sm-5 col-sm-offset-1 regSignForm">
+                <div class="col-xs-12 np formMenu">
+                    <div class="col-xs-6 np menuList act" ng-click="changeState('')">Sign Up</div>
+                    <div class="col-xs-6 np menuList" ng-click="changeState('signup')">Sign In</div>
+                </div>
+                <div class="col-xs-12 np" ng-switch="regState">
+                    <div class="col-xs-12 np" ng-switch-default>
+                        <form class="col-xs-12" ng-submit="register(user)">
+                            <input type="text" class="col-xs-12 forms" placeholder="First Name" ng-model="user.firstName" required />
+                            <input type="text" class="col-xs-12 forms" placeholder="Surname" ng-model="user.lastName" required/>
+                            <input type="text" class="col-xs-12 forms" placeholder="User Name" ng-model="user.userName" required/>
+                            <input type="text" class="col-xs-12 forms" placeholder="Email Address" ng-model="user.email" required/>
+                            <input type="password" class="col-xs-12 forms" placeholder="Password" ng-model="user.password" required/>
+                            <input type="password" class="col-xs-12 forms" placeholder="Confirm Password" ng-model="user.repassoword" required/>
+                            <input type="text" class="col-xs-12 forms" placeholder="Phone"  ng-model="user.phone" required/>
+                            <div class="col-xs-12 termsCon np">
+                                <div class="checkCon"><input type="checkbox" class="forms" required /> </div><label>By checking here, you accept the Terms & Conditions of 3A Auction House</label></div>
+                            <input type="submit" class="col-xs-12 primary_button form" value="REGISTER" />
+                        </form>
+                    </div>
+                    <div class="col-xs-12 np" ng-switch-when="signup">
+                        <form class="col-xs-12" ng-submit="login(user)">
+                            <input type="text" class="col-xs-12 forms" placeholder="Email Address or Username" ng-model="user.identity" />
+                            <input type="password" class="col-xs-12 forms" placeholder="Password" ng-model="user.password" />
+                            <input type="submit" class="col-xs-12 primary_button form" Value="SIGN IN" />
+                        </form>
+                    </div>
+                    <div class="col-xs-12 np" ng-switch-when="forgotPass">
+                        <form class="col-xs-12" ng-submit="forgotpass()">
+                            <input type="text" class="col-xs-12 forms" placeholder="Email Address" />
+                            <input type="submit" class="col-xs-12 primary_button form" Value="RECOVER PASSWORD" />
+                        </form>
+                    </div>
+                </div>
+                <div class="col-xs-12 info" ng-show="infoRev" ng-bind="info"></div>
+            </div>
+        </div>
+</div>

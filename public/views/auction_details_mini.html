@@ -1,0 +1,170 @@
+<div class="main_body" >
+    <div class="container-fluid np" >
+        <div class="col-xs-1 np arrCon">
+            <a href="" class="short_arrowL Bmarrow Bleft" ng-click="previousAuction()">
+                <span class="glyphicon glyphicon-menu-left"></span>
+            </a>
+        </div>
+
+        <div class="col-xs-10 np auction_detail_content">
+            <div class="col-xs-12 col-sm-5 np ">
+                <div class="col-xs-12 slide_show np">
+                    <div class="col-xs-12  shadow bidCon np">
+                        <div class="col-xs-12  np">
+                            <span class="bid_signal_open shadow_3" ng-hide='bidIsClose'></span> <span class="bid_signal_open  signal_close shadow_4" ng-show='bidIsClose'></span>
+                            <span class="content_description">Bid<span ng-hide='bidIsClose'> Open</span><span ng-show='bidIsClose'>ding Ended</span></span>
+                            <span class="small_divider">|</span>
+                            <span class="content_description">Close<span ng-hide='bidIsClose'>s</span><span  ng-show='bidIsClose'>d</span> <span ng-bind="auction.biddingSettings.closeTimeStamp | posttime"></span></span>
+                        </div>
+                    </div>
+                    <div class="col-xs-12  shadow bidCon">
+                        <div class="col-xs-12 np slideViewer ">
+                            <div class="col-xs-12 np img_container">
+                                <img ng-src="uploads/{{currentView}}" height="auto" class="col-xs-12 np" />
+                            </div>
+                        </div>
+
+                        <div class="col-xs-12 thumb_container ">
+                            <div class="thumbContainer_slide" id="thumbSlide">
+                                <div ng-repeat="thumb in allThumbs" class="thumbImg" ng-click="showMain($index)">
+                                    <img src="uploads/{{thumb}}" />
+                                </div>
+
+                            </div>
+                            <div class="slideMoveL slideMover" ng-click="moveSlide('l')"><img src="images/arrow_slideL.png"/></div>
+                            <div class="slideMoveR slideMover" ng-click="moveSlide('r')" ng-show="allThumbs.length>3"><img src="images/arrow_slide.png"/></div>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 shadow bidCon">
+                        <div class="col-xs-12 np content_description" ng-bind="auction.description" ></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-sm-offset-1">
+                <!-- <div class="col-xs-12 np">
+                    <span class="glyphicon glyphicon-star rating_fill"></span>
+                    <span class="glyphicon glyphicon-star rating_fill"></span>
+                    <span class="glyphicon glyphicon-star rating_fill"></span>
+                    <span class="glyphicon glyphicon-star rating_fill"></span>
+                    <span class="glyphicon glyphicon-star rating_null"></span>
+                </div> -->
+                <div class="col-xs-12 shadow bidCon">
+                    <span class="col-xs-12 np timeTitle">Bid Close</span>
+                    <div class="col-xs-12 np">
+                        <div class="col-xs-3 np timeCon">
+                            <div class="col-xs-12 np timeNum" ng-bind="countdown.days | numberFixedLen:2"></div>
+                            <div class="col-xs-12 np timeTitle">Days</div>
+                            <div class="timeDot">.</div>
+                        </div>
+
+                        <div class="col-xs-3 np timeCon">
+                            <div class="col-xs-12 np timeNum"  ng-bind="countdown.hours | numberFixedLen:2"></div>
+                            <div class="col-xs-12 np timeTitle">Hours</div>
+                            <div class="timeDot">.</div>
+                        </div>
+
+                        <div class="col-xs-3 np timeCon">
+                            <div class="col-xs-12 np timeNum"  ng-bind="countdown.minutes | numberFixedLen:2"></div>
+                            <div class="col-xs-12 np timeTitle">Minutes</div>
+                            <div class="timeDot">.</div>
+                        </div>
+
+                        <div class="col-xs-3 np timeCon">
+                            <div class="col-xs-12 np timeNum"  ng-bind="countdown.seconds | numberFixedLen:2"></div>
+                            <div class="col-xs-12 np timeTitle">Seconds</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12 shadow bidCon">
+                    <div class="col-xs-12 content_main_header price_big np" ng-bind="auction.name"></div>
+                </div>
+                <!-- <span class="divider col-xs-3 np"></span> -->
+                <div class="col-xs-12 shadow bidCon">
+                    <div class="col-xs-6 np">
+                        <span class="col-xs-12 np timeTitle">Starting Bid</span>
+                        <span class="col-xs-12 price_big np">
+                            <span> &#8358; </span>
+                            <span ng-bind="auction.biddingSettings.startingPrice | number"></span>
+                        </span>
+                    </div>
+                    <span class="dividerh"></span>
+                    <div class="col-xs-6 np priceCon">
+                        <span class="col-xs-12 np timeTitle"><span ng-hide='bidIsClose'>Current</span> Highest Bid</span>
+                        <span class="col-xs-12 price_big np">
+                            <span> &#8358; </span>
+                            <span ng-bind="currentHighest | number"></span>
+                        </span>
+                    </div>
+                </div>
+                <div class="col-xs-12 shadow bidCon">
+                    <div class="col-xs-12 col-sm-6 reserveNote">
+                        <span ng-show="reservedP" class="bid_signal_open shadow_3"></span>
+                        <span ng-hide="reservedP" class="bid_signal_open signal_close shadow_4"></span>
+                        <span>Reserved Price <span ng-show="reservedP">meet.</span> <span ng-hide="reservedP">not meet.</span> </span>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 np">
+                        <div class="col-xs-9 pull-right secondary_but s_but_sm" ng-click="Toggleview(revHistory)">
+                            <span ng-bind="auction.biddingHistory.length"></span> total bids
+                        </div>
+                    </div>
+                    <div class="col-xs-12 np" ng-show="revHistory">
+                        <span class="col-sm-4 bidHistroyHead hidden-xs"><b>Username</b></span><span class="col-sm-4 bidHistroyHead hidden-xs"><b>Price</b></span>
+                        <div class="col-xs-12 np"  ng-repeat="bids in auction.biddingHistory | limitTo:5 track by $index">
+                            <span class="col-xs-4" ng-bind="bids.userId.userName | limitTo:15"></span>
+                            <span class="col-xs-4" ng-bind="bids.price | number"></span>
+                            <span class="col-xs-4 np" ng-bind="bids.timestamp | posttime"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12 shadow bidCon" ng-hide='bidIsClose'>
+                    <div class="col-xs-12 bidderCon np">
+                        <div class="col-xs-2 np bidbut" ng-click="updateBid('reduce')">-</div>
+                        <div class="col-xs-8 np bidform">
+                            <div class="col-xs-2 bidCur"> &#8358; </div>
+                            <input type="text" ng-model="currentBid | number" class="col-xs-10" />
+                        </div>
+                        <div class="col-xs-2 np bidbut"  ng-click="updateBid('add')">+</div>
+                    </div>
+                    <div class="col-xs-12  primary_button bidbutton" id="detail_contact" ng-click="submitBid()">Bid Now</div>
+                    <div class="col-xs-12" ng-show="user.userInfo">
+                        <p class="userP">
+                            You need to <span class="userInfo" ng-click="regstate('signup')"> Login</span>
+                             or <span class="userInfo"  ng-click="regstate('register')">Register</span> to be able to place a Bid.
+                        </p>
+                    </div>
+                    <div class="col-xs-12" ng-show="user.success">
+                        <p class="userP" ng-bind="user.userMessage"></p>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-10 np" id="send_bid" ng-show="bidding">
+                    <span class="divider col-xs-12"></span>
+                    <form class="col-xs-12 auction_bidding_form np">
+                        <div class="tab spacer">
+                            <span class="col-xs-12 np">Name</span>
+                            <input type="text" />
+                        </div>
+                        <div class="tab">
+                            <span class="col-xs-12 np">Email</span>
+                            <input type="text" />
+                        </div>
+                        <div class="col-xs-12 np">
+                            <span class="col-xs-12 np">Bidding Cost</span>
+                            <div class="col-xs-12 bid_container">
+                                <span> &#8358; </span>
+                                <input type="text" />
+                            </div>
+                        </div>
+                        <input type="submit" class="col-xs-12 primary_button" value="BID NOW" />
+                    </form>
+                </div>
+
+            </div>
+
+        </div>
+        <div class="col-xs-1 np arrCon">
+            <a href=""  class="long_arrowR Bmarrow Bright" ng-click="nextAuction()">
+                <span class="glyphicon glyphicon-menu-right"></span>
+            </a>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,32 @@
+<div class="container-fluid header_img" id="contact_head">
+    <div class="container">
+        <div class="col-xs-12 img_container np">
+            <div class="col-xs-12 np" id="search_box">
+                <span class="col-xs-12 intro_header">
+                    Get in Touch
+                </span>
+                <!-- <div class="col-xs-12 search intro_subhead">TELL US ABOUT YOUR DEAL</div> -->
+            </div>
+            <form class="col-xs-12 col-md-8 col-md-offset-2 contact_form" ng-submit="sendContact(contact)">
+                <input type="text" class="col-xs-12" required placeholder="Name" ng-model="contact.name" />
+                <input type="email" class="col-xs-12" required placeholder="Email" ng-model="contact.email" />
+                <input type="phone" class="col-xs-12" required placeholder="Phone Number" ng-model="contact.phone" />
+                <textarea  class="col-xs-12" required placeholder="Message"  ng-model="contact.message"></textarea>
+                <input type="submit" class="col-xs-12 primary_button" value="SEND" />
+                <div class="col-xs-10 col-xs-offset-1 .contact_emph" ng-bind="info"></div>
+                <div class="col-xs-12 contact_emph">
+                    <span class="col-xs-12 col-sm-5 np">
+                        <span class="pull-right np"> <img src="images/icon-email.png" width="18" height="16"/> info@3aauctions.com</span>
+                    </span>
+                    <span class="col-xs-12 col-sm-2 np" id="detail_contact">
+                        |
+                    </span>
+                    <span class="col-xs-12 col-sm-5 np">
+                        <span class="pull-left np"><img src="images/icon-phone.png" width="22" height="22"/>+234 802 181 2181</span>
+                    </span>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>

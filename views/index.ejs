@@ -1,0 +1,213 @@
+<!doctype html>
+<html ng-app="3aAuctionsApp">
+  <head>
+    <meta charset="utf-8">
+    <title>3A Auction House</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <!-- build:css(.) styles/vendor.css -->
+    <!-- bower:css -->
+    <!-- endbower -->
+    <!-- endbuild -->
+    <!-- build:css(.tmp) styles/main.css -->
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="bower_components/bxslider/jquery.bxslider.css">
+    <link href="https://fonts.googleapis.com/css?family=Karla|Flamenco|Chau+Philomene+One" rel="stylesheet">
+    <link rel='stylesheet' href='bower_components/angular-loading-bar/build/loading-bar.min.css' type='text/css' media='all' />
+    <link rel='stylesheet' href='bower_components/ui-bootstrap/ui-bootstrap.css' type='text/css' media='all' />
+    <!-- <link href="https://fonts.googleapis.com/css?family=Carrois+Gothic+SC|Chau+Philomene+One|Flamenco|Julius+Sans+One|Marvel|Mate+SC|Maven+Pro|Oxygen|Poiret+One|Rajdhani|Share+Tech|Snippet" rel="stylesheet"> -->
+    <!-- endbuild -->
+
+  </head>
+  <body ng-controller="indexCtrl">
+    <!--[if lte IE 8]>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+
+    <!-- Add your site or application content here -->
+    <div class="container-fluid header">
+      <div class="navbar navbar-default" role="navigation">
+        <div class="container">
+          <div class="navbar-header">
+
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse" data-target="#js-navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+
+            <a class="navbar-brand logo_bg" href="#/">
+                <div class="logoImg">
+                </div>
+
+            </a>
+          </div>
+
+          <div class="collapse navbar-collapse navbar-right" id="js-navbar-collapse">
+            <ul class="nav navbar-nav" ng-controller="MenuCtrl">
+              <li><a ng-class="{active: getPath('/')}" data-toggle="collapse" data-target=".navbar-collapse" href="#/">HOME</a></li>
+              <li><a ng-class="{active: getPath('/auction')}" data-toggle="collapse" data-target=".navbar-collapse" ng-href="#/auction">AUCTIONS</a></li>
+              <li ng-show="user.id==0"><a href="" ng-click="regSign('signup')" data-toggle="collapse" data-target=".navbar-collapse">SIGN IN</a></li>
+              <li ng-show="user.id==0"><a href="" ng-click="regSign('register')" class="primary_button registerBut" data-toggle="collapse" data-target=".navbar-collapse">REGISTER</a></li>
+              <!-- <li><a ng-class="{active: getPath('/auction_details')}" ng-href="#/auction_details">HOW IT WORKS</a></li> -->
+              <li class="dropdown"  ng-hide="user.id==0">
+                  <a  href="" data-toggle="collapse" data-target=".navbar-collapse" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                      <div class="col-xs-12 profileTcon">
+                          <div class="profileThumb glyphicon glyphicon-user"></div>
+                          <span class="username" ng-bind="user.userName"></span>
+                          <span class="caret"></span>
+                      </div>
+                  </a>
+                  <ul class="dropdown-menu">
+                    <li><a href="#/profile/{{user.id}}">View Profile</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li><a href="" ng-click="signOut()">Sign Out</a></li>
+                  </ul>
+              </li>
+              <!-- <li class="dropdown">
+                  <a href="" ng-class="{active: getPath('/what_we_do')}" data-toggle="collapse" data-target=".navbar-collapse" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">ABOUT US<span class="caret"></span>
+                  </a>
+                  <ul class="dropdown-menu">
+                    <li><a href="#/aboutUs">Who we are</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li><a href="#/whatWeDo">What we do</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li><a href="#/contact">Contact</a></li>
+                  </ul>
+              </li> -->
+              <!-- <li><a  ng-class="{active: getPath('/contact')}" data-toggle="collapse" data-target=".navbar-collapse" ng-href="#/contact">CONTACT</a></li> -->
+              <!-- <li><a ng-class="{active: getPath('/faqs')}" data-toggle="collapse" data-target=".navbar-collapse" ng-href="#/faqs">FAQS</a></li> -->
+              <!-- <ul class="submenu" ng-mouseover="subMenu(true, 0)" ng-mouseleave="subMenu(false,0)"  ng-show="sMenu">
+                  <li ng-repeat="smenu in sumenu[sIndex]">
+                      <a ng-href="{{smenu.url}}" ng-bind="smenu.value"></a>
+                  </li>
+              </ul> -->
+            </ul>
+            <!-- <ul class="submenu" ng-show="sMenu">
+                <li ng-repeat="smenu in sumenu[sIndex]">
+                    <a ng-href="smenu.url" ng-bind="smenu.value"></a>
+                </li>
+            </ul> -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div  ng-view="" >
+    </div>
+    <div class="container-fluid" id="how_it_works_video">
+        <div class="row">
+            <div class="col-xs-12 content_main_header intro_subhead">Sign up to our Newsletter to stay updated</div><br/><br/>
+            <div class="col-xs-12 search">
+                <form ng-submit="subscriber(email)">
+                <div class="col-xs-8 col-md-5 col-md-offset-3  form_container">
+
+                    <input class="col-xs-12" type="email" placeholder="Your Email Address" ng-model="email" />
+                </div>
+                <input type="submit" class="col-xs-4 primary_button" value="SIGN UP"/>
+
+                <span class="col-xs-12" ng-bind="info"></span>
+            </form>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid footer">
+          <div class="container">
+            <!-- <p><span class="glyphicon glyphicon-heart"></span> from the Yeoman team</p> -->
+            <div class="col-sm-12 np">
+                <div class="col-sm-3 np">
+                    <strong>ABOUT</strong><br/><br/>
+                    <p>
+                        3A Auction House is a leading Auction House in Nigeria, specializing
+                        in the efficient disposal of a range of residential and commercial properties,
+                        vehicles and other possessions on behalf of both private individuals and corporate bodies.
+                    </p>
+                </div>
+                <div class="col-sm-1 np">
+                </div>
+                <div class="col-sm-4 np">
+                    <div class="col-xs-6 footerLinks">
+                        <a href="#/guideToBuy">GUIDE TO BUY</a>
+                        <a href="#/guideToSell">GUIDE TO SELL</a>
+                        <a href="#/generalInfo">GENERAL INFORMATION</a>
+                        <a href="#/faqs">FAQ</a>
+                    </div>
+                    <div class="col-xs-6 footerLinks">
+                        <a href="#/aboutUs">WHO WE ARE</a>
+                        <a href="#/whatWeDo">WHAT WE DO</a>
+                        <a href="#/contact">CONTACT</a>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <strong class="pull-right">GET IN TOUCH</strong><br/><br/>
+                    <div class="col-xs-12 np">
+                        <a class="pull-right social-icon" href="https://instagram.com/3a_auctions"  target="_blank"><img src="images/instagram.png" width="13" height="13"/></a>
+                        <a class="pull-right social-icon" href="https://www.facebook.com/3aauctions" target="_blank"><img src="images/facebook.png" width="8" height="14"/></a>
+                        <a class="pull-right social-icon" href="https://twitter.com/3a_auctions"  target="_blank"><img src="images/twitter.png" width="17" height="14"/></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 divider_footer"></div>
+            <div class="col-xs-12 np copyright">
+                <span class="glyphicon glyphicon-copyright-mark"></span>
+                <span>3A Auction House | 2016 All Rights Reserved</span>
+            </div>
+
+
+          </div>
+    </div>
+
+
+    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
+     <script>
+       !function(A,n,g,u,l,a,r){A.GoogleAnalyticsObject=l,A[l]=A[l]||function(){
+       (A[l].q=A[l].q||[]).push(arguments)},A[l].l=+new Date,a=n.createElement(g),
+       r=n.getElementsByTagName(g)[0],a.src=u,r.parentNode.insertBefore(a,r)
+       }(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+       ga('create', 'UA-XXXXX-X');
+       ga('send', 'pageview');
+    </script>
+
+    <!-- build:js(.) scripts/vendor.js -->
+    <!-- bower:js -->
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.js"></script>
+    <script src="bower_components/angular-cookies/angular-cookies.js"></script>
+    <script src="bower_components/angular-resource/angular-resource.js"></script>
+    <script src="bower_components/angular-route/angular-route.js"></script>
+    <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+    <script src="bower_components/angular-touch/angular-touch.js"></script>
+    <script src="bower_components/angular-loading-bar/build/loading-bar.min.js"></script>
+    <script src="bower_components/bxslider/jquery.bxslider.min.js"></script>
+    <script src="bower_components/ui-bootstrap/ui-bootstrap.min.js"></script>
+    <script src="bower_components/ui-bootstrap/ui-bootstrap-tpls.min.js"></script>
+    <script src="bower_components/moment/min/moment.min.js"></script>
+    <script src="bower_components/moment/min/moment.min.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <!-- <script>
+
+         </script> -->
+    <!-- <script src="bower_components/angular-loading-bar/build/loading-bar.min.js"></script>
+    <script src="bower_components/bxslider/jquery.bxslider.min.js"></script>
+    <script src="bower_components/ui-bootstrap/ui-bootstrap.min.js"></script>
+    <script src="bower_components/ui-bootstrap/ui-bootstrap-tpls.min.js"></script> -->
+    <!-- endbower -->
+    <!-- endbuild -->
+    <!-- <script src="bower_components/angular-loading-bar/build/loading-bar.min.js"></script> -->
+    <!-- <script src="bower_components/bxslider/jquery.bxslider.min.js"></script> -->
+    <!-- <script src="bower_components/ui-bootstrap/ui-bootstrap.min.js"></script> -->
+    <!-- <script src="bower_components/ui-bootstrap/ui-bootstrap-tpls.min.js"></script> -->
+        <!-- build:js({.tmp,app}) scripts/scripts.js -->
+        <script src="scripts/app.js"></script>
+        <script src="scripts/controllers/main.js"></script>
+        <script src="scripts/controllers/auction.js"></script>
+        <script src="scripts/controllers/others.js"></script>
+        <script src="scripts/controllers/service.js"></script>
+        <!-- endbuild -->
+</body>
+</html>
