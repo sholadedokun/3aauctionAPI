@@ -23,14 +23,14 @@ var routes = require('./routes/index');
 var adminActions = require('./routes/adminActions');
 var mongoose=require('mongoose');
 mongoose.Promise=global.Promise;
-mongoose.connect("https://3aauctiondb.documents.azure.com:443/").then(() => console.log('database connected')).catch((err) => console.error(err))
+mongoose.connect('mongodb://localhost/3aauctions').then(() => console.log('database connected')).catch((err) => console.error(err))
 var app = express();
 var server = require('http').Server(app);
 var io = require('socket.io')(server);
 io.on('connection', function(socket){
     console.log('a user connected');
     socket.on('disconnect', function(){
-      //console.log('user disconnected');
+      console.log('user disconnected');
     });
     socket.on('userBiddedonProperty', function(msg){
         socket.broadcast.emit('userBiddedonProperty', msg);
