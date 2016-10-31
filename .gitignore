@@ -1,7 +1,6 @@
 node_modules
 public/uploads
 bower_components
-public/bower_components
 public/Admin
 Gruntfile.js
 .sass-cache
