@@ -254,7 +254,7 @@ angular.module('3aAuctionsApp')
             browser:'Chrome',
             operatingSystem:'Mac, OSX',
             medium:'Desktop',
-            referrer:'3aauctions',
+            referrer:'3aauctions'
         }
         appActions.admin('biddings/').save($scope.biddings, function(data){
             $scope.user.userInfo=false;

@@ -125,22 +125,22 @@ router.post('/subcategory', function(req, res, next){
 router.post('/biddings', function(req, res, next){
     adminSchema.biddingHistory.create(req.body, function(err, post){
         if(err) return next(err)
-        adminSchema.inventory.findById(req.body.inventory, function(err, inventory){
-            if(err)return next(err)
-            inventory.biddingHistory.push(post);
-            inventory.save(function(err, newInventory){
+        adminSchema.inventory.findByIdAndUpdate(
+            req.body.inventory,
+            {$push:{biddingHistory:post}},
+            {safe: true, upsert: true, new : true},
+            function(err, inventory){
                 if(err)return next(err)
-                adminSchema.user.findById(req.body.userId, function(err, user){
+                adminSchema.user.findByIdAndUpdate(
+                    req.body.userId,
+                    {$push:{userBids:inventory}},
+                    function(err, user){
                     if(err)return next(err)
-                    user.userBids.push(newInventory)
-                    user.save(function(err, biddings){
-                        if(err)return next(err)
-                        res.json(newInventory);
-                    })
-                })
-            })
-        })
-
+                        res.json(inventory);
+                    }
+                )
+            }
+        )
     })
 
 });
