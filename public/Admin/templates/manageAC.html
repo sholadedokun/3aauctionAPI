@@ -1,0 +1,49 @@
+<div class="" style="padding:5px 15px; background:#ccc; color:#555"><h2>Add New Category/Subcategory</h2></div>
+      <div class="" style="padding:10px; background:#eee; color:#555">
+          <div><b>Add New Category</b></div>
+          <form ng-submit="allnewCategory()">
+              <div>
+                  <input type="text" name="c_title" ng-model="newCategory.name" required="" />
+                  <div class="" style="padding:10px; background:#eee; color:#555">
+                      <div><b>Category Description</b></div>
+                      <div>
+                          <textarea name="item_description" required="required"  ng-model="newCategory.description"  cols="40" rows="5"></textarea>
+                      </div>
+                  </div>
+                  <div class="" style="padding:10px; background:#eee; color:#555">
+                      <div><b>Upload Icon</b></div>
+                      <div>
+                          <div><input type="file" name="icon" id="pic1" size="30" file-model="images.icon" /></div>
+                      </div>
+                  </div>
+                  <input type="Submit" value="Submit" />
+              </div>
+          </form>
+      </div>
+      <div class="" style="padding:10px; background:#eee; color:#555">
+          <div><b>Add New Sub Category</b></div>
+          <form ng-submit="addnewSubCategory()">
+              <div><label>Choose Category</label>
+                  <select ng-options="item._id as item.name for item in all_category" ng-model="subcategory.category">
+                  </select>
+              </div>
+              <div>
+                  <label>Type Sub Category</label>
+                  <input type="text" name="c_title" ng-model="subcategory.SubCategoryname" placeholder="Type Category" required="" />
+              </div>
+              <div class="" style="padding:10px; background:#eee; color:#555">
+                  <div><b>Sub Category Description</b></div>
+                  <div>
+                      <textarea name="item_description"  ng-model="subcategory.description"  cols="40" rows="5"></textarea>
+                  </div>
+              </div>
+              <div class="" style="padding:10px; background:#eee; color:#555">
+                  <div><b>Upload Icon</b></div>
+                  <div>
+                      <div><input type="file" name="icon" id="pic1" size="30" file-model="images.icon"  /></div>
+                  </div>
+              </div>
+              <input type="submit" value="Submit" />
+          </form>
+      </div>
+  </div>

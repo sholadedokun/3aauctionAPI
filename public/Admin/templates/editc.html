@@ -1,0 +1,12 @@
+<div class="" style="padding:5px 15px; background:#ccc; color:#555"><h2>Edit Category</h2></div>
+  <form ng-submit="editc()" >
+      <div class="" style="padding:10px; background:#eee; color:#555">
+          <div><b>Category Title</b></div>
+          <div><textarea name="c_title" ng-model="cat.c_name"></textarea>  </div>
+      </div>
+      <div class="" style="padding:10px; background:#eee; color:#555">
+          <div><b>Category Description</b></div>
+          <div><textarea name="c_desc" ng-model="cat.c_desc" ng-bind="cat.c_desc"></textarea></div>
+      </div>
+      <div  style="padding:10px;"><input type="submit" value="Update Category" /></div>
+  </form>

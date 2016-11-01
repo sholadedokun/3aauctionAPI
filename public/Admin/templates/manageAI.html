@@ -1,0 +1,177 @@
+<div class="" style="padding:5px 15px; background:#ccc; color:#555"> <h2>Add New Inventory</h2></div>
+<form  ng-submit="addInventory()" enctype="multipart/form-data">
+    <div class="" style="padding:10px; background:#555; color:#eee">
+        <div><b>Select Inventory Category</b></div>
+        <span>
+            <select ng-options="item._id as item.name for item in all_category" ng-model="inventory.category" ng-change="get_allSubcategories()">
+            </select>
+        </span>
+    </div>
+    <div class="" style="padding:10px; background:#eee; color:#555">
+      <div><b>Select Inventory Subcategory</b></div>
+        <div>
+          <select required ng-options="option._id as option.SubCategoryname for option in all_subcategory"  ng-model="inventory.subCategory">
+          </select>
+        </div>
+    </div>
+    <div class="" style="padding:10px; background:#eee; color:#555">
+        <div><b>Inventory Type</b></div>
+        <div>
+            <input type="textbox" name="inventory_type" ng-model="inventory.type">
+        </div>
+    </div>
+    <div class="" style="padding:10px; background:#555; color:#eee">
+        <div><b>Inventory Title</b></div>
+        <div>
+            <input type="textbox" name="inventory_title" ng-model="inventory.name">
+        </div>
+    </div>
+    <div class="" style="padding:10px; background:#555; color:#eee">
+        <div><b>Inventory Description</b></div>
+        <div>
+            <textarea name="inventory_title" ng-model="inventory.description" ></textarea>
+        </div>
+    </div>
+    <div class="" style="padding:10px; background:#555; color:#eee">
+        <div><b>Inventory Address</b></div>
+        <div>
+            <textarea name="inventory_title" ng-model="inventory.address"></textarea>
+        </div>
+    </div>
+    <div class="" style="padding:10px; background:#555; color:#eee">
+        <div><b>Inventory Local Government/Town/City</b></div>
+        <div>
+            <input type="textbox" name="inventory_title" ng-model="inventory.lg" >
+        </div>
+    </div>
+    <div class="" style="padding:10px; background:#555; color:#eee">
+        <div><b>Inventory State</b></div>
+        <div>
+            <input type="textbox" name="inventory_title" ng-model="inventory.state" >
+        </div>
+    </div>
+    <div class="" style="padding:10px; background:#555; color:#eee">
+        <div><b>Inventory Country</b></div>
+        <div>
+            <input type="textbox" name="inventory_title" ng-model="inventory.country" >
+        </div>
+    </div>
+    <div class="" style="padding:10px; background:#555; color:#eee">
+        <div><b>Inventory Status</b></div>
+        <div>
+            <select ng-model="inventory.status">
+                <option value="active">Active</option>
+                <option value="actuve">De-activated</option>
+            </select>
+        </div>
+    </div>
+    <div class="" style="padding:10px; background:#555; color:#eee">
+        <div><b>Inventory Rating</b></div>
+        <div>
+            <select ng-model="inventory.rate">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select>
+        </div>
+    </div>
+    <div class="" style="padding:10px; background:#eee; color:#555">
+        <div><b>Tags</b></div>
+        <div>
+            <select ng-options="option.value as option.name for option in itag" ng-change="addtag()" ng-model="taglist">
+            </select>
+        </div>
+        <div>
+            <textarea id="inventory_tagt" name="inventory_tag" cols="50" rows="8" ng-model="inventory.tag" ></textarea>
+        </div>
+    </div>
+    <div class="" style="padding:10px; background:#eee; color:#555">
+        <div><b>Upload Pictures</b></div>
+        <div>
+            <div><input type="file" name="file" id="pic1" size="30" file-model="images.files"  /></div>
+            <div><input type="file" name="file" id="pic2" size="30" file-model="images.files1" /></div>
+            <div><input type="file" name="file" id="pic3" size="30" file-model="images.files2" /></div>
+            <div><input type="file" name="file" id="pic4" size="30" file-model="images.files3" /></div>
+            <div><input type="file" name="file" id="pic5" size="30" file-model="images.files4" /></div>
+            <div><input type="file" name="file" id="pic6" size="30" file-model="images.files5" /></div>
+        </div>
+
+    </div>
+    <div><h3>AUCTION SETTINGS</h3></div>
+    <div class="" style="padding:10px; background:#eee; color:#555">
+        <div><b>Starting Price</b></div>
+        <div>
+            <input type="textbox" name="inventory_title" ng-model="inventory.startingPrice">
+        </div>
+    </div>
+    <div class="" style="padding:10px; background:#eee; color:#555">
+        <div><b>Reserve Price</b></div>
+        <div>
+            <input type="textbox" name="inventory_title" ng-model="inventory.reservePrice">
+        </div>
+    </div>
+    <div class="" style="padding:10px; background:#eee; color:#555">
+        <div><b>Buy Now Price</b></div>
+        <div>
+            <input type="textbox" name="inventory_title" ng-model="inventory.buyNowPrice">
+        </div>
+    </div>
+    <div class="" style="padding:10px; background:#eee; color:#555">
+        <div><b>Bidding Rate</b></div>
+        <div>
+            <input type="textbox" name="inventory_title" ng-model="inventory.biddingRate">
+        </div>
+    </div>
+    <div class="" style="padding:10px; background:#eee; color:#555">
+        <div><b>Bidding Start Date</b></div>
+    </div>
+    <div class="" style="padding:10px; background:#eee; color:#555">
+        <div><b>Bidding Start Time</b></div>
+
+        <datetimepicker
+            hour-step="1"   minute-step="5"
+          ng-model="inventory.startTimeReadable"
+          show-meridian="true"
+          date-format="dd-MMMM-yyyy"
+          date-options="{ showWeeks: false, startingDay: 0 }"
+
+          datepicker-append-to-body="false"
+          readonly-date="false"
+          disabled-date="false"
+          hidden-time="false"
+          hidden-date="false"
+          name="datetimepicker"
+          show-spinners="true"
+          readonly-time="false"
+          date-opened="false"
+          show-button-bar="false"
+      >
+      <!-- Use date-ng-click="open($event, opened)" to override date ng-click -->
+      </datetimepicker>
+    </div>
+
+    <div class="" style="padding:10px; background:#eee; color:#555">
+        <div><b>Bidding Close Time</b></div>
+        <datetimepicker
+            hour-step="1"   minute-step="5"
+          ng-model="inventory.closeTimeReadable"
+          show-meridian="true"
+          date-format="dd-MMMM-yyyy"
+          date-options="{ showWeeks: false, startingDay: 0 }"
+
+          datepicker-append-to-body="false"
+          readonly-date="false"
+          disabled-date="false"
+          hidden-time="false"
+          hidden-date="false"
+          name="datetimepicker"
+          show-spinners="true"
+          readonly-time="false"
+          date-opened="false"
+          show-button-bar="false"
+      >
+    </div>
+    <div  style="padding:10px; " ><input type="submit" value="Add Inventory" name="AddInventory" /></div>
+</form>

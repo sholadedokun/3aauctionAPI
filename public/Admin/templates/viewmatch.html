@@ -1,0 +1,26 @@
+<div class="" style="padding:5px 15px; background:#ccc; color:#555"> <h2>View All Match Queries</h2></div>
+<form ng-submit="matcher()">
+  <div class="" style="padding:10px; background:#bbb; color:#555" ng-repeat="match in matches">
+    <div><b><span style="font-size:18px">Matching Type</span>:</b> <span ng-if="match.match_type==p">Matching Pair</span>
+    <span ng-if="match.match_type!=p">Scaled Matching Pair</span></div>
+
+
+    <div class="" style="padding:10px; background:#555; color:#bbb" ng-repeat="ques in match.questions">
+      <div style="font-size:18px; color:#fff"><b> Match
+        <span ng-if="$index==0">(User) </span>
+        <span ng-if="$index==1">(partner) </span>
+        <span ng-if="$index==2">(scale) </span></b>
+      </div>
+        <div>
+          <label style="color:#fff"><b>Question Category :</b></label>
+          <span ng-bind="ques.category_title"></span>
+        </div>
+        <div>
+          <label style="color:#fff"><b>Question :</b></label>
+          <span ng-bind="ques.question_text"></span>
+        </div>
+    </div>
+
+  </div>
+  <div  style="padding:10px; margin:5px 0; height:2px; background:#555 " ></div>
+</form>

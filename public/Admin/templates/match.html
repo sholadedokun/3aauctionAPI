@@ -1,0 +1,70 @@
+<div class="" style="padding:5px 15px; background:#ccc; color:#555"> <h2>Adding Match Queries</h2></div>
+<form ng-submit="matcher()" >
+<div>
+  <div class="" style="padding:10px; background:#bbb; color:#555">
+    <div><b>Select Matching Type</b></div>
+      <div>
+        <select ng-model="mtypev" ng-options="option.value as option.name for option in mtype" required >
+        </select>
+      </div>
+  </div>
+  <div class="" style="padding:10px; background:#555; color:#bbb">
+    <div><b>First Match(User)</b></div>
+      <div>
+        <label>Select Question Category</label>
+        <span>
+          <select ng-model="f.cat" ng-options="option.c_id as option.c_name for option in categories" ng-change="getq(f)" required >
+          </select>
+        </span>
+      </div>
+      <div ng-show="f.loading=='return'">
+        <label>Select Question</label>
+        <span>
+          <select ng-model="f.q_id" ng-options="option.q_id as option.q_text for option in f.questions" required ></select>
+        </span>
+      </div>
+      <div ng-show="f.loading=='waiting'" ng-bind="'Please wait...'"></div>
+  </div>
+  <div class="" style="padding:10px; background:#bbb; color:#555">
+    <div><b>Second Match(Partner)</b></div>
+      <div>
+        <label>Select Question Category</label>
+        <span>
+          <select ng-model="s.cat" ng-options="option.c_id as option.c_name for option in categories" ng-change="getq(s)" required >
+          </select>
+        </span>
+      </div>
+      <div ng-show="s.loading=='return'">
+        <label>Select Question</label>
+        <span>
+          <select ng-model="s.q_id" ng-options="option.q_id as option.q_text for option in s.questions" required ></select>
+        </span>
+      </div>
+      <div ng-show="s.loading=='waiting'" ng-bind="'Please wait...'"></div>
+  </div>
+  <div class="" style="padding:10px; background:#555; color:#bbb" ng-show="mtypev=='sp'">
+    <div><b>Scale Question</b></div>
+      <div>
+        <label>Select Question Category</label>
+        <span>
+          <select ng-model="m.cat" ng-options="option.c_id as option.c_name for option in categories" ng-change="getq(m)" required >
+          </select>
+        </span>
+      </div>
+      <div ng-show="m.loading=='return'">
+        <label>Select Question</label>
+        <span>
+          <select ng-model="m.q_id" ng-options="option.q_id as option.q_text for option in m.questions" required ></select>
+        </span><br>
+        <label>Minimum Measure Range</label>
+        <span>
+          <select ng-model="m.range" ng-options=" option for option in range" required ></select><br/>
+          <p> <strong>Note:</strong> <em>'Not Important'</em>=0; <em>'Important'<em>=3; <em>'Very Important'</em>=6</p>
+        </span>
+      </div>
+      <div ng-show="m.loading=='waiting'" ng-bind="'Please wait...'"></div>
+  </div>
+  <div  style="padding:10px; " ><input type="submit" value="Add Match Query"/></div>
+
+</div>
+</form>
