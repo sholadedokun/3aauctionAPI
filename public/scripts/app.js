@@ -24,7 +24,10 @@ angular
     $rootScope.socket = io();
     appActions.admin('serverDate/').get({},function(data){
         $rootScope.serverTime=data.date;
-        console.log($rootScope.serverTime);
+        // var stimer=setInterval(function(){
+        //     $rootScope.serverTime=$rootScope.serverTime - 1000;
+        // }, 1000);
+
     })
 
     //  var socket = io.connect('http://localhost');

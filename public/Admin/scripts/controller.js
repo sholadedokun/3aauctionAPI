@@ -29,7 +29,7 @@ angular.module('Admin')
 
             }
             adminActions.admin('inventory/').save($scope.inventory, function(data){
-                console.log(data)
+                $location.path('/');
             })
         }
         },

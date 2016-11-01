@@ -120,6 +120,7 @@ angular.module('3aAuctionsApp')
                 $scope.user.email=data[0].firstName;
                 $scope.user.bids=data[0].userBids;
                 $scope.user.auctions=data[0].userAuctions;
+                $scope.user.userInfo=false;
                 $modalInstance.dismiss('cancel');
                 //$location.path("/profile/"+data[0]._id);
             }
@@ -241,10 +242,14 @@ angular.module('3aAuctionsApp')
         }
     }
     $scope.submitBid=function(){
+        $scope.user.userInfo=true;
         if($scope.user.id==0){
             $scope.user.userInfo=true;
             return;
         }
+        $scope.user.userInfo=false;
+        $scope.user.process=true;
+        $scope.user.userMessage='Please wait';
         $scope.biddings={
             userId:$scope.user.id,
             inventory:$scope.auction._id,
@@ -258,7 +263,7 @@ angular.module('3aAuctionsApp')
         }
         appActions.admin('biddings/').save($scope.biddings, function(data){
             $scope.user.userInfo=false;
-            $scope.user.success=true;
+
             $scope.user.userMessage='Your Bid as been accepted.';
             var bid={userId:{userName:$scope.user.userName}, inventory:$scope.auction._id, price:$scope.currentBid}
             $scope.socket.emit('userBiddedonProperty',bid);
