@@ -9,7 +9,7 @@ var bodyParser = require('body-parser');
 var multer  = require('multer')
 var storage = multer.diskStorage({
     destination: function (req, file, cb) {
-        cb(null, './public/uploads/')
+        cb(null, path.join(__dirname, 'public/uploads/'))
     },
     filename: function (req, file, cb){
         var newname=file.originalname.split('.')
@@ -46,7 +46,7 @@ server.listen(port , function(){
 //upload files
 app.post('/upload', function (req, res, next) {
     upload(req, res, function(err){
-        if(err) res.json('no images')
+        if(err) res.json('no images'+err)
         res.json(req.files)
     })
 })
