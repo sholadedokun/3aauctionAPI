@@ -1,5 +1,4 @@
 var express = require('express');
-
 var path = require('path');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
@@ -26,7 +25,9 @@ mongoose.Promise=global.Promise;
 mongoose.connect('mongodb://3aauctiondb:dkCxSfuN2uUkty5QbyFKuwIG2nF3nCbBJVy3UYQHVS3uReUxb2RBTbSfhyTWtrFalIJQFpcRLH9fSd6uk8s4uA==@3aauctiondb.documents.azure.com:10250/?ssl=true').then(() => console.log('database connected')).catch((err) => console.error(err))
 var app = express();
 var server = require('http').Server(app);
+
 var io = require('socket.io')(server);
+var port = process.env.PORT || 3000;
 io.on('connection', function(socket){
     console.log('a user connected');
     socket.on('disconnect', function(){
