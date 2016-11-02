@@ -20,9 +20,16 @@ router.get('/inventory', function(req, res, next) {
             path:'biddingHistory',
             populate:{path: 'userId'}
         })
-    .populate('biddingSettings')
-    .where('biddingSettings.startTimeStamp').lt(Date.now())
-    .where('biddingSettings.closeTimeStamp').gt(Date.now())
+    .populate(
+        {
+            path:'biddingSettings',
+            match:{
+                startTimeStamp:{$lte:Date.now()},
+                closeTimeStamp:{$gte:Date.now()},
+            }
+    })
+    // .where('biddingSettings.startTimeStamp').lt(Date.now())
+    // .where('biddingSettings.closeTimeStamp').gt(Date.now())
     .sort({dateCreated:-1})
     .exec (function(err, inventory)
     {
