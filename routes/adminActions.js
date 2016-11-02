@@ -21,6 +21,7 @@ router.get('/inventory', function(req, res, next) {
             populate:{path: 'userId'}
         })
     .populate('biddingSettings')
+    .sort({dateCreated:-1})
     .exec (function(err, inventory)
     {
         if(err) return next(err);

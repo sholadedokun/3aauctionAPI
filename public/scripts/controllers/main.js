@@ -262,8 +262,6 @@ angular.module('3aAuctionsApp')
             referrer:'3aauctions'
         }
         appActions.admin('biddings/').save($scope.biddings, function(data){
-            $scope.user.userInfo=false;
-
             $scope.user.userMessage='Your Bid as been accepted.';
             var bid={userId:{userName:$scope.user.userName}, inventory:$scope.auction._id, price:$scope.currentBid}
             $scope.socket.emit('userBiddedonProperty',bid);

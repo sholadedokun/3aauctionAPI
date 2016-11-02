@@ -114,12 +114,7 @@ angular.module('Admin')
 }])
 
 .controller('viewallICtrl', ['$scope','appService', '$location', function ($scope, appService, $location) {
-    appService.addRequest_data('getallInventory','').then(function(response){
-     $scope.allInventory=response;
-    },
-    function(error){
-      console.log('error this '.error)
-    });
+    $scope.allInventory=appActions.admin('inventory/').query();
     // $scope.delete=function(id){
     //     appService.addRequest_data('deletec',id).then(function(response){
     //         $location.path('/');
