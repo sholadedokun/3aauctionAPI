@@ -113,8 +113,8 @@ angular.module('Admin')
     }
 }])
 
-.controller('viewallICtrl', ['$scope','appService', '$location', function ($scope, appService, $location) {
-    $scope.allInventory=appActions.admin('inventory/').query();
+.controller('viewallICtrl', ['$scope','adminActions', '$location', function ($scope, adminActions, $location) {
+    $scope.allInventory=adminActions.admin('inventory/').query();
     // $scope.delete=function(id){
     //     appService.addRequest_data('deletec',id).then(function(response){
     //         $location.path('/');
