@@ -1,8 +1,8 @@
 <div style="padding:5px 15px; background:#ccc; color:#555"><h2>View All Inventory</h2></div>
 <div style="background:#fff; padding:10px; height:auto; overflow:auto">
     <div class="" style="padding:10px; float:left; max-width:120px; height:300px background:#eee; color:#555; border-bottom:2px solid #555; margin-right:20px" ng-repeat="inv in allInventory track by $index">
-      <img ng-src="itemimages/{{inv.profilePic}}" width="100" />
-      <div><b><span ng-bind="inv.startingPrice | number:2"></span></b></div>
+      <img ng-src="../uploads/{{inv.profilePic}}" width="100" />
+      <div><b><span ng-bind="inv.bidddingSettings.startingPrice | number:2"></span></b></div>
       <a href="#/viewI/{{inv.ID}}" ng-bind="inv.name"></a>
     </div>
 </div>
