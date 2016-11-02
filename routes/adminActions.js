@@ -25,15 +25,19 @@ router.get('/inventory', function(req, res, next) {
             path:'biddingSettings',
             match:{
                 startTimeStamp:{$lte:Date.now()},
-                closeTimeStamp:{$gte:Date.now()},
+                closeTimeStamp:{$gte:Date.now()}
             }
-    })
-    // .where('biddingSettings.startTimeStamp').lt(Date.now())
-    // .where('biddingSettings.closeTimeStamp').gt(Date.now())
+        }
+    )
+    //  .where('biddingSettings.startTimeStamp').$lte(Date.now())
+    //  .where('biddingSettings.closeTimeStamp').$gte(Date.now())
     .sort({dateCreated:-1})
     .exec (function(err, inventory)
     {
         if(err) return next(err);
+        inventory = inventory.filter(function(inventory){
+             return inventory.biddingSettings.length;
+           })
         res.json(inventory)
     })
 
