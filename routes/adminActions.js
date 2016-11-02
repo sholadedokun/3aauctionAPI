@@ -21,7 +21,7 @@ router.get('/inventory', function(req, res, next) {
             populate:{path: 'userId'}
         })
     .populate('biddingSettings')
-    .where('biddingSettings.startTimeReadable').ls(Date.now())
+    .where('biddingSettings.startTimeReadable').lt(Date.now())
     .where('biddingSettings.closeTimeReadable').gt(Date.now())
     .sort({dateCreated:-1})
     .exec (function(err, inventory)
