@@ -35,8 +35,8 @@ router.get('/inventory', function(req, res, next) {
     .exec (function(err, inventory)
     {
         if(err) return next(err);
-        inventory = inventory.filter(function(inventory){
-             return inventory.biddingSettings.length;
+        inventory = inventory.filter(function(invent){
+             return invent.biddingSettings.length;
            })
         res.json(inventory)
     })
