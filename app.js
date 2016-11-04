@@ -20,6 +20,7 @@ var storage = multer.diskStorage({
 var upload = multer({ storage: storage }).array('files');
 var routes = require('./routes/index');
 var adminActions = require('./routes/adminActions');
+var appActions = require('./routes/appActions');
 var mongoose=require('mongoose');
 mongoose.Promise=global.Promise;
 mongoose.connect('mongodb://3aauctiondb:dkCxSfuN2uUkty5QbyFKuwIG2nF3nCbBJVy3UYQHVS3uReUxb2RBTbSfhyTWtrFalIJQFpcRLH9fSd6uk8s4uA==@3aauctiondb.documents.azure.com:10250/?ssl=true').then(() => console.log('database connected')).catch((err) => console.error(err))
@@ -46,7 +47,7 @@ server.listen(port , function(){
 //upload files
 app.post('/upload', function (req, res, next) {
     upload(req, res, function(err){
-        if(err) res.json('no images'+err)
+        if(err) res.json('no images :'+err)
         res.json(req.files)
     })
 })
@@ -72,6 +73,7 @@ app.use(express.static(path.join(__dirname, '/')));
 
 app.use('/', routes);
 app.use('/adminActions', adminActions);
+app.use('/appActions', appActions);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

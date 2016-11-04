@@ -85,4 +85,4 @@ module.exports.subcategory= mongoose.model('subcategory', subCategorySchema);
 module.exports.inventorySettings = mongoose.model('inventorySettings', inventorySettingsSchema);
 module.exports.biddingHistory = mongoose.model('biddingHistory', biddingHistorySchema);
 module.exports.user = mongoose.model('user', userSchema);
-module.exports.tag = mongoose.model('tag', tagSchema);
+module.exports.tags = mongoose.model('tags', tagSchema);

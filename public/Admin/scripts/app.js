@@ -3,6 +3,7 @@ angular
     'ngResource',
     'ngRoute',
     'appServices',
+    'fcsa-number',
     'ui.bootstrap',
     'ui.bootstrap.datetimepicker'
   ])

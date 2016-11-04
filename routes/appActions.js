@@ -12,11 +12,29 @@ router.get('/serverDate', function(req, res, next) {
 })
 router.get('/inventory', function(req, res, next) {
     adminSchema.inventory.find()
-    .populate('biddingSettings')
+    .populate(
+        {
+            path:'biddingHistory',
+            populate:{path: 'userId'}
+        })
+    .populate(
+        {
+            path:'biddingSettings',
+            match:{
+                startTimeStamp:{$lte:Date.now()},
+                closeTimeStamp:{$gte:Date.now()}
+            }
+        }
+    )
+    //  .where('biddingSettings.startTimeStamp').$lte(Date.now())
+    //  .where('biddingSettings.closeTimeStamp').$gte(Date.now())
     .sort({dateCreated:-1})
     .exec (function(err, inventory)
     {
         if(err) return next(err);
+        inventory = inventory.filter(function(invent){
+            if(invent.biddingSettings) return true;
+           })
         res.json(inventory)
     })
 
@@ -43,21 +61,9 @@ router.get('/subcategory', function(req, res, next) {
 
 //get a particular post
 router.get('/:id', function(req, res, next){
-    adminSchema.inventory.findById(req.params.id)
-    .populate(
-        {
-            path:'biddingHistory',
-            populate:{path: 'userId'}
-        })
-    .populate(
-        {
-            path:'subCategory',
-            populate:{path: 'category'}
-        })
-    .populate('biddingSettings inventoryTags')
-    .exec(function(err, inventory){
+    adminSchema.inventory.findById(req.params.id, function(err, inventory){
         if(err)return next(err)
-        res.json(inventory);
+        res.json(post);
     })
 });
 router.get('/category/:id', function(req, res, next) {
@@ -164,8 +170,7 @@ router.post('/user', function(req, res, next){
     })
 });
 router.put('/:id', function(req, res, next){
-    console.log(req.body);
-    adminSchema.inventory.findByIdAndUpdate(req.params.id, req.body, function(err, post){
+    Inventory.findByIdAndUpdate(req.params.id, req.body, function(err, post){
         if(err)return next(err)
         res.json(post)
     })

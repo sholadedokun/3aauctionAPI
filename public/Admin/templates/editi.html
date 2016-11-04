@@ -3,14 +3,14 @@
         <div class="" style="padding:10px; background:#eee; color:#555">
             <div><b>Select inventory Category</b></div>
             <span>
-                <select ng-options="item.CategoryId as item.CategoryName for item in all_category" ng-model="inventory.categoryId">
+                <select ng-options="item._id as item.name for item in all_category" ng-model="inventory.category">
                 </select>
             </span>
         </div>
         <div class="" style="padding:10px; background:#bbb; color:#555">
           <div><b>Select Inventory Subcategory</b></div>
             <div>
-              <select required ng-options="option.subcategoryId as option.subcategoryName for option in all_subcategory"  ng-model="inventory.subcategoryId">
+              <select required ng-options="option._id as option.SubCategoryname for option in all_subcategory"  ng-model="inventory.subCategory">
               </select>
             </div>
         </div>
@@ -24,7 +24,7 @@
         </div>
         <div class="" style="padding:10px; background:#bbb; color:#555">
             <div><b>Inventory Description</b></div>
-            <input type="text" ng-model="inventory.description"/>
+            <textarea ng-model="inventory.description"></textarea>
         </div>
         <div class="" style="padding:10px; background:#bbb; color:#555">
             <div><b>Inventory Location</b></div>
@@ -44,33 +44,65 @@
         </div>
         <div  class="" style="padding:10px; background:#eee; color:#555">
             <div><b>Inventory starting Price</b></div>
-            <input type="text" ng-model="inventory.startingPrice" ng-bind="inventory.startingPrice | number:2"/>
+            <input type="text" ng-model="inventory.biddingSettings.startingPrice" fcsa-number />
         </div>
         <div  class="" style="padding:10px; background:#eee; color:#555">
             <div><b>Inventory Reserve Price</b></div>
-            <input type="text" ng-model="inventory.reservePrice "/>
+            <input type="text" ng-model="inventory.biddingSettings.reservePrice" fcsa-number/>
         </div>
         <div class="" style="padding:10px; background:#eee; color:#555">
             <div><b>Inventory Bidding Rate</b></div>
-            <input type="text" ng-model="inventory.biddingGap"/>
+            <input type="text" ng-model="inventory.biddingSettings.biddingRate" fcsa-number/>
         </div>
         <div class="" style="padding:10px; background:#eee; color:#555">
             <div><b>Inventory Buy Now Price</b></div>
-            <input type="text" ng-model="inventory.buyNowPrice "/>
+            <input type="text" ng-model="inventory.biddingSettings.buyNowPrice " fcsa-number/>
         </div>
         <div class="" style="padding:10px; background:#bbb; color:#555">
             <div><b>Inventory Bidding Opens</b></div>
-            <div>
-                <input type="text" ng-model="inventory.biddingStartDate"/>
-                <input type="text" ng-model="inventory.biddingStartTime"/>
-            </div>
+            <datetimepicker
+                hour-step="1"
+                minute-step="5"
+              ng-model="startTime"
+              show-meridian="true"
+              date-format="dd-MMMM-yyyy"
+              date-options="{ showWeeks: false, startingDay: 0 }"
+
+              datepicker-append-to-body="false"
+              readonly-date="false"
+              disabled-date="false"
+              hidden-time="false"
+              hidden-date="false"
+              name="datetimepicker"
+              show-spinners="true"
+              readonly-time="false"
+              date-opened="false"
+              show-button-bar="false"
+          >
+          <!-- Use date-ng-click="open($event, opened)" to override date ng-click -->
+          </datetimepicker>
         </div>
         <div class="" style="padding:10px; background:#bbb; color:#555">
             <div><b>Inventory Bidding Closes</b></div>
-            <div>
-                <input type="text" ng-model="inventory.biddingCloseDate"/>
-                <input type="text" ng-model="inventory.biddingCloseTime"/>
-            </div>
+            <datetimepicker
+                hour-step="1"   minute-step="5"
+              ng-model="closeTime"
+              show-meridian="true"
+              date-format="dd-MMMM-yyyy"
+              date-options="{ showWeeks: false, startingDay: 0 }"
+              datepicker-append-to-body="false"
+              readonly-date="false"
+              disabled-date="false"
+              hidden-time="false"
+              hidden-date="false"
+              name="datetimepicker"
+              show-spinners="true"
+              readonly-time="false"
+              date-opened="false"
+              show-button-bar="false"
+          >
+          <!-- Use date-ng-click="open($event, opened)" to override date ng-click -->
+          </datetimepicker>
         </div>
         <div ng-show="inventory.inventory_data[6]!=''"  class="" style="padding:10px; background:#eee; color:#555">
             <div><b>Inventory status</b></div>
@@ -83,20 +115,14 @@
             </select>
         </div>
         <div>
-            <textarea id="inventory_tagt" name="inventory_tag" cols="50" rows="8" ng-model="idata[11]" ></textarea>
-        </div>
-    </div>
-    <div class="" style="padding:10px; background:#eee; color:#555">
-        <div><b>Inventory Reward</b></div>
-        <div>
-            <input type="textbox" name="inventory_reward" ng-model="idata[15]" />
+            <textarea id="inventory_tagt" name="inventory_tag" cols="50" rows="8" ng-model="inventory.inventoryTags.tags" ></textarea>
         </div>
     </div>
     <div class="col-xs-12 nop" style="background:#ddd; height:100px">
         <div class="col-xs-12 thumb_house">
             <div class="thumb_holder">
                 <div class="thumb link" style="float:left;" ng-repeat="img in img_list">
-                  <img ng-src="itemimages/{{img}}" width="80px" height="54px" />
+                  <img ng-src="../uploads/{{img}}" width="80px" height="54px" />
                   <button ng-show="$index!=0" ng-click="delete_pic($index)">Delete Picture</button>
                   <a href="" ng-show="$index!=0"  ng-click="make_prof($index)">Make Profile Picture</a>
                 </div>
@@ -106,12 +132,12 @@
     <div class="" style="padding:10px; background:#eee; color:#555">
         <div><b>Upload More Pictures</b></div>
         <div>
-            <div><input type="file" name="pic1" id="pic1" size="30" file-model="images.pic1"  /></div>
-            <div><input type="file" name="pic2" id="pic2" size="30" file-model="images.pic2" /></div>
-            <div><input type="file" name="pic3" id="pic3" size="30" file-model="images.pic3" /></div>
-            <div><input type="file" name="pic4" id="pic4" size="30" file-model="images.pic4" /></div>
-            <div><input type="file" name="pic5" id="pic5" size="30" file-model="images.pic5" /></div>
-            <div><input type="file" name="pic6" id="pic6" size="30" file-model="images.pic6" /></div>
+            <div><input type="file" name="file" id="pic1" size="30" file-model="images.files"  /></div>
+            <div><input type="file" name="file" id="pic2" size="30" file-model="images.files1" /></div>
+            <div><input type="file" name="file" id="pic3" size="30" file-model="images.files2" /></div>
+            <div><input type="file" name="file" id="pic4" size="30" file-model="images.files3" /></div>
+            <div><input type="file" name="file" id="pic5" size="30" file-model="images.files4" /></div>
+            <div><input type="file" name="file" id="pic6" size="30" file-model="images.files5" /></div>
         </div>
 
     </div>
@@ -119,7 +145,7 @@
         <div class="col-xs-12 thumb_house">
             <div class="thumb_holder">
                 <div class="thumb link" style="float:left;">
-                  <img ng-src="itemimages/{{idata[14]}}" width="80px" height="54px" />
+                  <img ng-src="../uploads/{{idata[14]}}" width="80px" height="54px" />
                 </div>
             </div>
         </div>

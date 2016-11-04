@@ -51,7 +51,7 @@ appServices.service('userData', ['$rootScope','$location', function($rootScope,$
 appServices.factory('appActions', ['$resource', function($resource){
     return {
         admin:function(url){
-            return $resource('/adminActions/'+url+':id', null, {
+            return $resource('/appActions/'+url+':id', null, {
               'update': { method:'PUT' }
           })
         }

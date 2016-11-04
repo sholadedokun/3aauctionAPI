@@ -1,11 +1,11 @@
 <div class="" style="padding:5px 15px; background:#ccc; color:#555"><h2>Inventory View</h2></div>
       <div class="" style="padding:10px; background:#eee; color:#555">
           <div><b>Selected Inventory Category</b></div>
-          <div  ng-bind="inventory.category"></div>
+          <div  ng-bind="inventory.subCategory.category.name"></div>
       </div>
       <div class="" style="padding:10px; background:#eee; color:#555">
           <div><b>Selected Inventory Sub Category</b></div>
-          <div ng-bind="inventory.subcategoryName"></div>
+          <div ng-bind="inventory.subCategory.SubCategoryname"></div>
       </div>
       <div class="" style="padding:10px; background:#bbb; color:#555">
           <div><b>Selected Inventory Type</b></div>
@@ -37,27 +37,31 @@
       </div>
       <div  class="" style="padding:10px; background:#eee; color:#555">
           <div><b>Inventory starting Price</b></div>
-          <div ng-bind="inventory.startingPrice | number:2"> </div>
+          <div ng-bind="inventory.biddingSettings.startingPrice | number:2"> </div>
       </div>
       <div  class="" style="padding:10px; background:#eee; color:#555">
           <div><b>Inventory Reserve Price</b></div>
-          <div ng-bind="inventory.reservePrice | number:2"> </div>
+          <div ng-bind="inventory.biddingSettings.reservePrice | number:2"> </div>
       </div>
       <div class="" style="padding:10px; background:#eee; color:#555">
           <div><b>Inventory Bidding Rate</b></div>
-          <div ng-bind="inventory.biddingGap | number:2"> </div>
+          <div ng-bind="inventory.biddingSettings.biddingRate | number:2"> </div>
       </div>
       <div class="" style="padding:10px; background:#eee; color:#555">
           <div><b>Inventory Buy Now Price</b></div>
-          <div ng-bind="inventory.buyNowPrice | number:2"> </div>
+          <div ng-bind="inventory.biddingSettings.buyNowPrice | number:2"> </div>
       </div>
       <div class="" style="padding:10px; background:#bbb; color:#555">
           <div><b>Inventory Bidding Opens</b></div>
-          <div><span ng-bind="inventory.biddingStartDate"></span> <span ng-bind="inventory.biddingStartTime"></span></div>
+          <div>
+              <span ng-bind="inventory.biddingSettings.startTimeStamp | date:'dd-MMM-yyyy , HH:mm:ss Z'"></span>
+          </div>
       </div>
       <div class="" style="padding:10px; background:#bbb; color:#555">
           <div><b>Inventory Bidding Closes</b></div>
-          <div><span ng-bind="inventory.biddingCloseDate"></span> <span ng-bind="inventory.biddingCloseTime"></span></div>
+          <div>
+              <span ng-bind="inventory.biddingSettings.closeTimeStamp | date:'dd-MMM-yyyy , HH:mm:ss Z'"></span>
+          </div>
       </div>
       <div ng-show="inventory.inventory_data[6]!=''"  class="" style="padding:10px; background:#eee; color:#555">
           <div><b>Inventory status</b></div>
@@ -65,24 +69,24 @@
       </div>
       <div class="" style="padding:10px; background:#eee; color:#555">
           <div><b>Inventory Tag</b></div>
-          <div ng-bind="inventory.inventory_data[11]"></div>
+          <div ng-bind="inventory.inventoryTags.tags"></div>
       </div>
       <div class="" style="padding:10px; background:#eee; color:#555">
-          <div><b>Inventory Reward Point</b></div>
-          <div ng-bind="inventory.inventory_data[15]"></div>
+          <div><b>Inventory Rate</b></div>
+          <div ng-bind="inventory.rate"></div>
       </div>
       <div class="" style="padding:10px; background:#bbb; color:#555">
           <div><b>Picture Uploaded</b></div>
           <div class="col-xs-12 nop" style="height:300px">
 	          <div class="col-xs-12 nop  col-sm-6" style="height:300px; position:relative; background:#555">
 	              <div class="col-xs-12 nop" style="background:#555; height:200px">
-	              		<img ng-src="itemimages/{{main_img}}" width="300px" height="200px"/>
+	              		<img ng-src="../uploads/{{main_img}}" width="300px" height="200px"/>
 	              </div>
 	              <div class="col-xs-12 nop" style="background:#ddd; height:58px">
 	                  <div class="col-xs-12 thumb_house">
 	                      <div class="thumb_holder">
 	                          <div class="thumb link" style="float:left;" ng-repeat="img in img_list">
-	                          	<img ng-src="itemimages/{{img}}" width="80px" height="54px" ng-click="disp_img(img)"/>
+	                          	<img ng-src="../uploads/{{img}}" width="80px" height="54px" ng-click="disp_img(img)"/>
 	                          </div>
 	                      </div>
 	                  </div>
@@ -93,11 +97,11 @@
           </div>
       </div>
 
-      <span  style="padding:10px; " ><b>Last Updated:</b> <span ng-bind=" inventory.dateCreated *1000 | date:'yyyy-MM-dd HH:mm:ss Z'"></span><br/>
-      <span  style="padding:10px; " ><b>Date Created:</b> <span ng-bind=" inventory.lastUpdated*1000 | date:'yyyy-MM-dd HH:mm:ss Z'"></span></span><br/><br/>
-      <span  style="padding:10px; " ><b>Auction Setting Last Updated:</b> <span ng-bind=" inventory.aSettingsDateCreated*1000 | date:'yyyy-MM-dd HH:mm:ss Z'"></span><br/>
-      <span  style="padding:10px; " ><b>Auction Setting Date Created:</b> <span ng-bind=" inventory.aSettingsLastupdated*1000 | date:'yyyy-MM-dd HH:mm:ss Z'"></span></span><br/>
+      <span  style="padding:10px; " ><b>Last Updated:</b> <span ng-bind=" inventory.dateCreated"></span><br/>
+      <span  style="padding:10px; " ><b>Date Created:</b> <span ng-bind=" inventory.lastUpdated"></span></span><br/><br/>
+      <span  style="padding:10px; " ><b>Auction Setting Last Updated:</b> <span ng-bind=" inventory.biddingSettings.lastUpdated"></span><br/>
+      <span  style="padding:10px; " ><b>Auction Setting Date Created:</b> <span ng-bind=" inventory.biddingSettings.dateCreated"></span></span><br/>
       <span  style="padding:10px; " ><a href="#/manageAuctionInventory">Add New inventory</a></span>
-      <span  style="padding:10px; " ><a href="#/editI/{{inventory.ID}}">Edit this inventory</a></span>
+      <span  style="padding:10px; " ><a href="#/editI/{{inventory._id}}">Edit this inventory</a></span>
       <span  style="padding:10px; cursor:pointer; text-decoration: line-through;" ><a  ng-click="delete(inventory.inventory_data[0])">Delete inventory</a></span>
       <span  style="padding:10px; " ><a href="#/viewallI">View all inventories</a></span>
