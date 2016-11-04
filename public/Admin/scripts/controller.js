@@ -99,8 +99,6 @@ angular.module('Admin')
         }
         $scope.inventory.allPic=imgparse;
         $scope.inventory.profilePic=$scope.img_list[0];
-        console.log($scope.inventory.allPic)
-
         $scope.inventory.startTimeStamp=$scope.startTime.getTime();
         $scope.inventory.closeTimeStamp=$scope.closeTime.getTime();
         appService.uploadImages($scope.images).then(function(response){
@@ -115,7 +113,7 @@ angular.module('Admin')
                 $scope.inventory.allPic=$scope.inventory.allPic+res_allPic;
             }
             adminActions.admin('').update({id: $scope.inventory._id}, $scope.inventory, function(){
-                //$location.url('/');
+                $location.url('viewI/'+$scope.inventory._id);
             });
         },
         function(error){
