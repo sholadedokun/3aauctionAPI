@@ -167,7 +167,12 @@ router.put('/:id', function(req, res, next){
     console.log(req.body);
     adminSchema.inventory.findByIdAndUpdate(req.params.id, req.body, function(err, post){
         if(err)return next(err)
-        res.json(post)
+        adminSchema.inventorySettings.findByIdAndUpdate(req.body.biddingSettings._id, req.body, function(err, newPost){
+            if(err)return next(err)
+            adminSchema.tag.findByIdAndUpdate(req.body.inventoryTags._id, req.body, function(err, tag){
+            })
+        })
+        res.json('Update Successful')
     })
 });
 router.delete('/:id', function(req, res, next){
