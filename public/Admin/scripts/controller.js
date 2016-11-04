@@ -99,8 +99,8 @@ angular.module('Admin')
         }
         $scope.inventory.allPic=imgparse;
         $scope.inventory.profilePic=$scope.img_list[0];
-        $scope.inventory.startTimeStamp=$scope.startTime.getTime();
-        $scope.inventory.closeTimeStamp=$scope.closeTime.getTime();
+        $scope.inventory.startTimeStamp=$scope.startTimeReadable.getTime();
+        $scope.inventory.closeTimeStamp=$scope.closeTimeReadable.getTime();
 
         $scope.inventory.startingPrice=$scope.inventory.biddingSettings.startingPrice
         $scope.inventory.reservePrice=$scope.inventory.biddingSettings.reservePrice
