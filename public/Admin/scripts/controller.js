@@ -113,13 +113,10 @@ angular.module('Admin')
                     else{res_allPic=res_allPic+','+response[key].filename;}
                 }
                 $scope.inventory.allPic=$scope.inventory.allPic+res_allPic;
-                adminActions.admin('').update(
-                    {id: $scope.inventory._id},
-                    $scope.inventory, function(){
-                        //$location.url('/');
-                    }
-                );
             }
+            adminActions.admin('').update({id: $scope.inventory._id}, $scope.inventory, function(){
+                //$location.url('/');
+            });
         },
         function(error){
             console.log('Error Uploading Images '+error)
