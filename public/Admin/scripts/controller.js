@@ -83,8 +83,8 @@ angular.module('Admin')
         $scope.main_img=$scope.inventory.profilePic;
         $scope.img_list=$scope.inventory.allPic.split(',');
         $scope.inventory.subCategory=$scope.inventory.subCategory._id;
-        $scope.startTime=new Date($scope.inventory.biddingSettings.startTimeReadable)
-        $scope.closeTime=new Date($scope.inventory.biddingSettings.closeTimeReadable)
+        $scope.startTimeReadable=new Date($scope.inventory.biddingSettings.startTimeReadable)
+        $scope.closeTimeReadable=new Date($scope.inventory.biddingSettings.closeTimeReadable)
         $scope.get_allSubcategories($scope.inventory.category);
     });
     $scope.get_allSubcategories=function(categoryId){
@@ -101,6 +101,15 @@ angular.module('Admin')
         $scope.inventory.profilePic=$scope.img_list[0];
         $scope.inventory.startTimeStamp=$scope.startTime.getTime();
         $scope.inventory.closeTimeStamp=$scope.closeTime.getTime();
+
+        $scope.inventory.startingPrice=$scope.inventory.biddingSettings.startingPrice
+        $scope.inventory.reservePrice=$scope.inventory.biddingSettings.reservePrice
+        $scope.inventory.biddingRate=$scope.inventory.biddingSettings.biddingRate
+        $scope.inventory.buyNowPrice=$scope.inventory.biddingSettings.buyNowPrice
+        $scope.inventory.tags=$scope.inventory.inventoryTags.tags
+        $scope.inventory.startTimeReadable=$scope.inventory.biddingSettings.startingPrice
+        $scope.inventory.closeTimeReadable=$scope.inventory.biddingSettings.startingPrice
+        $scope.inventory.startingPrice=$scope.inventory.biddingSettings.startingPrice
         appService.uploadImages($scope.images).then(function(response){
             if(response!=='no Images'){
                 var res_allPic='';

@@ -44,26 +44,26 @@
         </div>
         <div  class="" style="padding:10px; background:#eee; color:#555">
             <div><b>Inventory starting Price</b></div>
-            <input type="text" ng-model="inventory.startingPrice" fcsa-number />
+            <input type="text" ng-model="inventory.biddingSettings.startingPrice" fcsa-number />
         </div>
         <div  class="" style="padding:10px; background:#eee; color:#555">
             <div><b>Inventory Reserve Price</b></div>
-            <input type="text" ng-model="inventory.reservePrice" fcsa-number/>
+            <input type="text" ng-model="inventory.biddingSettings.reservePrice" fcsa-number/>
         </div>
         <div class="" style="padding:10px; background:#eee; color:#555">
             <div><b>Inventory Bidding Rate</b></div>
-            <input type="text" ng-model="inventory.biddingRate" fcsa-number/>
+            <input type="text" ng-model="inventory.biddingSettings.biddingRate" fcsa-number/>
         </div>
         <div class="" style="padding:10px; background:#eee; color:#555">
             <div><b>Inventory Buy Now Price</b></div>
-            <input type="text" ng-model="inventory.buyNowPrice " fcsa-number/>
+            <input type="text" ng-model="inventory.biddingSettings.buyNowPrice " fcsa-number/>
         </div>
         <div class="" style="padding:10px; background:#bbb; color:#555">
             <div><b>Inventory Bidding Opens</b></div>
             <datetimepicker
                 hour-step="1"
                 minute-step="5"
-              ng-model="startTime"
+              ng-model="startTimeReadable"
               show-meridian="true"
               date-format="dd-MMMM-yyyy"
               date-options="{ showWeeks: false, startingDay: 0 }"
@@ -86,7 +86,7 @@
             <div><b>Inventory Bidding Closes</b></div>
             <datetimepicker
                 hour-step="1"   minute-step="5"
-              ng-model="closeTime"
+              ng-model="closeTimeReadable"
               show-meridian="true"
               date-format="dd-MMMM-yyyy"
               date-options="{ showWeeks: false, startingDay: 0 }"
@@ -115,7 +115,7 @@
             </select>
         </div>
         <div>
-            <textarea id="inventory_tagt" name="inventory_tag" cols="50" rows="8" ng-model="inventory.tags" ></textarea>
+            <textarea id="inventory_tagt" name="inventory_tag" cols="50" rows="8" ng-model="inventory.inventoryTags.tags" ></textarea>
         </div>
     </div>
     <div class="col-xs-12 nop" style="background:#ddd; height:100px">
