@@ -165,6 +165,7 @@ router.post('/user', function(req, res, next){
 });
 router.put('/:id', function(req, res, next){
     console.log(req.body);
+    console.log(req.body.biddingSettings);
     adminSchema.inventorySettings.findByIdAndUpdate(req.body.biddingSettings, req.body, function(err, newPost){
         if(err)//return next(err)
         return console.log('error occured '+ err) ;
