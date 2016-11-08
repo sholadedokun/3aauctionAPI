@@ -132,7 +132,7 @@
 
         <datetimepicker
             hour-step="1"   minute-step="5"
-          ng-model="inventory.startTimeReadable"
+            ng-model="inventory.startTimeReadable"
           show-meridian="true"
           date-format="dd-MMMM-yyyy"
           date-options="{ showWeeks: false, startingDay: 0 }"
@@ -146,8 +146,7 @@
           show-spinners="true"
           readonly-time="false"
           date-opened="false"
-          show-button-bar="false"
-      >
+          show-button-bar="false" >
       <!-- Use date-ng-click="open($event, opened)" to override date ng-click -->
       </datetimepicker>
     </div>
@@ -170,8 +169,8 @@
           show-spinners="true"
           readonly-time="false"
           date-opened="false"
-          show-button-bar="false"
-      >
+          show-button-bar="false" >
     </div>
     <div  style="padding:10px; " ><input type="submit" value="Add Inventory" name="AddInventory" /></div>
+    <div class="alert alert-success" ng-show="processing" ng-bind="alertMessage"></div>
 </form>

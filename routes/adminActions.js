@@ -104,7 +104,7 @@ router.post('/inventory', function(req, res, next){
         adminSchema.inventorySettings.create(req.body, function(err, newPost){
             var updates={biddingSettings:newPost._id}
             var posttag={tags:req.body.tag, propertyId:post._id }
-            adminSchema.tag.create(posttag, function(err, tag){
+            adminSchema.tags.create(posttag, function(err, tag){
                 updates.inventoryTags=tag._id;
                 adminSchema.inventory.findByIdAndUpdate(post._id, updates, function(err, update){
                     if(err)return next(err)
@@ -169,7 +169,7 @@ router.put('/:id', function(req, res, next){
         if(err)return next(err)
         adminSchema.inventorySettings.findByIdAndUpdate(req.body.biddingSettings._id, req.body, function(err, newPost){
             if(err)return next(err)
-            adminSchema.tag.findByIdAndUpdate(req.body.inventoryTags._id, req.body, function(err, tag){
+            adminSchema.tags.findByIdAndUpdate(req.body.inventoryTags._id, req.body, function(err, tag){
             })
         })
         res.json('Update Successful')

@@ -14,9 +14,12 @@ angular.module('Admin')
         $scope.all_subcategory=adminActions.admin('subcategory/').query({id:$scope.inventory.category})
     }
     $scope.addInventory=function(){
+        $scope.processing=true;
+        $scope.alertMessage="Please Wait..."
         $scope.inventory.startTimeStamp=$scope.inventory.startTimeReadable.getTime();
         $scope.inventory.closeTimeStamp=$scope.inventory.closeTimeReadable.getTime();
         appService.uploadImages($scope.images).then(function(response){
+            $scope.alertMessage="Please Wait... Uploading Images"
             if(response!=='no Images'){
                 $scope.inventory.allPic='';
                 for ( var key in response ) {
@@ -26,7 +29,7 @@ angular.module('Admin')
                     }
                     else{$scope.inventory.allPic=$scope.inventory.allPic+','+response[key].filename;
                 }
-
+            $scope.alertMessage="Please Wait... Finishing up";
             }
             adminActions.admin('inventory/').save($scope.inventory, function(data){
                 $location.path('/');
@@ -80,12 +83,13 @@ angular.module('Admin')
     $scope.allInventory=adminActions.admin('').get({id:id}, function(data){
         $scope.inventory=data;
         console.log($scope.inventory);
+        $scope.get_allSubcategories($scope.inventory.category);
         $scope.main_img=$scope.inventory.profilePic;
         $scope.img_list=$scope.inventory.allPic.split(',');
         $scope.inventory.subCategory=$scope.inventory.subCategory._id;
         $scope.startTimeReadable=new Date($scope.inventory.biddingSettings.startTimeReadable)
         $scope.closeTimeReadable=new Date($scope.inventory.biddingSettings.closeTimeReadable)
-        $scope.get_allSubcategories($scope.inventory.category);
+
     });
     $scope.get_allSubcategories=function(categoryId){
         $scope.all_subcategory=adminActions.admin('subcategory/').query({id:categoryId})
