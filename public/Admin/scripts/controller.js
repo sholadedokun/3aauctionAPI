@@ -9,6 +9,7 @@ angular.module('Admin')
   }])
 .controller('manageAIctrl', ['$scope','appService', '$location', 'adminActions','$http', function ($scope, appService, $location, adminActions, $http) {
     $scope.inventory={};
+    $scope.status=[{name:'Active', value:'active'}, {name:'De-activated', value:'de-activated'}]
     $scope.all_category=adminActions.admin('category/').query({Type:'category'})
     $scope.get_allSubcategories=function(){
         $scope.all_subcategory=adminActions.admin('subcategory/').query({id:$scope.inventory.category})
@@ -49,12 +50,20 @@ angular.module('Admin')
     $scope.newCategory={};
     $scope.images={};
     $scope.allnewCategory=function(){
+        $scope.processing_cat=true;
+        $scope.processing_sub=false;
+        $scope.alertMessage="Please Wait..."
         adminActions.admin('category/').save($scope.newCategory, function(data){
             $scope.all_category.push(data);
+            $scope.alertMessage=$scope.newCategory.name+" Successfully added as a new category";
         });
     }
     $scope.addnewSubCategory=function(){
+        $scope.processing_cat=false;
+        $scope.processing_sub=true;
+        $scope.alertMessage="Please Wait..."
         adminActions.admin('subcategory/').save($scope.subcategory, function(data){
+            $scope.alertMessage=$scope.subcategory.SubCategoryname+" Successfully added as a new Subcategory";
         })
     }
 }])
@@ -78,6 +87,7 @@ angular.module('Admin')
 }])
 .controller('editICtrl', ['$scope','appService', '$location','$routeParams', 'adminActions', '$filter', function ($scope, appService, $location, $routeParams,adminActions, $filter) {
     var id=$routeParams.id;
+    $scope.status=[{name:'Active', value:'active'}, {name:'De-activated', value:'de-activated'}]
     $scope.taglist='';
     $scope.all_category=adminActions.admin('category/').query()
     $scope.allInventory=adminActions.admin('').get({id:id}, function(data){
@@ -111,9 +121,12 @@ angular.module('Admin')
         $scope.inventory.biddingRate=$scope.inventory.biddingSettings.biddingRate
         $scope.inventory.buyNowPrice=$scope.inventory.biddingSettings.buyNowPrice
         $scope.inventory.tags=$scope.inventory.inventoryTags.tags
-        $scope.inventory.startTimeReadable=$scope.inventory.biddingSettings.startingPrice
-        $scope.inventory.closeTimeReadable=$scope.inventory.biddingSettings.startingPrice
+        $scope.inventory.startTimeReadable=$scope.startTimeReadable.toISOString();
+        $scope.inventory.closeTimeReadable=$scope.closeTimeReadable.toISOString();
         $scope.inventory.startingPrice=$scope.inventory.biddingSettings.startingPrice
+        $scope.inventory.biddingSettings=$scope.inventory.biddingSettings._id
+        $scope.inventory.inventoryTags=$scope.inventory.inventoryTags._id;
+        console.log($scope.inventory)
         appService.uploadImages($scope.images).then(function(response){
             if(response!=='no Images'){
                 var res_allPic='';
@@ -132,7 +145,7 @@ angular.module('Admin')
         function(error){
             console.log('Error Uploading Images '+error)
         });
-        //console.log($scope.inventory)
+        console.log($scope.inventory)
 
     }
     $scope.delete_pic=function(index){

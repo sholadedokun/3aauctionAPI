@@ -3,33 +3,33 @@
     <div class="" style="padding:10px; background:#555; color:#eee">
         <div><b>Select Inventory Category</b></div>
         <span>
-            <select ng-options="item._id as item.name for item in all_category" ng-model="inventory.category" ng-change="get_allSubcategories()">
+            <select ng-options="item._id as item.name for item in all_category" required="required" ng-model="inventory.category" ng-change="get_allSubcategories()">
             </select>
         </span>
     </div>
     <div class="" style="padding:10px; background:#eee; color:#555">
       <div><b>Select Inventory Subcategory</b></div>
         <div>
-          <select required ng-options="option._id as option.SubCategoryname for option in all_subcategory"  ng-model="inventory.subCategory">
+          <select required ng-options="option._id as option.SubCategoryname for option in all_subcategory"  required="required" ng-model="inventory.subCategory">
           </select>
         </div>
     </div>
     <div class="" style="padding:10px; background:#eee; color:#555">
         <div><b>Inventory Type</b></div>
         <div>
-            <input type="textbox" name="inventory_type" ng-model="inventory.type">
+            <input type="textbox" name="inventory_type" required="required" ng-model="inventory.type">
         </div>
     </div>
     <div class="" style="padding:10px; background:#555; color:#eee">
         <div><b>Inventory Title</b></div>
         <div>
-            <input type="textbox" name="inventory_title" ng-model="inventory.name">
+            <input type="textbox" name="inventory_title" required="required" ng-model="inventory.name">
         </div>
     </div>
     <div class="" style="padding:10px; background:#555; color:#eee">
         <div><b>Inventory Description</b></div>
         <div>
-            <textarea name="inventory_title" ng-model="inventory.description" ></textarea>
+            <textarea name="inventory_title" required="required" ng-model="inventory.description" ></textarea>
         </div>
     </div>
     <div class="" style="padding:10px; background:#555; color:#eee">
@@ -59,10 +59,7 @@
     <div class="" style="padding:10px; background:#555; color:#eee">
         <div><b>Inventory Status</b></div>
         <div>
-            <select ng-model="inventory.status">
-                <option value="active">Active</option>
-                <option value="actuve">De-activated</option>
-            </select>
+            <select ng-options="item.value as item.name for item in status" required="required" ng-model="inventory.status"> </select>
         </div>
     </div>
     <div class="" style="padding:10px; background:#555; color:#eee">
@@ -84,13 +81,13 @@
             </select>
         </div>
         <div>
-            <textarea id="inventory_tagt" name="inventory_tag" cols="50" rows="8" ng-model="inventory.tag" ></textarea>
+            <textarea id="inventory_tagt" name="inventory_tag" required="required"  cols="50" rows="8" ng-model="inventory.tag" ></textarea>
         </div>
     </div>
     <div class="" style="padding:10px; background:#eee; color:#555">
         <div><b>Upload Pictures</b></div>
         <div>
-            <div><input type="file" name="file" id="pic1" size="30" file-model="images.files"  /></div>
+            <div><input type="file" name="file" required="required"  id="pic1" size="30" file-model="images.files"  /></div>
             <div><input type="file" name="file" id="pic2" size="30" file-model="images.files1" /></div>
             <div><input type="file" name="file" id="pic3" size="30" file-model="images.files2" /></div>
             <div><input type="file" name="file" id="pic4" size="30" file-model="images.files3" /></div>
@@ -103,35 +100,33 @@
     <div class="" style="padding:10px; background:#eee; color:#555">
         <div><b>Starting Price</b></div>
         <div>
-            <input type="textbox" name="inventory_title" ng-model="inventory.startingPrice">
+            <input type="textbox" name="inventory_title" required="required"  ng-model="inventory.startingPrice" fcsa-number>
         </div>
     </div>
     <div class="" style="padding:10px; background:#eee; color:#555">
         <div><b>Reserve Price</b></div>
         <div>
-            <input type="textbox" name="inventory_title" ng-model="inventory.reservePrice">
+            <input type="textbox" name="inventory_title" required="required" ng-model="inventory.reservePrice" fcsa-number>
         </div>
     </div>
     <div class="" style="padding:10px; background:#eee; color:#555">
         <div><b>Buy Now Price</b></div>
         <div>
-            <input type="textbox" name="inventory_title" ng-model="inventory.buyNowPrice">
+            <input type="textbox" name="inventory_title" ng-model="inventory.buyNowPrice" fcsa-number>
         </div>
     </div>
     <div class="" style="padding:10px; background:#eee; color:#555">
         <div><b>Bidding Rate</b></div>
         <div>
-            <input type="textbox" name="inventory_title" ng-model="inventory.biddingRate">
+            <input type="textbox" name="inventory_title" required="required" ng-model="inventory.biddingRate" fcsa-number>
         </div>
-    </div>
-    <div class="" style="padding:10px; background:#eee; color:#555">
-        <div><b>Bidding Start Date</b></div>
     </div>
     <div class="" style="padding:10px; background:#eee; color:#555">
         <div><b>Bidding Start Time</b></div>
 
         <datetimepicker
             hour-step="1"   minute-step="5"
+            required="required"
             ng-model="inventory.startTimeReadable"
           show-meridian="true"
           date-format="dd-MMMM-yyyy"
@@ -155,6 +150,7 @@
         <div><b>Bidding Close Time</b></div>
         <datetimepicker
             hour-step="1"   minute-step="5"
+            required="required"
           ng-model="inventory.closeTimeReadable"
           show-meridian="true"
           date-format="dd-MMMM-yyyy"
@@ -171,6 +167,8 @@
           date-opened="false"
           show-button-bar="false" >
     </div>
-    <div  style="padding:10px; " ><input type="submit" value="Add Inventory" name="AddInventory" /></div>
+    <div  style="padding:10px; " >
+        <input type="submit" value="Add Inventory" name="AddInventory" />
+    </div>
     <div class="alert alert-success" ng-show="processing" ng-bind="alertMessage"></div>
 </form>

@@ -106,7 +106,7 @@
         </div>
         <div ng-show="inventory.inventory_data[6]!=''"  class="" style="padding:10px; background:#eee; color:#555">
             <div><b>Inventory status</b></div>
-            <input type="text" ng-model="inventory.status"/>
+            <select ng-options="item.value as item.name for item in status" ng-model="inventory.status"> </select>
         </div>
     <div class="" style="padding:10px; background:#eee; color:#555">
         <div><b>Tags</b></div>
@@ -120,8 +120,8 @@
     </div>
     <div class="col-xs-12 nop" style="background:#ddd; height:100px">
         <div class="col-xs-12 thumb_house">
-            <div class="thumb_holder">
-                <div class="thumb link" style="float:left;" ng-repeat="img in img_list">
+            <div class="col-xs-12 thumb_holder">
+                <div class="col-xs-6 col-sm-3 thumb link" ng-repeat="img in img_list">
                   <img ng-src="../uploads/{{img}}" width="80px" height="54px" />
                   <button ng-show="$index!=0" ng-click="delete_pic($index)">Delete Picture</button>
                   <a href="" ng-show="$index!=0"  ng-click="make_prof($index)">Make Profile Picture</a>

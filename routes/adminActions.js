@@ -166,14 +166,19 @@ router.post('/user', function(req, res, next){
 router.put('/:id', function(req, res, next){
     console.log(req.body);
     adminSchema.inventory.findByIdAndUpdate(req.params.id, req.body, function(err, post){
-        if(err)return next(err)
-        adminSchema.inventorySettings.findByIdAndUpdate(req.body.biddingSettings._id, req.body, function(err, newPost){
-            if(err)return next(err)
-            adminSchema.tags.findByIdAndUpdate(req.body.inventoryTags._id, req.body, function(err, tag){
-            })
-        })
+         if(err)//return next(err)
+         return console.log('error occured '+ err) ;
+    })
+    adminSchema.inventorySettings.findByIdAndUpdate(req.body.biddingSettings, req.body, function(err, newPost){
+        if(err)//return next(err)
+        return console.log('error occured '+ err) ;
         res.json('Update Successful')
     })
+    // adminSchema.tags.findByIdAndUpdate(req.body.inventoryTags, req.body, function(err, tag){
+    //     if(err)//return next(err)
+    //     return console.log('error occured '+ err) ;
+    //     res.json('Update Successful')
+    // })
 });
 router.delete('/:id', function(req, res, next){
     Inventory.findByIdAndRemove(req.params.id, re.body, function(err, post){

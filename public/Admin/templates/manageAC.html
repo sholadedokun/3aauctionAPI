@@ -3,7 +3,7 @@
           <div><b>Add New Category</b></div>
           <form ng-submit="allnewCategory()">
               <div>
-                  <input type="text" name="c_title" ng-model="newCategory.name" required="" />
+                  <input type="text" name="c_title" ng-model="newCategory.name" required="required" />
                   <div class="" style="padding:10px; background:#eee; color:#555">
                       <div><b>Category Description</b></div>
                       <div>
@@ -17,6 +17,7 @@
                       </div>
                   </div>
                   <input type="Submit" value="Submit" />
+                  <div class="alert alert-success" ng-show="processing_cat" ng-bind="alertMessage">Please wait...</div>
               </div>
           </form>
       </div>
@@ -29,12 +30,12 @@
               </div>
               <div>
                   <label>Type Sub Category</label>
-                  <input type="text" name="c_title" ng-model="subcategory.SubCategoryname" placeholder="Type Category" required="" />
+                  <input type="text" name="c_title" ng-model="subcategory.SubCategoryname" placeholder="Type Category" required="required" />
               </div>
               <div class="" style="padding:10px; background:#eee; color:#555">
                   <div><b>Sub Category Description</b></div>
                   <div>
-                      <textarea name="item_description"  ng-model="subcategory.description"  cols="40" rows="5"></textarea>
+                      <textarea name="item_description"  ng-model="subcategory.description"  required="required"  cols="40" rows="5"></textarea>
                   </div>
               </div>
               <div class="" style="padding:10px; background:#eee; color:#555">
@@ -44,7 +45,7 @@
                   </div>
               </div>
               <input type="submit" value="Submit" />
-              <div class="alert alert-success" ng-show="processing" ng-bind="alertMessage">Please wait</div>
+              <div class="alert alert-success" ng-show="processing_sub" ng-bind="alertMessage">Please wait</div>
           </form>
       </div>
   </div>
