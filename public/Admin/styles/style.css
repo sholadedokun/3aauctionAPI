@@ -1,0 +1,5 @@
+.thumb_holder{
+    height: auto;
+    overflow-y: auto;
+}
+.thumb_img{padding:0; margin:5px 0}

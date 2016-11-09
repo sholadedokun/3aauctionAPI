@@ -113,19 +113,11 @@ angular.module('Admin')
         }
         $scope.inventory.allPic=imgparse;
         $scope.inventory.profilePic=$scope.img_list[0];
-        $scope.inventory.startTimeStamp=$scope.startTimeReadable.getTime();
-        $scope.inventory.closeTimeStamp=$scope.closeTimeReadable.getTime();
-
-        $scope.inventory.startingPrice=$scope.inventory.biddingSettings.startingPrice
-        $scope.inventory.reservePrice=$scope.inventory.biddingSettings.reservePrice
-        $scope.inventory.biddingRate=$scope.inventory.biddingSettings.biddingRate
-        $scope.inventory.buyNowPrice=$scope.inventory.biddingSettings.buyNowPrice
+        $scope.inventory.biddingSettings.startTimeStamp=$scope.startTimeReadable.getTime();
+        $scope.inventory.biddingSettings.closeTimeStamp=$scope.closeTimeReadable.getTime();
         $scope.inventory.tags=$scope.inventory.inventoryTags.tags
-        $scope.inventory.startTimeReadable=$scope.startTimeReadable.toISOString();
-        $scope.inventory.closeTimeReadable=$scope.closeTimeReadable.toISOString();
-        $scope.inventory.startingPrice=$scope.inventory.biddingSettings.startingPrice
-        $scope.inventory.biddingSettings=$scope.inventory.biddingSettings._id
-        $scope.inventory.inventoryTags=$scope.inventory.inventoryTags._id;
+        $scope.inventory.biddingSettings.startTimeReadable=$scope.startTimeReadable.toISOString();
+        $scope.inventory.biddingSettings.closeTimeReadable=$scope.closeTimeReadable.toISOString();
         console.log($scope.inventory)
         appService.uploadImages($scope.images).then(function(response){
             if(response!=='no Images'){

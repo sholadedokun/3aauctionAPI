@@ -10058,5 +10058,9 @@ dropdown-menu .divider {
 .profile_det .divider {
   margin: 20px 0 5px;
 }
+.nop{
+    padding:0;
+    margin:0;
 
+}
 /*# sourceMappingURL=main.css.map */

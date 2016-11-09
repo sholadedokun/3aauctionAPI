@@ -166,21 +166,23 @@ router.post('/user', function(req, res, next){
 router.put('/:id', function(req, res, next){
     console.log(req.body);
     console.log(req.body.biddingSettings);
-    adminSchema.inventorySettings.findByIdAndUpdate(req.body.biddingSettings, req.body, function(err, newPost){
+    adminSchema.inventorySettings.findByIdAndUpdate(req.body.biddingSettings._id, req.body.biddingSettings, function(err, newPost){
         if(err)//return next(err)
         return console.log('error occured '+ err) ;
-        res.json('Update Successful')
+        adminSchema.inventory.findByIdAndUpdate(req.params.id, req.body, function(err, post){
+             if(err)//return next(err)
+             return console.log('error occured '+ err) ;
+             adminSchema.tags.findByIdAndUpdate(req.body.inventoryTags._id, req.body.inventoryTags, function(err, tag){
+                 if(err)//return next(err)
+                 return console.log('error occured '+ err) ;
+             })
+             res.json('Update Successful')
+        })
     })
-    adminSchema.inventory.findByIdAndUpdate(req.params.id, req.body, function(err, post){
-         if(err)//return next(err)
-         return console.log('error occured '+ err) ;
-    })
+    console.log('bef'+req.body.biddingSettings);
 
-    // adminSchema.tags.findByIdAndUpdate(req.body.inventoryTags, req.body, function(err, tag){
-    //     if(err)//return next(err)
-    //     return console.log('error occured '+ err) ;
-    //     res.json('Update Successful')
-    // })
+
+
 });
 router.delete('/:id', function(req, res, next){
     Inventory.findByIdAndRemove(req.params.id, re.body, function(err, post){
