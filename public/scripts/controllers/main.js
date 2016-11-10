@@ -29,7 +29,7 @@ angular.module('3aAuctionsApp')
             else{
                 $scope.info='Thanks for subscribing to our Newsletter';
             }
-        }
+        })
     }
     $scope.subMenu=function(action, index){
         $scope.sMenu=action;
