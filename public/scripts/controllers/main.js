@@ -8,7 +8,7 @@
  * Controller of the 3aAuctionsApp
  */
 angular.module('3aAuctionsApp')
-.controller('indexCtrl',['$scope', 'appService', '$uibModal', 'userData', 'appActions', function ($scope, appService, $uibModal, userData, appActions) {
+.controller('indexCtrl',['$scope', 'appService', '$uibModal', 'userData', 'appActions','cfpLoadingBar', function ($scope, appService, $uibModal, userData, appActions, cfpLoadingBar) {
     $scope.user=userData.data();
     //console.log('server time is :'+$scope.serverTime);
     $scope.sumenu=[
