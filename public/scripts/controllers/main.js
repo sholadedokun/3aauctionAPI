@@ -8,7 +8,7 @@
  * Controller of the 3aAuctionsApp
  */
 angular.module('3aAuctionsApp')
-.controller('indexCtrl',['$scope', 'appService', '$uibModal', 'userData',  function ($scope, appService, $uibModal, userData) {
+.controller('indexCtrl',['$scope', 'appService', '$uibModal', 'userData', 'appActions', function ($scope, appService, $uibModal, userData, appActions) {
     $scope.user=userData.data();
     //console.log('server time is :'+$scope.serverTime);
     $scope.sumenu=[
@@ -20,12 +20,16 @@ angular.module('3aAuctionsApp')
         ]
     ]
     $scope.subscriber=function(email){
-        appService.addRequest_data('addSubscriber', email).then(function(response){
-          $scope.info=response;
-        },
-        function(error){
-          console.log('error this '.error)
-        });
+        cfpLoadingBar.start()
+        appActions.admin('addSubscriber/').save(email, function(data){
+            cfpLoadingBar.complete()
+            if(data.error){
+                $scope.info=data.error
+            }
+            else{
+                $scope.info='Thanks for subscribing to our Newsletter';
+            }
+        }
     }
     $scope.subMenu=function(action, index){
         $scope.sMenu=action;
@@ -95,7 +99,7 @@ angular.module('3aAuctionsApp')
             cfpLoadingBar.complete()
             if(data.error){
                 if(data.data[0].email==$scope.user.email){
-                    $scope.info="Error Occured : Emial Already Registered";
+                    $scope.info="Error Occured : Email Already Registered";
                 }
                 else{
                     $scope.info="Error Occured : Username already taken, Please select another Username";

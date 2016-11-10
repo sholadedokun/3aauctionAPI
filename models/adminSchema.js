@@ -77,7 +77,13 @@ var tagSchema= new Schema({
     propertyId:{type:Schema.Types.ObjectId, ref:'inventory'},
     tags:String,
     dateCreated:{ type: Date, default: Date.now },
-    lastLogin:{ type: Date, default: Date.now }
+    lastUpdated:{ type: Date, default: Date.now }
+})
+
+var emailSubscriberSchema= new Schema({
+    emailAdddress:String,
+    source:String,
+    dateCreated:{ type: Date, default: Date.now }
 })
 module.exports.inventory = mongoose.model('inventory', inventorySchema);
 module.exports.category= mongoose.model('category', categorySchema);
@@ -86,3 +92,4 @@ module.exports.inventorySettings = mongoose.model('inventorySettings', inventory
 module.exports.biddingHistory = mongoose.model('biddingHistory', biddingHistorySchema);
 module.exports.user = mongoose.model('user', userSchema);
 module.exports.tags = mongoose.model('tags', tagSchema);
+module.exports.emailSubscriber = mongoose.model('emailSubscriber', emailSubscriberSchema);

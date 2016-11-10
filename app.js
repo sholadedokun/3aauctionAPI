@@ -4,8 +4,29 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var nodemailer = require('nodemailer');
 
+//email configurations
+var smtpConfig = {
+    host: 'box875.bluehost.com',
+    port: 465,
+    secure: true, // use SSL
+    auth: {
+        user: 'info@autonimrod.com',
+        pass: 'Autonimrod1@'
+    }
+};
+var transporter = nodemailer.createTransport(smtpConfig)
+// verify connection configuration
+transporter.verify(function(error, success) {
+   if (error) {
+        console.log(error);
+   } else {
+        console.log('Server is ready to take our messages');
+   }
+});
 
+//multer configurations for uploading emails
 var multer  = require('multer')
 var storage = multer.diskStorage({
     destination: function (req, file, cb) {
@@ -17,16 +38,23 @@ var storage = multer.diskStorage({
         cb(null, newname[0]+ '_' + Date.now()+'.'+ext)
     }
 });
+
+
 var upload = multer({ storage: storage }).array('files');
 var routes = require('./routes/index');
+
+//routes configurations
 var adminActions = require('./routes/adminActions');
 var appActions = require('./routes/appActions');
+
+//mongoose configurations
 var mongoose=require('mongoose');
 mongoose.Promise=global.Promise;
 mongoose.connect('mongodb://3aauctiondb:dkCxSfuN2uUkty5QbyFKuwIG2nF3nCbBJVy3UYQHVS3uReUxb2RBTbSfhyTWtrFalIJQFpcRLH9fSd6uk8s4uA==@3aauctiondb.documents.azure.com:10250/?ssl=true').then(() => console.log('database connected')).catch((err) => console.error(err))
 var app = express();
 var server = require('http').Server(app);
 
+//socket configurations for websockets
 var io = require('socket.io')(server);
 var port = process.env.PORT || 3000;
 io.on('connection', function(socket){
@@ -51,7 +79,6 @@ app.post('/upload', function (req, res, next) {
         res.json(req.files)
     })
 })
-
 
 
 

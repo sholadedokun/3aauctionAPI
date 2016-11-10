@@ -169,6 +169,39 @@ router.post('/user', function(req, res, next){
         else{   res.json({error:'User Already Exist', data:user});   }
     })
 });
+router.post('/addSubscriber', function(req, res, next){
+    adminSchema.emailSubscriber.find({emailAddress:req.body.emailAddress})
+    .exec(function(err, emailSubscriber){
+        if(err) return next(err);
+        console.log(emailSubscriber)
+        if(emailSubscriber.length==0){
+            adminSchema.emailSubscriber.create(req.body, function(err, emailSubscriber){
+                if(err) return next(err)
+                res.json(emailSubscriber);
+                // setup e-mail data with unicode symbols
+                var emailbody='<b>Dear Subscriber, </b> <br>';
+                emailbody+='Thank you for subscribing to our Newsletter. We are glad to have you on board.';
+                emailbody+='<br><br><b><em>3A Auction House Team</em></b>';
+                var mailOptions = {
+                    from: '"3a Auctions House" <info@3aauctions.com>', // sender address
+                    to: req.body.emailAddress, // list of receivers
+                    subject: 'Thanks for subscribing to our Newsletter', // Subject line
+                    //text: 'Dear Subscriber,', // plaintext body
+                    html: emailbody // html body
+                };
+
+                // send mail with defined transport object
+                transporter.sendMail(mailOptions, function(error, info){
+                    if(error){
+                        return console.log(error);
+                    }
+                    console.log('Message sent: ' + info.response);
+                });
+            })
+        }
+        else{   res.json({error:'You have already subscribed, thanks for trying again', data:emailSubscriber});   }
+    })
+});
 router.put('/:id', function(req, res, next){
     Inventory.findByIdAndUpdate(req.params.id, req.body, function(err, post){
         if(err)return next(err)
