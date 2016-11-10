@@ -40,6 +40,7 @@ a:hover{text-decoration: none}
 .footer {
   width:100%;
   position: relative;
+  font-size:1.05em !important;
 }
 .footerLinks{
     margin-top:40px;
@@ -136,6 +137,7 @@ a:hover{text-decoration: none}
       #faq_head{
           background:url("../images/faq-head_xlg.jpg")no-repeat;
       }
+      .search input{text-align: center}
       .logoImg{
           background:url("../images/3a-logos.png");
            width:120px;
@@ -712,14 +714,20 @@ dropdown-menu .divider{
 .contact_emph img{margin-right: 20px;}
 
 //faqs
-#faqs{margin:40px auto;}
+#faqs{
+    margin:40px auto;
+}
 .faq_category{
     background: #eee;
     padding:20px;
     margin:20px 0;
 }
 .faqQA{
-    margin-top:20px
+    margin-top:20px;
+
+}
+.faqQA .description{
+    text-align:justify !important;
 }
 
 //auction_details
@@ -1047,4 +1055,13 @@ dropdown-menu .divider{
 }
 .profile_det .divider{
     margin:20px 0 5px;
+}
+
+.des_link{
+    color:#d8c964;
+    text-decoration: underline;
+}
+.des_link:hover{
+    color:#b6a742;
+    text-decoration: underline;
 }

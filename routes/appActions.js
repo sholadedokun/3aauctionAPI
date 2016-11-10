@@ -234,12 +234,15 @@ router.post('/addSubscriber', function(req, res, next){
     .exec(function(err, emailSubscriber){
         if(err) return next(err);
         console.log(emailSubscriber.length);
+        var subject;
+        var emailbody;
+
         if(emailSubscriber.length==0){
             adminSchema.emailSubscriber.create(req.body, function(err, emailSubscriber){
                 if(err) return next(err)
                 //res.json(emailSubscriber);
                 // setup e-mail data with unicode symbols
-                var emailbody='<b>Dear Subscriber, </b> <br>';
+                emailbody='<b>Dear Subscriber, </b> <br>';
                 emailbody+='Thank you for subscribing to our Newsletter. We are glad to have you on board.';
                 emailbody+='<br><br><b><em>3A Auction House Team</em></b>';
                 subject='Thanks for subscribing to our Newsletter.';

@@ -95,18 +95,22 @@
       </div>
     </div>
 
-    <div  ng-view="" >
+    <div  ng-view="" autoscroll="true" >
     </div>
     <div class="container-fluid" id="how_it_works_video">
         <div class="row">
             <div class="col-xs-12 content_main_header intro_subhead">Sign up to our Newsletter to stay updated</div><br/><br/>
             <div class="col-xs-12 search">
                 <form ng-submit="subscriber(emailAddress)">
-                <div class="col-xs-8 col-md-5 col-md-offset-3  form_container">
+                <div class="col-xs-6 col-xs-offset-2  form_container">
 
                     <input class="col-xs-12" type="email" placeholder="Your Email Address" ng-model="emailAddress" />
                 </div>
-                <input type="submit" class="col-xs-4 primary_button" value="SIGN UP"/>
+                <div class="col-xs-2 np">
+                    <span class="col-xs-12 np">
+                        <input type="submit" class="col-xs-12 primary_button" value="SIGN UP"/>
+                    </div>
+                </div>
 
                 <span class="col-xs-12" ng-bind="info"></span>
             </form>
@@ -127,7 +131,7 @@
                 </div>
                 <div class="col-sm-1 np">
                 </div>
-                <div class="col-sm-4 np">
+                <div class="col-sm-5 np">
                     <div class="col-xs-6 footerLinks">
                         <a href="#/guideToBuy">GUIDE TO BUY</a>
                         <a href="#/guideToSell">GUIDE TO SELL</a>
@@ -140,7 +144,7 @@
                         <a href="#/contact">CONTACT</a>
                     </div>
                 </div>
-                <div class="col-sm-4">
+                <div class="col-sm-3">
                     <strong class="pull-right">GET IN TOUCH</strong><br/><br/>
                     <div class="col-xs-12 np">
                         <a class="pull-right social-icon" href="https://instagram.com/3a_auctions"  target="_blank"><img src="images/instagram.png" width="13" height="13"/></a>

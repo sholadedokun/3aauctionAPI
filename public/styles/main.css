@@ -8768,27 +8768,28 @@ a:hover {
 .footer {
   width: 100%;
   position: relative;
+  font-size: 1.05em !important;
 }
 
-/* line 44, main.scss */
+/* line 45, main.scss */
 .footerLinks {
   margin-top: 40px;
 }
 
-/* line 47, main.scss */
+/* line 48, main.scss */
 .footerLinks a {
   margin-bottom: 10px;
   display: block;
   font-size: 0.8em;
 }
 
-/* line 52, main.scss */
+/* line 53, main.scss */
 .footerLinks a:hover {
   color: #E8B964;
 }
 
 /* Custom page header */
-/* line 56, main.scss */
+/* line 57, main.scss */
 .header {
   z-index: 20;
   position: fixed;
@@ -8799,7 +8800,7 @@ a:hover {
   height: auto;
   /* Make the masthead heading the same height as the navigation */
 }
-/* line 65, main.scss */
+/* line 66, main.scss */
 .header h3 {
   margin-top: 0;
   margin-bottom: 0;
@@ -8807,13 +8808,13 @@ a:hover {
   padding-bottom: 19px;
 }
 
-/* line 74, main.scss */
+/* line 75, main.scss */
 .modal-content {
   overflow: hidden;
 }
 
 /* Custom page footer */
-/* line 77, main.scss */
+/* line 78, main.scss */
 .footer {
   z-index: 10;
   padding: 40px 0;
@@ -8822,79 +8823,84 @@ a:hover {
   font-size: 1em;
 }
 
-/* line 85, main.scss */
+/* line 86, main.scss */
 .footer p {
   font-size: 0.75em;
 }
 
-/* line 88, main.scss */
+/* line 89, main.scss */
 .social-icon {
   margin-left: 15px;
 }
 
-/* line 92, main.scss */
+/* line 93, main.scss */
 .container-narrow > hr {
   margin: 30px 0;
 }
 
 /* Main marketing message and sign up button */
-/* line 97, main.scss */
+/* line 98, main.scss */
 .jumbotron {
   text-align: center;
   border-bottom: 1px solid #e5e5e5;
 }
-/* line 101, main.scss */
+/* line 102, main.scss */
 .jumbotron .btn {
   font-size: 21px;
   padding: 14px 24px;
 }
 
 /* Supporting marketing content */
-/* line 108, main.scss */
+/* line 109, main.scss */
 .marketing {
   margin: 40px 0;
 }
-/* line 111, main.scss */
+/* line 112, main.scss */
 .marketing p + h4 {
   margin-top: 28px;
 }
 
 /* Responsive: Portrait tablets and up */
 @media screen and (max-width: 3000px) {
-  /* line 117, main.scss */
+  /* line 118, main.scss */
   .bxslider .first {
     background: url("../images/home-header_1_xlg.jpg");
     height: 1024px;
   }
 
-  /* line 121, main.scss */
+  /* line 122, main.scss */
   .bxslider .second {
     background: url("../images/home-header_2_xlg.jpg");
     height: 1024px;
   }
 
-  /* line 125, main.scss */
+  /* line 126, main.scss */
   #auction_head {
     background: url("../images/auction-header_xlg.jpg") no-repeat;
     height: 668px;
   }
 
-  /* line 129, main.scss */
+  /* line 130, main.scss */
   #search_box {
     margin-top: 20% !important;
   }
 
-  /* line 133, main.scss */
+  /* line 134, main.scss */
   #contact_head {
     background: url("../images/contact-head_xlg.jpg") no-repeat;
   }
 
-  /* line 136, main.scss */
+  /* line 137, main.scss */
   #faq_head {
     background: url("../images/faq-head_xlg.jpg") no-repeat;
   }
 
-  /* line 139, main.scss */
+  /* line 140, main.scss */
+  .search input {
+    text-align: center;
+  }
+
+  /* line 141, main.scss */
   .logoImg {
     background: url("../images/3a-logos.png");
     width: 120px;
@@ -8902,47 +8908,47 @@ a:hover {
   }
 }
 @media screen and (max-width: 1950px) {
-  /* line 146, main.scss */
+  /* line 148, main.scss */
   .bxslider .first {
     background: url("../images/home-header_1_lg.jpg") no-repeat;
     height: 806px;
   }
 
-  /* line 150, main.scss */
+  /* line 152, main.scss */
   .bxslider .second {
     background: url("../images/home-header_2_lg.jpg") no-repeat;
     height: 806px;
   }
 
-  /* line 154, main.scss */
+  /* line 156, main.scss */
   #auction_head {
     background: url("../images/auction-header_lg.jpg") no-repeat;
     height: 418px;
   }
 
-  /* line 158, main.scss */
+  /* line 160, main.scss */
   #search_box {
     margin-top: 12% !important;
   }
 
-  /* line 161, main.scss */
+  /* line 163, main.scss */
   #contact_head {
     background: url("../images/contact-head_lg.jpg") no-repeat;
   }
 
-  /* line 164, main.scss */
+  /* line 166, main.scss */
   #faq_head {
     background: url("../images/faq-head_lg.jpg") no-repeat;
   }
 
-  /* line 167, main.scss */
+  /* line 169, main.scss */
   .logoImg {
     background: url("../images/3a-logos.png");
     width: 120px;
     height: 137px;
   }
 
-  /* line 172, main.scss */
+  /* line 174, main.scss */
   .regSignBg {
     background-size: 900px 1291px;
     width: 50%;
@@ -8951,52 +8957,52 @@ a:hover {
   }
 }
 @media screen and (max-width: 1250px) {
-  /* line 180, main.scss */
+  /* line 182, main.scss */
   .bxslider .first {
     background: url("../images/home-header_1_md.jpg") no-repeat;
     height: 645px;
   }
 
-  /* line 184, main.scss */
+  /* line 186, main.scss */
   .bxslider .second {
     background: url("../images/home-header_2_md.jpg") no-repeat;
     height: 645px;
   }
 
-  /* line 188, main.scss */
+  /* line 190, main.scss */
   #auction_head {
     background: url("../images/auction-header_md.jpg") no-repeat;
     height: 334px;
   }
 
-  /* line 192, main.scss */
+  /* line 194, main.scss */
   #search_box {
     margin-top: 12% !important;
   }
 
-  /* line 195, main.scss */
+  /* line 197, main.scss */
   #contact_head {
     background: url("../images/contact-head_md.jpg") no-repeat;
   }
 
-  /* line 198, main.scss */
+  /* line 200, main.scss */
   #faq_head {
     background: url("../images/faq-head_md.jpg") no-repeat;
   }
 
-  /* line 201, main.scss */
+  /* line 203, main.scss */
   .slideViewer {
     height: 300px !important;
   }
 
-  /* line 204, main.scss */
+  /* line 206, main.scss */
   .logoImg {
     background: url("../images/3a-logos.png");
     width: 120px;
     height: 137px;
   }
 
-  /* line 209, main.scss */
+  /* line 211, main.scss */
   .regSignBg {
     background-size: 720px 1033px;
     width: 50%;
@@ -9005,37 +9011,37 @@ a:hover {
   }
 }
 @media screen and (max-width: 850px) {
-  /* line 217, main.scss */
+  /* line 219, main.scss */
   .bxslider .first {
     background: url("../images/home-header_1_sm.jpg") no-repeat;
     height: 430px;
   }
 
-  /* line 221, main.scss */
+  /* line 223, main.scss */
   .bxslider .second {
     background: url("../images/home-header_2_sm.jpg") no-repeat;
     height: 430px;
   }
 
-  /* line 225, main.scss */
+  /* line 227, main.scss */
   #search_box {
     font-size: 0.6em;
     margin-top: 16% !important;
   }
 
-  /* line 229, main.scss */
+  /* line 231, main.scss */
   .slideViewer {
     height: 200px !important;
   }
 
-  /* line 232, main.scss */
+  /* line 234, main.scss */
   .logoImg {
     background: url("../images/3a-logos_md.png");
     width: 100px;
     height: 116px;
   }
 
-  /* line 237, main.scss */
+  /* line 239, main.scss */
   .regSignBg {
     background-size: 450px 646px;
     width: 50%;
@@ -9044,37 +9050,37 @@ a:hover {
   }
 }
 @media screen and (max-width: 450px) {
-  /* line 246, main.scss */
+  /* line 248, main.scss */
   .bxslider .first {
     background: url("../images/home-header_1_xs.jpg") no-repeat;
     height: 242px;
   }
 
-  /* line 250, main.scss */
+  /* line 252, main.scss */
   .bxslider .second {
     background: url("../images/home-header_2_xs.jpg") no-repeat;
     height: 242px;
   }
 
-  /* line 254, main.scss */
+  /* line 256, main.scss */
   #search_box, .home_intro {
     font-size: 0.6em;
     margin-top: 35% !important;
   }
 
-  /* line 258, main.scss */
+  /* line 260, main.scss */
   .slideViewer {
     height: 300px !important;
   }
 
-  /* line 261, main.scss */
+  /* line 263, main.scss */
   .logoImg {
     background: url("../images/3a-logos_sm.png");
     width: 80px;
     height: 93px;
   }
 
-  /* line 266, main.scss */
+  /* line 268, main.scss */
   .regSignBg {
     background-size: 450px 260px;
     width: 100%;
@@ -9083,26 +9089,26 @@ a:hover {
   }
 }
 @media (min-width: 992px) {
-  /* line 275, main.scss */
+  /* line 277, main.scss */
   .modal-lg {
     width: 900px;
   }
 }
 @media (min-width: 1200px) {
-  /* line 280, main.scss */
+  /* line 282, main.scss */
   .modal-lg {
     width: 1170px;
   }
 }
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
-  /* line 288, main.scss */
+  /* line 290, main.scss */
   .container {
     max-width: 90%;
   }
 
   /* Remove the padding we set earlier */
-  /* line 293, main.scss */
+  /* line 295, main.scss */
   .header,
   .marketing,
   .footer {
@@ -9111,58 +9117,58 @@ a:hover {
   }
 
   /* Space out the masthead */
-  /* line 300, main.scss */
+  /* line 302, main.scss */
   .header {
     margin-bottom: 0px;
   }
 
   /* Remove the bottom border on the jumbotron for visual effect */
-  /* line 304, main.scss */
+  /* line 306, main.scss */
   .jumbotron {
     border-bottom: 0;
   }
 
-  /* line 309, main.scss */
+  /* line 311, main.scss */
   .navbar-nav > li {
     padding: 0 0 0 30px;
   }
 
-  /* line 312, main.scss */
+  /* line 314, main.scss */
   .nav > li > a {
     position: relative;
     display: block;
     padding: 10px 0;
   }
 
-  /* line 317, main.scss */
+  /* line 319, main.scss */
   .logoImg {
     background: url("../images/3a-logos.png");
     width: 120px;
     height: 137px;
   }
 }
-/* line 323, main.scss */
+/* line 325, main.scss */
 .navbar-default .navbar-nav > li > a {
   color: #ccc;
 }
 
-/* line 326, main.scss */
+/* line 328, main.scss */
 .navbar-default .navbar-nav > li > a:hover {
   color: #fff;
 }
 
-/* line 329, main.scss */
+/* line 331, main.scss */
 .navbar-default .navbar-nav > li > a:focus {
   color: #fff;
 }
 
-/* line 332, main.scss */
+/* line 334, main.scss */
 .navbar-collapse {
   padding: 0;
   text-align: center;
 }
 
-/* line 336, main.scss */
+/* line 338, main.scss */
 .navbar {
   border-radius: 0;
   border: none;
@@ -9171,12 +9177,12 @@ a:hover {
   margin-bottom: 0px;
 }
 
-/* line 343, main.scss */
+/* line 345, main.scss */
 .logo_bg {
   height: 50px;
 }
 
-/* line 347, main.scss */
+/* line 349, main.scss */
 .navbar-brand {
   width: 110px;
   position: relative;
@@ -9185,50 +9191,50 @@ a:hover {
   z-index: 20000;
 }
 
-/* line 354, main.scss */
+/* line 356, main.scss */
 .navbar-default {
   background: none;
 }
 
-/* line 355, main.scss */
+/* line 357, main.scss */
 .header_img {
   background: #efefef;
   height: auto;
   position: relative;
 }
 
-/* line 362, main.scss */
+/* line 364, main.scss */
 .navbar-toggle {
   background-color: transparent !important;
   border: none;
 }
 
-/* line 366, main.scss */
+/* line 368, main.scss */
 .icon-bar {
   background-color: #E8B964 !important;
 }
 
-/* line 369, main.scss */
+/* line 371, main.scss */
 .just {
   text-align: justify !important;
 }
 
-/* line 372, main.scss */
+/* line 374, main.scss */
 .row {
   margin: 0;
 }
 
-/* line 375, main.scss */
+/* line 377, main.scss */
 .intro_header, .intro_subhead {
   color: #fff !important;
 }
 
-/* line 379, main.scss */
+/* line 381, main.scss */
 ul.nav li.dropdown:hover > ul.dropdown-menu {
   display: block;
 }
 
-/* line 382, main.scss */
+/* line 384, main.scss */
 .dropdown-menu {
   background-color: none;
   background: url("../images/header_bgl.png");
@@ -9236,97 +9242,97 @@ ul.nav li.dropdown:hover > ul.dropdown-menu {
   border-top: 1px solid #E8B964;
 }
 
-/* line 388, main.scss */
+/* line 390, main.scss */
 dropdown-menu .divider {
   background-color: #FECAAA;
 }
 
-/* line 391, main.scss */
+/* line 393, main.scss */
 .dropdown-menu > li > a {
   color: #ccc;
 }
 
-/* line 394, main.scss */
+/* line 396, main.scss */
 .dropdown-menu > li > a:hover {
   background-color: transparent;
   color: #fff;
 }
 
-/* line 398, main.scss */
+/* line 400, main.scss */
 .dropdown-menu > li > a:focus {
   background-color: transparent;
   color: #fff;
 }
 
-/* line 403, main.scss */
+/* line 405, main.scss */
 .submenu {
   clear: both;
 }
 
-/* line 406, main.scss */
+/* line 408, main.scss */
 .submenu li {
   float: right;
   color: #aaa;
   padding: 5px 15px;
 }
 
-/* line 411, main.scss */
+/* line 413, main.scss */
 .submenu li a {
   color: #ccc;
 }
 
-/* line 414, main.scss */
+/* line 416, main.scss */
 .submenu li a:hover {
   color: #fff;
 }
 
-/* line 417, main.scss */
+/* line 419, main.scss */
 .howitwork {
   padding: 0;
   margin: 0 0 30px;
 }
 
-/* line 421, main.scss */
+/* line 423, main.scss */
 .intro_subhead, #send_bid {
   margin-bottom: 30px;
 }
 
-/* line 424, main.scss */
+/* line 426, main.scss */
 .scroller_arrow {
   margin: 80px auto;
 }
 
-/* line 427, main.scss */
+/* line 429, main.scss */
 .img_container {
   min-height: 200px;
 }
 
-/* line 430, main.scss */
+/* line 432, main.scss */
 .content_main_header, .intro_header {
   font-size: 2.2em;
   color: #555;
 }
 
-/* line 435, main.scss */
+/* line 437, main.scss */
 .content_sub_header {
   font-size: 1.4em;
   color: #222;
   font-weight: bold;
 }
 
-/* line 440, main.scss */
+/* line 442, main.scss */
 .content_min_header {
   font-size: 1.2em;
   color: #555;
   font-weight: bold;
 }
 
-/* line 445, main.scss */
+/* line 447, main.scss */
 .content_description {
   margin-top: 40px;
 }
 
-/* line 448, main.scss */
+/* line 450, main.scss */
 .primary_button {
   background: #E8B964 !important;
   padding: 10px 15px;
@@ -9336,13 +9342,13 @@ dropdown-menu .divider {
   cursor: pointer;
 }
 
-/* line 456, main.scss */
+/* line 458, main.scss */
 .primary_button:hover {
   color: #000;
   background: #fAEB86 !important;
 }
 
-/* line 460, main.scss */
+/* line 462, main.scss */
 .secondary_but {
   border: 2px solid #999;
   padding: 10px 15px;
@@ -9353,30 +9359,30 @@ dropdown-menu .divider {
   cursor: pointer;
 }
 
-/* line 469, main.scss */
+/* line 471, main.scss */
 .registerBut {
   padding-left: 20px !important;
   padding-right: 20px !important;
 }
 
-/* line 473, main.scss */
+/* line 475, main.scss */
 .secondary_but:hover {
   background: #fcfcfc;
   border: 2px solid #555;
   color: #000;
 }
 
-/* line 478, main.scss */
+/* line 480, main.scss */
 .s_but {
   background: #fff;
 }
 
-/* line 481, main.scss */
+/* line 483, main.scss */
 .s_but_2 {
   width: auto;
 }
 
-/* line 484, main.scss */
+/* line 486, main.scss */
 .s_but_sm {
   border-width: 1px;
   padding: 12px 10px;
@@ -9384,70 +9390,70 @@ dropdown-menu .divider {
   text-align: center;
 }
 
-/* line 491, main.scss */
+/* line 493, main.scss */
 .content_head {
   padding: 20px 0;
 }
 
-/* line 494, main.scss */
+/* line 496, main.scss */
 .pull-centre {
   margin: 0 25%;
 }
 
-/* line 497, main.scss */
+/* line 499, main.scss */
 .np {
   padding: 0;
   margin: 0;
 }
 
-/* line 498, main.scss */
+/* line 500, main.scss */
 .auction_item {
   margin-top: 40px;
   padding: 0% 1%;
   height: 30em;
 }
 
-/* line 503, main.scss */
+/* line 505, main.scss */
 .auction_container {
   padding: 0;
   margin: 2% 0 2% -1%;
   width: 102%;
 }
 
-/* line 508, main.scss */
+/* line 510, main.scss */
 .auction_content {
   height: 98%;
   padding: 0 0 2%;
   margin: 0;
 }
 
-/* line 513, main.scss */
+/* line 515, main.scss */
 .shadow {
   box-shadow: 0px 0px 3px 0px #ccc;
 }
 
-/* line 518, main.scss */
+/* line 520, main.scss */
 .shadow_2 {
   box-shadow: 3px 3px 3px 0px #ccc;
 }
 
-/* line 523, main.scss */
+/* line 525, main.scss */
 .shadow_3 {
   box-shadow: 0px 0px 6px 0px #00bb00;
 }
 
-/* line 528, main.scss */
+/* line 530, main.scss */
 .shadow_4 {
   box-shadow: 0px 0px 6px 0px #FF0000;
 }
 
-/* line 533, main.scss */
+/* line 535, main.scss */
 .auction_item .img_container {
   height: 71%;
   overflow: hidden;
 }
 
-/* line 537, main.scss */
+/* line 539, main.scss */
 .auction_notification {
   background: #fff;
   padding: 10px 15px;
@@ -9458,7 +9464,7 @@ dropdown-menu .divider {
   z-index: 1;
 }
 
-/* line 546, main.scss */
+/* line 548, main.scss */
 .close_icon {
   background: url("../images/close icon.png");
   padding: 5px;
@@ -9467,25 +9473,25 @@ dropdown-menu .divider {
   margin: 3px 10px 0 0px;
 }
 
-/* line 553, main.scss */
+/* line 555, main.scss */
 .auction_thumbDetails {
   height: auto;
 }
 
-/* line 556, main.scss */
+/* line 558, main.scss */
 .auction_thumbDetails .price {
   font-size: 1.7em;
   font-weight: bold;
 }
 
-/* line 560, main.scss */
+/* line 562, main.scss */
 #how_it_works {
   background: #fafafa;
   text-align: center;
   padding: 100px 0;
 }
 
-/* line 565, main.scss */
+/* line 567, main.scss */
 #how_it_works_video {
   background: #aaa;
   text-align: center;
@@ -9494,57 +9500,57 @@ dropdown-menu .divider {
   z-index: 10;
 }
 
-/* line 573, main.scss */
+/* line 575, main.scss */
 #on_going_auction {
   padding-top: 80px;
   padding-bottom: 80px;
 }
 
-/* line 577, main.scss */
+/* line 579, main.scss */
 #search_box, .home_intro {
   margin-top: 26%;
   text-align: center;
 }
 
-/* line 581, main.scss */
+/* line 583, main.scss */
 .round {
   border-radius: 50%;
   background: #E8B964;
   color: #000;
 }
 
-/* line 586, main.scss */
+/* line 588, main.scss */
 .highlight {
   width: 100px;
   margin-top: 80px;
   height: 100px;
 }
 
-/* line 591, main.scss */
+/* line 593, main.scss */
 .highlight_description {
   margin-top: 20px;
   text-align: left;
 }
 
-/* line 595, main.scss */
+/* line 597, main.scss */
 .sub_header {
   font-size: 1.7em;
   text-align: left;
   margin: 20px 0;
 }
 
-/* line 600, main.scss */
+/* line 602, main.scss */
 .description {
   font-size: 1em;
   text-align: left;
 }
 
-/* line 604, main.scss */
+/* line 606, main.scss */
 .numbering {
   left: 20%;
 }
 
-/* line 605, main.scss */
+/* line 607, main.scss */
 .numbering, .numbering_l {
   width: 35px;
   height: 35px;
@@ -9553,30 +9559,30 @@ dropdown-menu .divider {
   padding: 10px;
 }
 
-/* line 613, main.scss */
+/* line 615, main.scss */
 .numbering_l {
   text-align: center;
   right: 20% !important;
 }
 
-/* line 617, main.scss */
+/* line 619, main.scss */
 .how_it_works_img_container {
   position: relative;
 }
 
-/* line 620, main.scss */
+/* line 622, main.scss */
 .how_it_works_img {
   width: 150px;
   height: 150px;
   margin-top: 50px;
 }
 
-/* line 628, main.scss */
+/* line 630, main.scss */
 .form_container {
   background: #fff;
 }
 
-/* line 633, main.scss */
+/* line 635, main.scss */
 .short_arrowL, .long_arrowL, .long_arrowR, .short_arrowR {
   width: 20px;
   padding: 10px;
@@ -9585,53 +9591,53 @@ dropdown-menu .divider {
   color: #000;
 }
 
-/* line 640, main.scss */
+/* line 642, main.scss */
 .short_arrowL {
   margin-left: 10px;
 }
 
-/* line 643, main.scss */
+/* line 645, main.scss */
 .button_arrow {
   margin-left: 60px;
 }
 
-/* line 644, main.scss */
+/* line 646, main.scss */
 .short_arrowR {
   background: #dddd6b;
 }
 
-/* line 647, main.scss */
+/* line 649, main.scss */
 .long_arrowL {
   padding: 10px 15px;
   margin: 0 10px 0 0;
 }
 
-/* line 652, main.scss */
+/* line 654, main.scss */
 .long_arrowR {
   padding: 10px 15px;
   margin-left: 10px;
 }
 
-/* line 656, main.scss */
+/* line 658, main.scss */
 .divider {
   margin: 40px 0 0px;
   background: #ccc;
   height: 2px;
 }
 
-/* line 661, main.scss */
+/* line 663, main.scss */
 .divider_footer {
   height: 1px;
   margin: 40px 0 30px;
   background: #ccc;
 }
 
-/* line 666, main.scss */
+/* line 668, main.scss */
 .copyright {
   text-align: center;
 }
 
-/* line 667, main.scss */
+/* line 669, main.scss */
 .dividerh {
   background: #ccc;
   width: 1px;
@@ -9640,30 +9646,30 @@ dropdown-menu .divider {
   left: 50%;
 }
 
-/* line 675, main.scss */
+/* line 677, main.scss */
 .search_footer {
   margin-top: 30px;
 }
 
-/* line 678, main.scss */
+/* line 680, main.scss */
 #top_bids {
   background: #eaeaea;
   margin-top: -70px;
   padding: 70px 0;
 }
 
-/* line 683, main.scss */
+/* line 685, main.scss */
 #all_bids {
   padding: 70px 0;
 }
 
-/* line 686, main.scss */
+/* line 688, main.scss */
 .showing {
   display: block;
   float: left;
 }
 
-/* line 692, main.scss */
+/* line 694, main.scss */
 .contact_form input, .contact_form textarea {
   width: 100% !important;
   margin: 10px 0;
@@ -9671,18 +9677,18 @@ dropdown-menu .divider {
   color: #fff;
 }
 
-/* line 698, main.scss */
+/* line 700, main.scss */
 .contact_form {
   margin-top: 40px;
   margin-bottom: 40px;
 }
 
-/* line 702, main.scss */
+/* line 704, main.scss */
 .contact_form textarea {
   min-height: 100px;
 }
 
-/* line 705, main.scss */
+/* line 707, main.scss */
 .contact_emph {
   color: #eee;
   margin-top: 20px;
@@ -9691,34 +9697,39 @@ dropdown-menu .divider {
   text-align: center;
 }
 
-/* line 712, main.scss */
+/* line 714, main.scss */
 .contact_emph img {
   margin-right: 20px;
 }
 
-/* line 715, main.scss */
+/* line 717, main.scss */
 #faqs {
   margin: 40px auto;
 }
 
-/* line 716, main.scss */
+/* line 720, main.scss */
 .faq_category {
   background: #eee;
   padding: 20px;
   margin: 20px 0;
 }
 
-/* line 721, main.scss */
+/* line 725, main.scss */
 .faqQA {
   margin-top: 20px;
 }
 
-/* line 726, main.scss */
+/* line 729, main.scss */
+.faqQA .description {
+  text-align: justify !important;
+}
+
+/* line 734, main.scss */
 #auction_details {
   margin-top: 140px;
 }
 
-/* line 729, main.scss */
+/* line 737, main.scss */
 .bid_signal_open {
   width: 10px;
   height: 10px;
@@ -9729,71 +9740,71 @@ dropdown-menu .divider {
   margin-top: 4px;
 }
 
-/* line 738, main.scss */
+/* line 746, main.scss */
 .signal_close {
   background-color: #E8B964;
 }
 
-/* line 741, main.scss */
+/* line 749, main.scss */
 .bidHistroyHead {
   font-size: 1.2em;
   font-weight: bold;
   margin: 10px 0;
 }
 
-/* line 746, main.scss */
+/* line 754, main.scss */
 #auction_body {
   margin: 80px 0;
 }
 
-/* line 750, main.scss */
+/* line 758, main.scss */
 .small_divider {
   margin: 0 10px;
 }
 
-/* line 753, main.scss */
+/* line 761, main.scss */
 .auction_detail_content {
   margin: 40px 0 !important;
 }
 
-/* line 756, main.scss */
+/* line 764, main.scss */
 .reserveNote {
   margin: 20px 0;
   padding: 0;
 }
 
-/* line 760, main.scss */
+/* line 768, main.scss */
 .slide_show {
   min-height: 20px;
 }
 
-/* line 764, main.scss */
+/* line 772, main.scss */
 .rating_fill {
   color: #f00;
   font-size: 1.2em;
   margin-right: 3px;
 }
 
-/* line 769, main.scss */
+/* line 777, main.scss */
 .rating_null {
   color: #ccc;
   font-size: 1.2em;
   margin-right: 3px;
 }
 
-/* line 774, main.scss */
+/* line 782, main.scss */
 .price_big {
   font-size: 1.5em;
   font-weight: bold;
   margin: 5px 0 5px;
 }
 
-/* line 779, main.scss */
+/* line 787, main.scss */
 #detail_contact {
   text-align: center;
 }
 
-/* line 782, main.scss */
+/* line 790, main.scss */
 .auction_bidding_form {
   margin-top: 40px;
   font-size: 0.8em;
@@ -9801,14 +9812,14 @@ dropdown-menu .divider {
   width: 100%;
 }
 
-/* line 789, main.scss */
+/* line 797, main.scss */
 .auction_bidding_form .tab {
   width: 49% !important;
   float: left;
   margin-bottom: 30px;
 }
 
-/* line 795, main.scss */
+/* line 803, main.scss */
 .auction_bidding_form input {
   width: 100% !important;
   background: #eee;
@@ -9817,7 +9828,7 @@ dropdown-menu .divider {
   margin-top: 5px;
 }
 
-/* line 802, main.scss */
+/* line 810, main.scss */
 .bid_container {
   background: #eee;
   padding: 10px 15px;
@@ -9826,32 +9837,32 @@ dropdown-menu .divider {
   margin-bottom: 20px;
 }
 
-/* line 809, main.scss */
+/* line 817, main.scss */
 .bid_container input {
   width: 80% !important;
   background: none;
   padding: 0;
 }
 
-/* line 814, main.scss */
+/* line 822, main.scss */
 .spacer {
   margin-right: 2%;
 }
 
-/* line 817, main.scss */
+/* line 825, main.scss */
 .frontPage {
   font-size: 2.5em;
   text-shadow: 1px 1px 2px #000000;
   font-family: 'Flamenco', cursive;
 }
 
-/* line 824, main.scss */
+/* line 832, main.scss */
 .Bmarrow {
   padding: 10px 25px;
   width: 65px;
 }
 
-/* line 828, main.scss */
+/* line 836, main.scss */
 .Bleft {
   position: absolute;
   left: 0;
@@ -9859,7 +9870,7 @@ dropdown-menu .divider {
   margin-left: 0;
 }
 
-/* line 835, main.scss */
+/* line 843, main.scss */
 .Bright {
   position: absolute;
   right: 0;
@@ -9867,14 +9878,14 @@ dropdown-menu .divider {
   margin-right: 0;
 }
 
-/* line 841, main.scss */
+/* line 849, main.scss */
 .thumbContainer_slide {
   position: relative;
   overflow: hidden;
   max-height: 100px;
 }
 
-/* line 846, main.scss */
+/* line 854, main.scss */
 .thumb_container {
   position: relative;
   overflow: hidden;
@@ -9882,7 +9893,7 @@ dropdown-menu .divider {
   margin-top: 30px;
 }
 
-/* line 852, main.scss */
+/* line 860, main.scss */
 .thumbImg {
   width: 20%;
   overflow: hidden;
@@ -9890,18 +9901,18 @@ dropdown-menu .divider {
   cursor: pointer;
 }
 
-/* line 858, main.scss */
+/* line 866, main.scss */
 .thumbImg img {
   width: 100%;
 }
 
-/* line 861, main.scss */
+/* line 869, main.scss */
 .slideViewer {
   height: 350px;
   overflow: hidden;
 }
 
-/* line 865, main.scss */
+/* line 873, main.scss */
 .slideMover {
   position: absolute;
   z-index: 1;
@@ -9913,55 +9924,55 @@ dropdown-menu .divider {
   cursor: pointer;
 }
 
-/* line 875, main.scss */
+/* line 883, main.scss */
 .slideMover img {
   margin: 30% 40%;
 }
 
-/* line 878, main.scss */
+/* line 886, main.scss */
 .slideMoveL {
   left: 0;
 }
 
-/* line 881, main.scss */
+/* line 889, main.scss */
 .slideMoveL img:hover {
   margin-left: 38%;
 }
 
-/* line 884, main.scss */
+/* line 892, main.scss */
 .slideMoveR {
   right: 0;
 }
 
-/* line 887, main.scss */
+/* line 895, main.scss */
 .slideMoveR img:hover {
   margin-right: 38%;
 }
 
-/* line 890, main.scss */
+/* line 898, main.scss */
 .bidCon {
   padding: 15px;
   margin: 0 0 20px;
   border-radius: 3px;
 }
 
-/* line 895, main.scss */
+/* line 903, main.scss */
 .timeTitle {
   font-size: 0.8em;
   color: #555;
 }
 
-/* line 900, main.scss */
+/* line 908, main.scss */
 .timeNum {
   font-size: 2em;
 }
 
-/* line 903, main.scss */
+/* line 911, main.scss */
 .timeCon {
   position: relative;
 }
 
-/* line 907, main.scss */
+/* line 915, main.scss */
 .timeDot {
   font-size: 2em;
   position: absolute;
@@ -9969,32 +9980,32 @@ dropdown-menu .divider {
   right: 30%;
 }
 
-/* line 913, main.scss */
+/* line 921, main.scss */
 .arrCon {
   height: 100%;
   padding: 50% 0 0;
 }
 
-/* line 917, main.scss */
+/* line 925, main.scss */
 .priceCon {
   padding-left: 15px;
   color: #D0021B;
 }
 
-/* line 921, main.scss */
+/* line 929, main.scss */
 .bidderCon {
   text-align: center;
   background: #f4f4f4;
   font-size: 1.5em;
 }
 
-/* line 926, main.scss */
+/* line 934, main.scss */
 .bidform {
   font-size: 1.5em;
   margin-top: 15px;
 }
 
-/* line 930, main.scss */
+/* line 938, main.scss */
 .bidbut {
   background: #9b9b9b;
   padding: 25px 10px;
@@ -10002,19 +10013,19 @@ dropdown-menu .divider {
   cursor: pointer;
 }
 
-/* line 936, main.scss */
+/* line 944, main.scss */
 .bidbutton {
   padding: 20px;
   margin-top: 20px;
   font-size: 1.2em;
 }
 
-/* line 941, main.scss */
+/* line 949, main.scss */
 .bidCur {
   margin-top: 10px;
 }
 
-/* line 946, main.scss */
+/* line 954, main.scss */
 .forms {
   border: 1px solid #ccc;
   padding: 15px;
@@ -10022,27 +10033,27 @@ dropdown-menu .divider {
   color: #333;
 }
 
-/* line 952, main.scss */
+/* line 960, main.scss */
 .formMenu {
   border-bottom: 2px solid #ccc;
   font-size: 1.6em;
   margin: 30px 0;
 }
 
-/* line 957, main.scss */
+/* line 965, main.scss */
 .menuList {
   padding: 20px;
   text-align: center;
   cursor: pointer;
 }
 
-/* line 962, main.scss */
+/* line 970, main.scss */
 .act {
   border-bottom: 4px solid #E8B964;
   font-weight: bold;
 }
 
-/* line 966, main.scss */
+/* line 974, main.scss */
 .checkCon {
   padding: 3px 5px;
   width: 24px;
@@ -10051,50 +10062,50 @@ dropdown-menu .divider {
   margin: -3px 20px 10px 0px;
 }
 
-/* line 974, main.scss */
+/* line 982, main.scss */
 .termsCon {
   paddin: 0;
   margin: 23px 0 20px;
 }
 
-/* line 978, main.scss */
+/* line 986, main.scss */
 .termsCon label {
   font-size: 0.8em;
 }
 
-/* line 979, main.scss */
+/* line 987, main.scss */
 .signupbg {
   padding: 30% 10% 0 0;
   margin: 0;
   color: #fff !important;
 }
 
-/* line 984, main.scss */
+/* line 992, main.scss */
 .signupintro {
   margin: 0 0 10% 0;
   padding: 0;
 }
 
-/* line 988, main.scss */
+/* line 996, main.scss */
 .regSignBg {
   position: absolute;
   border-top-left-radius: 10px;
   border-bottom-left-radius: 10px;
 }
 
-/* line 993, main.scss */
+/* line 1001, main.scss */
 .regSignForm {
   padding: 60px 0;
   min-height: 800px;
 }
 
-/* line 997, main.scss */
+/* line 1005, main.scss */
 .regHead {
   color: #eee;
   text-shadow: 1px 1px 2px #000000;
 }
 
-/* line 998, main.scss */
+/* line 1006, main.scss */
 .profileThumb {
   background: #E8B964;
   width: 40px;
@@ -10108,39 +10119,39 @@ dropdown-menu .divider {
   font-size: 1.4em;
 }
 
-/* line 1010, main.scss */
+/* line 1018, main.scss */
 .userInfo {
   font-weight: bold;
   font-size: 1.4em;
   cursor: pointer;
 }
 
-/* line 1015, main.scss */
+/* line 1023, main.scss */
 .userP {
   margin-top: 10px;
   text-align: center;
   font-size: 1.2em;
 }
 
-/* line 1020, main.scss */
+/* line 1028, main.scss */
 .username {
   float: left;
   font-size: 1em;
   margin-right: 10px;
 }
 
-/* line 1025, main.scss */
+/* line 1033, main.scss */
 .profileCon {
   padding: 60px 0;
   margin-top: 100px;
 }
 
-/* line 1029, main.scss */
+/* line 1037, main.scss */
 .historyCon {
   padding: 100px 0 20px 5%;
 }
 
-/* line 1033, main.scss */
+/* line 1041, main.scss */
 .imgCon {
   width: 100%;
   text-align: center;
@@ -10148,22 +10159,34 @@ dropdown-menu .divider {
   font-size: 120px;
 }
 
-/* line 1039, main.scss */
+/* line 1047, main.scss */
 .profileName {
   margin-top: 15px;
   padding: 5px 0;
   font-size: 1.6em;
 }
 
-/* line 1044, main.scss */
+/* line 1052, main.scss */
 .profileState {
   font-size: 1.2em;
   margin-bottom: 5px;
 }
 
-/* line 1048, main.scss */
+/* line 1056, main.scss */
 .profile_det .divider {
   margin: 20px 0 5px;
+}
+
+/* line 1060, main.scss */
+.des_link {
+  color: #d8c964;
+  text-decoration: underline;
+}
+
+/* line 1064, main.scss */
+.des_link:hover {
+  color: #b6a742;
+  text-decoration: underline;
 }
 
 /*# sourceMappingURL=main.css.map */
