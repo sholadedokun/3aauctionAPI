@@ -4,27 +4,8 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-var nodemailer = require('nodemailer');
+var nodemailer = required=('nodemailer');
 
-//email configurations
-var smtpConfig = {
-    host: 'box875.bluehost.com',
-    port: 465,
-    secure: true, // use SSL
-    auth: {
-        user: 'info@autonimrod.com',
-        pass: 'Autonimrod1@'
-    }
-};
-var transporter = nodemailer.createTransport(smtpConfig)
-// verify connection configuration
-transporter.verify(function(error, success) {
-   if (error) {
-        console.log(error);
-   } else {
-        console.log('Server is ready to take our messages');
-   }
-});
 
 //multer configurations for uploading emails
 var multer  = require('multer')

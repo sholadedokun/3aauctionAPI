@@ -22,7 +22,7 @@ angular.module('3aAuctionsApp')
     $scope.subscriber=function(email){
         $scope.info='Please Wait...';
         cfpLoadingBar.start()
-        var subscriber={emailAdddress:email, source:'webapp'}
+        var subscriber={emailAddress:email, source:'webapp'}
         appActions.admin('addSubscriber/').save(subscriber, function(data){
             cfpLoadingBar.complete()
             if(data.error){
@@ -36,7 +36,6 @@ angular.module('3aAuctionsApp')
     $scope.subMenu=function(action, index){
         $scope.sMenu=action;
         $scope.sIndex=index;
-
     }
     $scope.signOut=function(){
         $scope.user={id:0}
@@ -314,14 +313,4 @@ angular.module('3aAuctionsApp')
               autoDelay:10000
           });
       }
-
-      $scope.subscriber=function(email){
-          appService.addRequest_data('addSubscriber', email).then(function(response){
-            $scope.info=response;
-          },
-          function(error){
-            console.log('error this '.error)
-          });
-      }
-
 }]);

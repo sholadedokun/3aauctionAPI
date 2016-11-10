@@ -81,7 +81,7 @@ var tagSchema= new Schema({
 })
 
 var emailSubscriberSchema= new Schema({
-    emailAdddress:String,
+    emailAddress:String,
     source:String,
     dateCreated:{ type: Date, default: Date.now }
 })

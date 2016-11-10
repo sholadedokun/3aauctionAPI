@@ -8,17 +8,19 @@
  * Controller of the 3aAuctionsApp
  */
 angular.module('3aAuctionsApp')
-  .controller('ContactCtrl', ['$scope', 'appService', function ($scope,  appService) {
-      $scope.sortItems=['Select one', 'sort by age'];
-
+  .controller('ContactCtrl', ['$scope', 'appActions', 'cfpLoadingBar', function ($scope,  appActions, cfpLoadingBar) {
       $scope.sendContact=function(contact){
-          $scope.info='';
-          appService.addRequest_data('sendContact', contact).then(function(response){
-            $scope.info=response;
-          },
-          function(error){
-            console.log('error this '.error)
-          });
+          $scope.info='Please wait...';
+          cfpLoadingBar.start()
+          appActions.admin('contact/').save(contact, function(data){
+              cfpLoadingBar.complete()
+              if(data.error){
+                  $scope.info=data.error
+              }
+              else{
+                  $scope.info='Your message was received our representative will contact you shorlty.';
+              }
+          })
 
       }
   }])

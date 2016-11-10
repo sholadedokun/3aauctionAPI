@@ -8,12 +8,12 @@
                 <!-- <div class="col-xs-12 search intro_subhead">TELL US ABOUT YOUR DEAL</div> -->
             </div>
             <form class="col-xs-12 col-md-8 col-md-offset-2 contact_form" ng-submit="sendContact(contact)">
-                <input type="text" class="col-xs-12" required placeholder="Name" ng-model="contact.name" />
-                <input type="email" class="col-xs-12" required placeholder="Email" ng-model="contact.email" />
-                <input type="phone" class="col-xs-12" required placeholder="Phone Number" ng-model="contact.phone" />
-                <textarea  class="col-xs-12" required placeholder="Message"  ng-model="contact.message"></textarea>
+                <input type="text" class="col-xs-12" required placeholder="Your Name" ng-model="contact.name" />
+                <input type="email" class="col-xs-12" required placeholder="Your Email" ng-model="contact.email" />
+                <input type="phone" class="col-xs-12" required placeholder="Your Phone Number" ng-model="contact.phone" />
+                <textarea  class="col-xs-12" required placeholder="Your Message to us"  ng-model="contact.message"></textarea>
                 <input type="submit" class="col-xs-12 primary_button" value="SEND" />
-                <div class="col-xs-10 col-xs-offset-1 .contact_emph" ng-bind="info"></div>
+                <div class="col-xs-10 col-xs-offset-1 contact_emph" ng-bind="info"></div>
                 <div class="col-xs-12 contact_emph">
                     <span class="col-xs-12 col-sm-5 np">
                         <span class="pull-right np"> <img src="images/icon-email.png" width="18" height="16"/> info@3aauctions.com</span>
