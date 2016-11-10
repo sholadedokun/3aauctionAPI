@@ -20,8 +20,10 @@ angular.module('3aAuctionsApp')
         ]
     ]
     $scope.subscriber=function(email){
+        $scope.info='Please Wait...';
         cfpLoadingBar.start()
-        appActions.admin('addSubscriber/').save(email, function(data){
+        var subscriber={emailAdddress:email, source:'webapp'}
+        appActions.admin('addSubscriber/').save(subscriber, function(data){
             cfpLoadingBar.complete()
             if(data.error){
                 $scope.info=data.error
