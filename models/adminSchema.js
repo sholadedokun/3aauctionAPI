@@ -1,5 +1,7 @@
 var mongoose=require('mongoose');
 var Schema = mongoose.Schema
+bcrypt= require('bcrypt');
+SALT_WORK_FACTOR=10;
 var inventorySchema= new Schema({
     category: {type:Schema.Types.ObjectId, ref:'category'},
     subCategory:{type:Schema.Types.ObjectId, ref:'subcategory'},
@@ -64,15 +66,43 @@ var biddingHistorySchema= new Schema({
 var userSchema= new Schema({
     firstName:String,
     lastName:String,
-    userName:String,
-    email:String,
-    password:String,
+    userName:{type:String, required:true, index:{unique:true, dropDups: true}},
+    email:{type:String, required:true, index:{unique:true, dropDups: true}},
+    password:{type:String, required:true},
     phone:String,
     userBids:[{type:Schema.Types.ObjectId, ref:'inventory'}],
     userAuctions:[{type:Schema.Types.ObjectId, ref:'inventory'}],
     dateCreated:{ type: Date, default: Date.now },
     lastLogin:{ type: Date, default: Date.now }
 })
+
+userSchema.pre('save', function(next) {
+    var user = this;
+
+    // only hash the password if it has been modified (or is new)
+    if (!user.isModified('password')) return next();
+
+    // generate a salt
+    bcrypt.genSalt(SALT_WORK_FACTOR, function(err, salt) {
+        if (err) return next(err);
+
+        // hash the password along with our new salt
+        bcrypt.hash(user.password, salt, function(err, hash) {
+            if (err) return next(err);
+
+            // override the cleartext password with the hashed one
+            user.password = hash;
+            next();
+        });
+    });
+});
+
+userSchema.methods.comparePassword = function(candidatePassword, cb) {
+    bcrypt.compare(candidatePassword, this.password, function(err, isMatch) {
+        if (err) return cb(err);
+        cb(null, isMatch);
+    });
+};
 var tagSchema= new Schema({
     propertyId:{type:Schema.Types.ObjectId, ref:'inventory'},
     tags:String,

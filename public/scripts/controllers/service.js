@@ -92,19 +92,19 @@ appServices.service('appService', ['$q','$http','$location','$rootScope', 'cfpLo
         else{form_data.append('data', '');}
         return form_data;
     }
-    var addRequest_data=function(action, data){
+    var addRequest_data=function(url, data){
 
 		return $q(function(resolve, reject) {
             cfpLoadingBar.start();
-            if(data==''){data={}}
-            var url=urlprefix+'server/get_allq.php';
-            if(action!='' && data!=''){
-                if(typeof(data)!=='object'){
-                    temp={action:action, data:data};
-                    data=temp;
-                }
-                else{data.action=action; }
-            }
+            //if(data==''){data={}}
+            //var url=urlprefix+'server/get_allq.php';
+            // if(action!='' && data!=''){
+            //     if(typeof(data)!=='object'){
+            //         temp={action:action, data:data};
+            //         data=temp;
+            //     }
+            //     else{data.action=action; }
+            // }
             form_data=parsetoformdata(data);
             $http({
                 method: 'POST',

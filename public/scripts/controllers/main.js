@@ -87,7 +87,7 @@ angular.module('3aAuctionsApp')
 
 
 }])
-.controller('regSignModalInstanceCtrl', ['$scope', '$rootScope', '$uibModalInstance', '$location', 'cfpLoadingBar', 'userData', 'option','appActions', function ($scope, $rootScope,  $modalInstance, $location, cfpLoadingBar, userData, option, appActions){
+.controller('regSignModalInstanceCtrl', ['$scope', '$rootScope', '$uibModalInstance', '$location', 'cfpLoadingBar', 'userData', 'option','appActions', 'appService', '$http', function ($scope, $rootScope,  $modalInstance, $location, cfpLoadingBar, userData, option, appActions, appService, $http){
     $scope.regState=option;
     $scope.user=userData.data();
     $scope.infoRev=false;
@@ -115,7 +115,8 @@ angular.module('3aAuctionsApp')
     $scope.login=function(){
         cfpLoadingBar.start()
         $scope.infoRev=true;
-        appActions.admin('userLogin/').query($scope.user, function(data){
+
+        appActions.admin('userLogin/').save($scope.user, function(data){
             cfpLoadingBar.complete()
             if(data.length==1){
                 $scope.user.id=data[0]._id;

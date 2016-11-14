@@ -271,6 +271,9 @@ a:hover{text-decoration: none}
          height: 260px;
          background: url(../images/signupbg_xs.jpg);
      }
+     .navbar-collapse{
+            background:#000;
+     }
 }
 
 @media (min-width: 992px){
@@ -334,6 +337,7 @@ a:hover{text-decoration: none}
 .navbar-collapse{
     padding:0;
     text-align:center;
+
 }
 .navbar{
     border-radius:0;

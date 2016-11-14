@@ -9087,28 +9087,33 @@ a:hover {
     height: 260px;
     background: url(../images/signupbg_xs.jpg);
   }
+
+  /* line 274, main.scss */
+  .navbar-collapse {
+    background: #000;
+  }
 }
 @media (min-width: 992px) {
-  /* line 277, main.scss */
+  /* line 280, main.scss */
   .modal-lg {
     width: 900px;
   }
 }
 @media (min-width: 1200px) {
-  /* line 282, main.scss */
+  /* line 285, main.scss */
   .modal-lg {
     width: 1170px;
   }
 }
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
-  /* line 290, main.scss */
+  /* line 293, main.scss */
   .container {
     max-width: 90%;
   }
 
   /* Remove the padding we set earlier */
-  /* line 295, main.scss */
+  /* line 298, main.scss */
   .header,
   .marketing,
   .footer {
@@ -9117,58 +9122,58 @@ a:hover {
   }
 
   /* Space out the masthead */
-  /* line 302, main.scss */
+  /* line 305, main.scss */
   .header {
     margin-bottom: 0px;
   }
 
   /* Remove the bottom border on the jumbotron for visual effect */
-  /* line 306, main.scss */
+  /* line 309, main.scss */
   .jumbotron {
     border-bottom: 0;
   }
 
-  /* line 311, main.scss */
+  /* line 314, main.scss */
   .navbar-nav > li {
     padding: 0 0 0 30px;
   }
 
-  /* line 314, main.scss */
+  /* line 317, main.scss */
   .nav > li > a {
     position: relative;
     display: block;
     padding: 10px 0;
   }
 
-  /* line 319, main.scss */
+  /* line 322, main.scss */
   .logoImg {
     background: url("../images/3a-logos.png");
     width: 120px;
     height: 137px;
   }
 }
-/* line 325, main.scss */
+/* line 328, main.scss */
 .navbar-default .navbar-nav > li > a {
   color: #ccc;
 }
 
-/* line 328, main.scss */
+/* line 331, main.scss */
 .navbar-default .navbar-nav > li > a:hover {
   color: #fff;
 }
 
-/* line 331, main.scss */
+/* line 334, main.scss */
 .navbar-default .navbar-nav > li > a:focus {
   color: #fff;
 }
 
-/* line 334, main.scss */
+/* line 337, main.scss */
 .navbar-collapse {
   padding: 0;
   text-align: center;
 }
 
-/* line 338, main.scss */
+/* line 342, main.scss */
 .navbar {
   border-radius: 0;
   border: none;
@@ -9177,12 +9182,12 @@ a:hover {
   margin-bottom: 0px;
 }
 
-/* line 345, main.scss */
+/* line 349, main.scss */
 .logo_bg {
   height: 50px;
 }
 
-/* line 349, main.scss */
+/* line 353, main.scss */
 .navbar-brand {
   width: 110px;
   position: relative;
@@ -9191,50 +9196,50 @@ a:hover {
   z-index: 20000;
 }
 
-/* line 356, main.scss */
+/* line 360, main.scss */
 .navbar-default {
   background: none;
 }
 
-/* line 357, main.scss */
+/* line 361, main.scss */
 .header_img {
   background: #efefef;
   height: auto;
   position: relative;
 }
 
-/* line 364, main.scss */
+/* line 368, main.scss */
 .navbar-toggle {
   background-color: transparent !important;
   border: none;
 }
 
-/* line 368, main.scss */
+/* line 372, main.scss */
 .icon-bar {
   background-color: #E8B964 !important;
 }
 
-/* line 371, main.scss */
+/* line 375, main.scss */
 .just {
   text-align: justify !important;
 }
 
-/* line 374, main.scss */
+/* line 378, main.scss */
 .row {
   margin: 0;
 }
 
-/* line 377, main.scss */
+/* line 381, main.scss */
 .intro_header, .intro_subhead {
   color: #fff !important;
 }
 
-/* line 381, main.scss */
+/* line 385, main.scss */
 ul.nav li.dropdown:hover > ul.dropdown-menu {
   display: block;
 }
 
-/* line 384, main.scss */
+/* line 388, main.scss */
 .dropdown-menu {
   background-color: none;
   background: url("../images/header_bgl.png");
@@ -9242,97 +9247,97 @@ ul.nav li.dropdown:hover > ul.dropdown-menu {
   border-top: 1px solid #E8B964;
 }
 
-/* line 390, main.scss */
+/* line 394, main.scss */
 dropdown-menu .divider {
   background-color: #FECAAA;
 }
 
-/* line 393, main.scss */
+/* line 397, main.scss */
 .dropdown-menu > li > a {
   color: #ccc;
 }
 
-/* line 396, main.scss */
+/* line 400, main.scss */
 .dropdown-menu > li > a:hover {
   background-color: transparent;
   color: #fff;
 }
 
-/* line 400, main.scss */
+/* line 404, main.scss */
 .dropdown-menu > li > a:focus {
   background-color: transparent;
   color: #fff;
 }
 
-/* line 405, main.scss */
+/* line 409, main.scss */
 .submenu {
   clear: both;
 }
 
-/* line 408, main.scss */
+/* line 412, main.scss */
 .submenu li {
   float: right;
   color: #aaa;
   padding: 5px 15px;
 }
 
-/* line 413, main.scss */
+/* line 417, main.scss */
 .submenu li a {
   color: #ccc;
 }
 
-/* line 416, main.scss */
+/* line 420, main.scss */
 .submenu li a:hover {
   color: #fff;
 }
 
-/* line 419, main.scss */
+/* line 423, main.scss */
 .howitwork {
   padding: 0;
   margin: 0 0 30px;
 }
 
-/* line 423, main.scss */
+/* line 427, main.scss */
 .intro_subhead, #send_bid {
   margin-bottom: 30px;
 }
 
-/* line 426, main.scss */
+/* line 430, main.scss */
 .scroller_arrow {
   margin: 80px auto;
 }
 
-/* line 429, main.scss */
+/* line 433, main.scss */
 .img_container {
   min-height: 200px;
 }
 
-/* line 432, main.scss */
+/* line 436, main.scss */
 .content_main_header, .intro_header {
   font-size: 2.2em;
   color: #555;
 }
 
-/* line 437, main.scss */
+/* line 441, main.scss */
 .content_sub_header {
   font-size: 1.4em;
   color: #222;
   font-weight: bold;
 }
 
-/* line 442, main.scss */
+/* line 446, main.scss */
 .content_min_header {
   font-size: 1.2em;
   color: #555;
   font-weight: bold;
 }
 
-/* line 447, main.scss */
+/* line 451, main.scss */
 .content_description {
   margin-top: 40px;
 }
 
-/* line 450, main.scss */
+/* line 454, main.scss */
 .primary_button {
   background: #E8B964 !important;
   padding: 10px 15px;
@@ -9342,13 +9347,13 @@ dropdown-menu .divider {
   cursor: pointer;
 }
 
-/* line 458, main.scss */
+/* line 462, main.scss */
 .primary_button:hover {
   color: #000;
   background: #fAEB86 !important;
 }
 
-/* line 462, main.scss */
+/* line 466, main.scss */
 .secondary_but {
   border: 2px solid #999;
   padding: 10px 15px;
@@ -9359,30 +9364,30 @@ dropdown-menu .divider {
   cursor: pointer;
 }
 
-/* line 471, main.scss */
+/* line 475, main.scss */
 .registerBut {
   padding-left: 20px !important;
   padding-right: 20px !important;
 }
 
-/* line 475, main.scss */
+/* line 479, main.scss */
 .secondary_but:hover {
   background: #fcfcfc;
   border: 2px solid #555;
   color: #000;
 }
 
-/* line 480, main.scss */
+/* line 484, main.scss */
 .s_but {
   background: #fff;
 }
 
-/* line 483, main.scss */
+/* line 487, main.scss */
 .s_but_2 {
   width: auto;
 }
 
-/* line 486, main.scss */
+/* line 490, main.scss */
 .s_but_sm {
   border-width: 1px;
   padding: 12px 10px;
@@ -9390,70 +9395,70 @@ dropdown-menu .divider {
   text-align: center;
 }
 
-/* line 493, main.scss */
+/* line 497, main.scss */
 .content_head {
   padding: 20px 0;
 }
 
-/* line 496, main.scss */
+/* line 500, main.scss */
 .pull-centre {
   margin: 0 25%;
 }
 
-/* line 499, main.scss */
+/* line 503, main.scss */
 .np {
   padding: 0;
   margin: 0;
 }
 
-/* line 500, main.scss */
+/* line 504, main.scss */
 .auction_item {
   margin-top: 40px;
   padding: 0% 1%;
   height: 30em;
 }
 
-/* line 505, main.scss */
+/* line 509, main.scss */
 .auction_container {
   padding: 0;
   margin: 2% 0 2% -1%;
   width: 102%;
 }
 
-/* line 510, main.scss */
+/* line 514, main.scss */
 .auction_content {
   height: 98%;
   padding: 0 0 2%;
   margin: 0;
 }
 
-/* line 515, main.scss */
+/* line 519, main.scss */
 .shadow {
   box-shadow: 0px 0px 3px 0px #ccc;
 }
 
-/* line 520, main.scss */
+/* line 524, main.scss */
 .shadow_2 {
   box-shadow: 3px 3px 3px 0px #ccc;
 }
 
-/* line 525, main.scss */
+/* line 529, main.scss */
 .shadow_3 {
   box-shadow: 0px 0px 6px 0px #00bb00;
 }
 
-/* line 530, main.scss */
+/* line 534, main.scss */
 .shadow_4 {
   box-shadow: 0px 0px 6px 0px #FF0000;
 }
 
-/* line 535, main.scss */
+/* line 539, main.scss */
 .auction_item .img_container {
   height: 71%;
   overflow: hidden;
 }
 
-/* line 539, main.scss */
+/* line 543, main.scss */
 .auction_notification {
   background: #fff;
   padding: 10px 15px;
@@ -9464,7 +9469,7 @@ dropdown-menu .divider {
   z-index: 1;
 }
 
-/* line 548, main.scss */
+/* line 552, main.scss */
 .close_icon {
   background: url("../images/close icon.png");
   padding: 5px;
@@ -9473,25 +9478,25 @@ dropdown-menu .divider {
   margin: 3px 10px 0 0px;
 }
 
-/* line 555, main.scss */
+/* line 559, main.scss */
 .auction_thumbDetails {
   height: auto;
 }
 
-/* line 558, main.scss */
+/* line 562, main.scss */
 .auction_thumbDetails .price {
   font-size: 1.7em;
   font-weight: bold;
 }
 
-/* line 562, main.scss */
+/* line 566, main.scss */
 #how_it_works {
   background: #fafafa;
   text-align: center;
   padding: 100px 0;
 }
 
-/* line 567, main.scss */
+/* line 571, main.scss */
 #how_it_works_video {
   background: #aaa;
   text-align: center;
@@ -9500,57 +9505,57 @@ dropdown-menu .divider {
   z-index: 10;
 }
 
-/* line 575, main.scss */
+/* line 579, main.scss */
 #on_going_auction {
   padding-top: 80px;
   padding-bottom: 80px;
 }
 
-/* line 579, main.scss */
+/* line 583, main.scss */
 #search_box, .home_intro {
   margin-top: 26%;
   text-align: center;
 }
 
-/* line 583, main.scss */
+/* line 587, main.scss */
 .round {
   border-radius: 50%;
   background: #E8B964;
   color: #000;
 }
 
-/* line 588, main.scss */
+/* line 592, main.scss */
 .highlight {
   width: 100px;
   margin-top: 80px;
   height: 100px;
 }
 
-/* line 593, main.scss */
+/* line 597, main.scss */
 .highlight_description {
   margin-top: 20px;
   text-align: left;
 }
 
-/* line 597, main.scss */
+/* line 601, main.scss */
 .sub_header {
   font-size: 1.7em;
   text-align: left;
   margin: 20px 0;
 }
 
-/* line 602, main.scss */
+/* line 606, main.scss */
 .description {
   font-size: 1em;
   text-align: left;
 }
 
-/* line 606, main.scss */
+/* line 610, main.scss */
 .numbering {
   left: 20%;
 }
 
-/* line 607, main.scss */
+/* line 611, main.scss */
 .numbering, .numbering_l {
   width: 35px;
   height: 35px;
@@ -9559,30 +9564,30 @@ dropdown-menu .divider {
   padding: 10px;
 }
 
-/* line 615, main.scss */
+/* line 619, main.scss */
 .numbering_l {
   text-align: center;
   right: 20% !important;
 }
 
-/* line 619, main.scss */
+/* line 623, main.scss */
 .how_it_works_img_container {
   position: relative;
 }
 
-/* line 622, main.scss */
+/* line 626, main.scss */
 .how_it_works_img {
   width: 150px;
   height: 150px;
   margin-top: 50px;
 }
 
-/* line 630, main.scss */
+/* line 634, main.scss */
 .form_container {
   background: #fff;
 }
 
-/* line 635, main.scss */
+/* line 639, main.scss */
 .short_arrowL, .long_arrowL, .long_arrowR, .short_arrowR {
   width: 20px;
   padding: 10px;
@@ -9591,53 +9596,53 @@ dropdown-menu .divider {
   color: #000;
 }
 
-/* line 642, main.scss */
+/* line 646, main.scss */
 .short_arrowL {
   margin-left: 10px;
 }
 
-/* line 645, main.scss */
+/* line 649, main.scss */
 .button_arrow {
   margin-left: 60px;
 }
 
-/* line 646, main.scss */
+/* line 650, main.scss */
 .short_arrowR {
   background: #dddd6b;
 }
 
-/* line 649, main.scss */
+/* line 653, main.scss */
 .long_arrowL {
   padding: 10px 15px;
   margin: 0 10px 0 0;
 }
 
-/* line 654, main.scss */
+/* line 658, main.scss */
 .long_arrowR {
   padding: 10px 15px;
   margin-left: 10px;
 }
 
-/* line 658, main.scss */
+/* line 662, main.scss */
 .divider {
   margin: 40px 0 0px;
   background: #ccc;
   height: 2px;
 }
 
-/* line 663, main.scss */
+/* line 667, main.scss */
 .divider_footer {
   height: 1px;
   margin: 40px 0 30px;
   background: #ccc;
 }
 
-/* line 668, main.scss */
+/* line 672, main.scss */
 .copyright {
   text-align: center;
 }
 
-/* line 669, main.scss */
+/* line 673, main.scss */
 .dividerh {
   background: #ccc;
   width: 1px;
@@ -9646,30 +9651,30 @@ dropdown-menu .divider {
   left: 50%;
 }
 
-/* line 677, main.scss */
+/* line 681, main.scss */
 .search_footer {
   margin-top: 30px;
 }
 
-/* line 680, main.scss */
+/* line 684, main.scss */
 #top_bids {
   background: #eaeaea;
   margin-top: -70px;
   padding: 70px 0;
 }
 
-/* line 685, main.scss */
+/* line 689, main.scss */
 #all_bids {
   padding: 70px 0;
 }
 
-/* line 688, main.scss */
+/* line 692, main.scss */
 .showing {
   display: block;
   float: left;
 }
 
-/* line 694, main.scss */
+/* line 698, main.scss */
 .contact_form input, .contact_form textarea {
   width: 100% !important;
   margin: 10px 0;
@@ -9677,18 +9682,18 @@ dropdown-menu .divider {
   color: #fff;
 }
 
-/* line 700, main.scss */
+/* line 704, main.scss */
 .contact_form {
   margin-top: 40px;
   margin-bottom: 40px;
 }
 
-/* line 704, main.scss */
+/* line 708, main.scss */
 .contact_form textarea {
   min-height: 100px;
 }
 
-/* line 707, main.scss */
+/* line 711, main.scss */
 .contact_emph {
   color: #eee;
   margin-top: 20px;
@@ -9697,39 +9702,39 @@ dropdown-menu .divider {
   text-align: center;
 }
 
-/* line 714, main.scss */
+/* line 718, main.scss */
 .contact_emph img {
   margin-right: 20px;
 }
 
-/* line 717, main.scss */
+/* line 721, main.scss */
 #faqs {
   margin: 40px auto;
 }
 
-/* line 720, main.scss */
+/* line 724, main.scss */
 .faq_category {
   background: #eee;
   padding: 20px;
   margin: 20px 0;
 }
 
-/* line 725, main.scss */
+/* line 729, main.scss */
 .faqQA {
   margin-top: 20px;
 }
 
-/* line 729, main.scss */
+/* line 733, main.scss */
 .faqQA .description {
   text-align: justify !important;
 }
 
-/* line 734, main.scss */
+/* line 738, main.scss */
 #auction_details {
   margin-top: 140px;
 }
 
-/* line 737, main.scss */
+/* line 741, main.scss */
 .bid_signal_open {
   width: 10px;
   height: 10px;
@@ -9740,71 +9745,71 @@ dropdown-menu .divider {
   margin-top: 4px;
 }
 
-/* line 746, main.scss */
+/* line 750, main.scss */
 .signal_close {
   background-color: #E8B964;
 }
 
-/* line 749, main.scss */
+/* line 753, main.scss */
 .bidHistroyHead {
   font-size: 1.2em;
   font-weight: bold;
   margin: 10px 0;
 }
 
-/* line 754, main.scss */
+/* line 758, main.scss */
 #auction_body {
   margin: 80px 0;
 }
 
-/* line 758, main.scss */
+/* line 762, main.scss */
 .small_divider {
   margin: 0 10px;
 }
 
-/* line 761, main.scss */
+/* line 765, main.scss */
 .auction_detail_content {
   margin: 40px 0 !important;
 }
 
-/* line 764, main.scss */
+/* line 768, main.scss */
 .reserveNote {
   margin: 20px 0;
   padding: 0;
 }
 
-/* line 768, main.scss */
+/* line 772, main.scss */
 .slide_show {
   min-height: 20px;
 }
 
-/* line 772, main.scss */
+/* line 776, main.scss */
 .rating_fill {
   color: #f00;
   font-size: 1.2em;
   margin-right: 3px;
 }
 
-/* line 777, main.scss */
+/* line 781, main.scss */
 .rating_null {
   color: #ccc;
   font-size: 1.2em;
   margin-right: 3px;
 }
 
-/* line 782, main.scss */
+/* line 786, main.scss */
 .price_big {
   font-size: 1.5em;
   font-weight: bold;
   margin: 5px 0 5px;
 }
 
-/* line 787, main.scss */
+/* line 791, main.scss */
 #detail_contact {
   text-align: center;
 }
 
-/* line 790, main.scss */
+/* line 794, main.scss */
 .auction_bidding_form {
   margin-top: 40px;
   font-size: 0.8em;
@@ -9812,14 +9817,14 @@ dropdown-menu .divider {
   width: 100%;
 }
 
-/* line 797, main.scss */
+/* line 801, main.scss */
 .auction_bidding_form .tab {
   width: 49% !important;
   float: left;
   margin-bottom: 30px;
 }
 
-/* line 803, main.scss */
+/* line 807, main.scss */
 .auction_bidding_form input {
   width: 100% !important;
   background: #eee;
@@ -9828,7 +9833,7 @@ dropdown-menu .divider {
   margin-top: 5px;
 }
 
-/* line 810, main.scss */
+/* line 814, main.scss */
 .bid_container {
   background: #eee;
   padding: 10px 15px;
@@ -9837,32 +9842,32 @@ dropdown-menu .divider {
   margin-bottom: 20px;
 }
 
-/* line 817, main.scss */
+/* line 821, main.scss */
 .bid_container input {
   width: 80% !important;
   background: none;
   padding: 0;
 }
 
-/* line 822, main.scss */
+/* line 826, main.scss */
 .spacer {
   margin-right: 2%;
 }
 
-/* line 825, main.scss */
+/* line 829, main.scss */
 .frontPage {
   font-size: 2.5em;
   text-shadow: 1px 1px 2px #000000;
   font-family: 'Flamenco', cursive;
 }
 
-/* line 832, main.scss */
+/* line 836, main.scss */
 .Bmarrow {
   padding: 10px 25px;
   width: 65px;
 }
 
-/* line 836, main.scss */
+/* line 840, main.scss */
 .Bleft {
   position: absolute;
   left: 0;
@@ -9870,7 +9875,7 @@ dropdown-menu .divider {
   margin-left: 0;
 }
 
-/* line 843, main.scss */
+/* line 847, main.scss */
 .Bright {
   position: absolute;
   right: 0;
@@ -9878,14 +9883,14 @@ dropdown-menu .divider {
   margin-right: 0;
 }
 
-/* line 849, main.scss */
+/* line 853, main.scss */
 .thumbContainer_slide {
   position: relative;
   overflow: hidden;
   max-height: 100px;
 }
 
-/* line 854, main.scss */
+/* line 858, main.scss */
 .thumb_container {
   position: relative;
   overflow: hidden;
@@ -9893,7 +9898,7 @@ dropdown-menu .divider {
   margin-top: 30px;
 }
 
-/* line 860, main.scss */
+/* line 864, main.scss */
 .thumbImg {
   width: 20%;
   overflow: hidden;
@@ -9901,18 +9906,18 @@ dropdown-menu .divider {
   cursor: pointer;
 }
 
-/* line 866, main.scss */
+/* line 870, main.scss */
 .thumbImg img {
   width: 100%;
 }
 
-/* line 869, main.scss */
+/* line 873, main.scss */
 .slideViewer {
   height: 350px;
   overflow: hidden;
 }
 
-/* line 873, main.scss */
+/* line 877, main.scss */
 .slideMover {
   position: absolute;
   z-index: 1;
@@ -9924,55 +9929,55 @@ dropdown-menu .divider {
   cursor: pointer;
 }
 
-/* line 883, main.scss */
+/* line 887, main.scss */
 .slideMover img {
   margin: 30% 40%;
 }
 
-/* line 886, main.scss */
+/* line 890, main.scss */
 .slideMoveL {
   left: 0;
 }
 
-/* line 889, main.scss */
+/* line 893, main.scss */
 .slideMoveL img:hover {
   margin-left: 38%;
 }
 
-/* line 892, main.scss */
+/* line 896, main.scss */
 .slideMoveR {
   right: 0;
 }
 
-/* line 895, main.scss */
+/* line 899, main.scss */
 .slideMoveR img:hover {
   margin-right: 38%;
 }
 
-/* line 898, main.scss */
+/* line 902, main.scss */
 .bidCon {
   padding: 15px;
   margin: 0 0 20px;
   border-radius: 3px;
 }
 
-/* line 903, main.scss */
+/* line 907, main.scss */
 .timeTitle {
   font-size: 0.8em;
   color: #555;
 }
 
-/* line 908, main.scss */
+/* line 912, main.scss */
 .timeNum {
   font-size: 2em;
 }
 
-/* line 911, main.scss */
+/* line 915, main.scss */
 .timeCon {
   position: relative;
 }
 
-/* line 915, main.scss */
+/* line 919, main.scss */
 .timeDot {
   font-size: 2em;
   position: absolute;
@@ -9980,32 +9985,32 @@ dropdown-menu .divider {
   right: 30%;
 }
 
-/* line 921, main.scss */
+/* line 925, main.scss */
 .arrCon {
   height: 100%;
   padding: 50% 0 0;
 }
 
-/* line 925, main.scss */
+/* line 929, main.scss */
 .priceCon {
   padding-left: 15px;
   color: #D0021B;
 }
 
-/* line 929, main.scss */
+/* line 933, main.scss */
 .bidderCon {
   text-align: center;
   background: #f4f4f4;
   font-size: 1.5em;
 }
 
-/* line 934, main.scss */
+/* line 938, main.scss */
 .bidform {
   font-size: 1.5em;
   margin-top: 15px;
 }
 
-/* line 938, main.scss */
+/* line 942, main.scss */
 .bidbut {
   background: #9b9b9b;
   padding: 25px 10px;
@@ -10013,19 +10018,19 @@ dropdown-menu .divider {
   cursor: pointer;
 }
 
-/* line 944, main.scss */
+/* line 948, main.scss */
 .bidbutton {
   padding: 20px;
   margin-top: 20px;
   font-size: 1.2em;
 }
 
-/* line 949, main.scss */
+/* line 953, main.scss */
 .bidCur {
   margin-top: 10px;
 }
 
-/* line 954, main.scss */
+/* line 958, main.scss */
 .forms {
   border: 1px solid #ccc;
   padding: 15px;
@@ -10033,27 +10038,27 @@ dropdown-menu .divider {
   color: #333;
 }
 
-/* line 960, main.scss */
+/* line 964, main.scss */
 .formMenu {
   border-bottom: 2px solid #ccc;
   font-size: 1.6em;
   margin: 30px 0;
 }
 
-/* line 965, main.scss */
+/* line 969, main.scss */
 .menuList {
   padding: 20px;
   text-align: center;
   cursor: pointer;
 }
 
-/* line 970, main.scss */
+/* line 974, main.scss */
 .act {
   border-bottom: 4px solid #E8B964;
   font-weight: bold;
 }
 
-/* line 974, main.scss */
+/* line 978, main.scss */
 .checkCon {
   padding: 3px 5px;
   width: 24px;
@@ -10062,50 +10067,50 @@ dropdown-menu .divider {
   margin: -3px 20px 10px 0px;
 }
 
-/* line 982, main.scss */
+/* line 986, main.scss */
 .termsCon {
   paddin: 0;
   margin: 23px 0 20px;
 }
 
-/* line 986, main.scss */
+/* line 990, main.scss */
 .termsCon label {
   font-size: 0.8em;
 }
 
-/* line 987, main.scss */
+/* line 991, main.scss */
 .signupbg {
   padding: 30% 10% 0 0;
   margin: 0;
   color: #fff !important;
 }
 
-/* line 992, main.scss */
+/* line 996, main.scss */
 .signupintro {
   margin: 0 0 10% 0;
   padding: 0;
 }
 
-/* line 996, main.scss */
+/* line 1000, main.scss */
 .regSignBg {
   position: absolute;
   border-top-left-radius: 10px;
   border-bottom-left-radius: 10px;
 }
 
-/* line 1001, main.scss */
+/* line 1005, main.scss */
 .regSignForm {
   padding: 60px 0;
   min-height: 800px;
 }
 
-/* line 1005, main.scss */
+/* line 1009, main.scss */
 .regHead {
   color: #eee;
   text-shadow: 1px 1px 2px #000000;
 }
 
-/* line 1006, main.scss */
+/* line 1010, main.scss */
 .profileThumb {
   background: #E8B964;
   width: 40px;
@@ -10119,39 +10124,39 @@ dropdown-menu .divider {
   font-size: 1.4em;
 }
 
-/* line 1018, main.scss */
+/* line 1022, main.scss */
 .userInfo {
   font-weight: bold;
   font-size: 1.4em;
   cursor: pointer;
 }
 
-/* line 1023, main.scss */
+/* line 1027, main.scss */
 .userP {
   margin-top: 10px;
   text-align: center;
   font-size: 1.2em;
 }
 
-/* line 1028, main.scss */
+/* line 1032, main.scss */
 .username {
   float: left;
   font-size: 1em;
   margin-right: 10px;
 }
 
-/* line 1033, main.scss */
+/* line 1037, main.scss */
 .profileCon {
   padding: 60px 0;
   margin-top: 100px;
 }
 
-/* line 1037, main.scss */
+/* line 1041, main.scss */
 .historyCon {
   padding: 100px 0 20px 5%;
 }
 
-/* line 1041, main.scss */
+/* line 1045, main.scss */
 .imgCon {
   width: 100%;
   text-align: center;
@@ -10159,31 +10164,31 @@ dropdown-menu .divider {
   font-size: 120px;
 }
 
-/* line 1047, main.scss */
+/* line 1051, main.scss */
 .profileName {
   margin-top: 15px;
   padding: 5px 0;
   font-size: 1.6em;
 }
 
-/* line 1052, main.scss */
+/* line 1056, main.scss */
 .profileState {
   font-size: 1.2em;
   margin-bottom: 5px;
 }
 
-/* line 1056, main.scss */
+/* line 1060, main.scss */
 .profile_det .divider {
   margin: 20px 0 5px;
 }
 
-/* line 1060, main.scss */
+/* line 1064, main.scss */
 .des_link {
   color: #d8c964;
   text-decoration: underline;
 }
 
-/* line 1064, main.scss */
+/* line 1068, main.scss */
 .des_link:hover {
   color: #b6a742;
   text-decoration: underline;

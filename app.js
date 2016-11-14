@@ -4,8 +4,9 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-var nodemailer = required=('nodemailer');
-
+var nodemailer = require('nodemailer');
+var expressSession= require('express-session');
+var passport = require('passport')
 
 //multer configurations for uploading emails
 var multer  = require('multer')
@@ -73,6 +74,11 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.use(expressSession({
+    secret: 'bytes-And-Binaries-Secrets-with-3A-Auctions',
+    saveUninitialized: true,
+    resave:true
+}));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, '/')));
 

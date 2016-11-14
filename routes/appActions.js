@@ -1,10 +1,40 @@
 var express = require('express');
 var router = express.Router();
-
 var mongoose=require('mongoose');
 var adminSchema=require('../models/adminSchema.js');
 var nodemailer = require('nodemailer');
+//passport for authentication
+var passport = require('passport')
+LocalStrategy = require('passport-local').Strategy;
 
+
+passport.use(new LocalStrategy({
+    usernameField: "identity",
+    passwordField: "password"
+  },
+  function(username, password, done) {
+        return done(null, false, {message:'Unable to login'})
+    // adminSchema.user.findOne({ userName: username }, function (err, user) {
+    //   if (err) { return done(err); }
+    //   if (!user) {
+    //     return done(null, false, { message: 'Incorrect username.' });
+    //   }
+    //   if (!user.validPassword(password)) {
+    //     return done(null, false, { message: 'Incorrect password.' });
+    //   }
+    //   return done(null, user);
+    // });
+  }
+));
+passport.serializeUser(function (user, done) {
+        done(null,user);
+//    done(user.Id); // the user id that you have in the session
+});
+
+passport.deserializeUser(function (id, done) {
+    done(null,user);
+//    done({id: Id}); // generally this is done against user database as validation
+});
 //email configurations
 var smtpConfig = {
     host: 'box875.bluehost.com',
@@ -48,7 +78,7 @@ router.get('/serverDate', function(req, res, next) {
     res.json({date:Date.now()});
 })
 router.get('/inventory', function(req, res, next) {
-    adminSchema.inventory.find()
+    adminSchema.inventory.find({status:'active'})
     .populate(
         {
             path:'biddingHistory',
@@ -128,15 +158,16 @@ router.get('/userProfile/:id', function(req, res, next) {
         res.json(user)
     })
 });
-router.get('/userLogin/:id', function(req, res, next) {
-    console.log(req.query)
-    adminSchema.user.find({password:req.query.password, $or:[{email:req.query.identity}, {userName:req.query.identity}]})
-    //.populate('userBids')
-    .exec (function(err, user){
-        if(err) return next(err);
-        res.json(user)
-    })
-});
+// router.get('/userLogin/:id', function(req, res, next) {
+//     console.log(req.query)
+//     adminSchema.user.find({password:req.query.password, $or:[{email:req.query.identity}, {userName:req.query.identity}]})
+//     //.populate('userBids')
+//     .exec (function(err, user){
+//         if(err) return next(err);
+//         res.json(user)
+//     })
+// });
+
 
 //send a post
 // router.post('/multer', upload.single('file'));
@@ -193,18 +224,35 @@ router.post('/biddings', function(req, res, next){
 
 });
 router.post('/user', function(req, res, next){
-    adminSchema.user.find({$or:[{userName:req.body.userName}, {email:req.body.email}]})
-    .exec(function(err, user){
-        if(err) return next(err);
-        console.log(user)
-        if(user.length==0){
-            adminSchema.user.create(req.body, function(err, user){
-                if(err) return next(err)
-                res.json(user);
-            })
-        }
-        else{   res.json({error:'User Already Exist', data:user});   }
+
+    var newuser= new adminSchema.user(req.body);
+    newuser.save(function(err){
+        if (err) throw err;
+        // fetch user and test password verification
+        adminSchema.user.findOne({$or:[{userName:req.body.userName}, {email:req.body.email}]}, function(err, userData) {
+            if (err) throw err;
+
+            // test a matching password
+            userData.comparePassword(req.body.password, function(err, isMatch) {
+                if (err) throw err;
+                if(isMatch){
+                    res.json(userData);
+                };
+            });
+        })
     })
+    // adminSchema.user.find({$or:[{userName:req.body.userName}, {email:req.body.email}]})
+    // .exec(function(err, user){
+    //     if(err) return next(err);
+    //     console.log(user)
+    //     if(user.length==0){
+    //         adminSchema.user.create(req.body, function(err, user){
+    //             if(err) return next(err)
+    //             res.json(user);
+    //         })
+    //     }
+    //     else{   res.json({error:'User Already Exist', data:user});   }
+    // })
 });
 router.post('/contact', function(req, res, next){
     var params=req.body;
@@ -251,6 +299,10 @@ router.post('/addSubscriber', function(req, res, next){
         }
         else{   res.json({error:'You have already subscribed, thanks for trying again', data:emailSubscriber});   }
     })
+});
+router.post('/userLogin', passport.authenticate('local'), function(req, res, next) {
+//    console.log(req.query);
+    res.json( 'hey');
 });
 router.put('/:id', function(req, res, next){
     Inventory.findByIdAndUpdate(req.params.id, req.body, function(err, post){
