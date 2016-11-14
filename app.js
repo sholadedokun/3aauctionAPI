@@ -7,6 +7,7 @@ var bodyParser = require('body-parser');
 var nodemailer = require('nodemailer');
 var expressSession= require('express-session');
 var passport = require('passport')
+var MongoStore= require('connect-mongo')(expressSession);
 
 //multer configurations for uploading emails
 var multer  = require('multer')
@@ -77,7 +78,8 @@ app.use(cookieParser());
 app.use(expressSession({
     secret: 'bytes-And-Binaries-Secrets-with-3A-Auctions',
     saveUninitialized: true,
-    resave:true
+    resave:true,
+    store: new MongoStore({ mongooseConnection: mongoose.connection })
 }));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, '/')));
