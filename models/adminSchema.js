@@ -1,7 +1,7 @@
 var mongoose=require('mongoose');
 var Schema = mongoose.Schema
-bcrypt= require('bcrypt');
-SALT_WORK_FACTOR=10;
+var bcrypt= require('bcrypt');
+var SALT_WORK_FACTOR=10;
 var inventorySchema= new Schema({
     category: {type:Schema.Types.ObjectId, ref:'category'},
     subCategory:{type:Schema.Types.ObjectId, ref:'subcategory'},
