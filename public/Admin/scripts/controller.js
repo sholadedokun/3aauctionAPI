@@ -147,7 +147,6 @@ angular.module('Admin')
             console.log('Error Uploading Images '+error)
         });
         console.log($scope.inventory)
-
     }
     $scope.delete_pic=function(index){
         $scope.img_list.splice(index, 1);
@@ -163,7 +162,6 @@ angular.module('Admin')
         else{$scope.idata[11]=$scope.idata[11]+', '+$scope.taglist;}
         //$scope.$apply();
     }
-
 }])
 .controller('categoryCtrl', ['$scope','appService', '$location', function ($scope, appService, $location) {
     appService.addRequest_data('getallc','').then(function(response){
@@ -196,11 +194,11 @@ angular.module('Admin')
 .controller('editCCtrl', ['$scope','appService', '$routeParams', '$location', function ($scope, appService, $routeParams, $location) {
     $scope.cat=JSON.parse($routeParams.cat);
     $scope.editc=function(){
-      appService.addRequest_data('updatec',$scope.cat).then(function(response){
-        $location.path('/viewallc')
-      },
-      function(error){
-        console.log('error this '.error)
-      });
+        appService.addRequest_data('updatec',$scope.cat).then(function(response){
+            $location.path('/viewallc')
+        },
+        function(error){
+            console.log('error this '.error)
+        });
     }
-  }])
+}])

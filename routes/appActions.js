@@ -224,35 +224,29 @@ router.post('/biddings', function(req, res, next){
 
 });
 router.post('/user', function(req, res, next){
+    adminSchema.user.find({$or:[{userName:req.body.userName}, {email:req.body.email}]})
+    .exec(function(err, user){
+        if(err) return next(err);
+        if(user.length==0){
+                var newuser= new adminSchema.user(req.body);
+                newuser.save(function(err){
+                    if (err) throw err;
+                    // fetch user and test password verification
+                    adminSchema.user.findOne({$or:[{userName:req.body.userName}, {email:req.body.email}]}, function(err, userData) {
+                        if (err) throw err;
 
-    var newuser= new adminSchema.user(req.body);
-    newuser.save(function(err){
-        if (err) throw err;
-        // fetch user and test password verification
-        adminSchema.user.findOne({$or:[{userName:req.body.userName}, {email:req.body.email}]}, function(err, userData) {
-            if (err) throw err;
-
-            // test a matching password
-            userData.comparePassword(req.body.password, function(err, isMatch) {
-                if (err) throw err;
-                if(isMatch){
-                    res.json(userData);
-                };
-            });
-        })
+                        // test a matching password
+                        userData.comparePassword(req.body.password, function(err, isMatch) {
+                            if (err) throw err;
+                            if(isMatch){
+                                res.json(userData);
+                            };
+                        });
+                    })
+                })
+        }
+        else{   res.json({error:'User Already Exist', data:user});   }
     })
-    // adminSchema.user.find({$or:[{userName:req.body.userName}, {email:req.body.email}]})
-    // .exec(function(err, user){
-    //     if(err) return next(err);
-    //     console.log(user)
-    //     if(user.length==0){
-    //         adminSchema.user.create(req.body, function(err, user){
-    //             if(err) return next(err)
-    //             res.json(user);
-    //         })
-    //     }
-    //     else{   res.json({error:'User Already Exist', data:user});   }
-    // })
 });
 router.post('/contact', function(req, res, next){
     var params=req.body;
