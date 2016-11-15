@@ -1,5 +1,14 @@
 angular.module('Admin')
   .controller('MainCtrl', ['$scope','appService', function ($scope, appService) {
+    $scope.auth="";
+    $scope.bauth=function(cred){
+        if(cred.username=='admin' && cred.password=='3Aadmin'){
+            $scope.auth='authenticated'
+        }
+        else{
+            $scope.info='Wrong username or password'
+        }
+    }
     appService.addRequest_data('','').then(function(response){
       $scope.init_data=response;
     },
