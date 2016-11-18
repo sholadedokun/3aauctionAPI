@@ -63,8 +63,6 @@ app.post('/upload', function (req, res, next) {
     })
 })
 
-
-
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
@@ -81,6 +79,8 @@ app.use(expressSession({
     resave:true,
     store: new MongoStore({ mongooseConnection: mongoose.connection })
 }));
+app.use(passport.initialize());
+app.use(passport.session());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, '/')));
 

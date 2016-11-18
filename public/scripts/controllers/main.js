@@ -8,9 +8,8 @@
  * Controller of the 3aAuctionsApp
  */
 angular.module('3aAuctionsApp')
-.controller('indexCtrl',['$scope', 'appService', '$uibModal', 'userData', 'appActions','cfpLoadingBar', function ($scope, appService, $uibModal, userData, appActions, cfpLoadingBar) {
-    $scope.user=userData.data();
-    //console.log('server time is :'+$scope.serverTime);
+.controller('indexCtrl',['$scope', '$rootScope', 'appService', '$uibModal', 'userData', 'appActions','cfpLoadingBar', function ($scope, $rootScope, appService, $uibModal, userData, appActions, cfpLoadingBar) {
+
     $scope.sumenu=[
         [   {url:'#/generalInfo', value:'General Informaton'},
             {url:'#/aboutUs', value:'About Us'},
@@ -38,7 +37,13 @@ angular.module('3aAuctionsApp')
         $scope.sIndex=index;
     }
     $scope.signOut=function(){
-        $scope.user={id:0}
+        var logout=appActions.admin('logout/').get({})
+        logout.$promise.then(function(data){
+            $scope.user={_id:0};
+        },
+        function(err){
+            console.log(err);
+        })
     }
     $scope.regSign=function(option){
         var modalInstance = $uibModal.open({
@@ -52,6 +57,11 @@ angular.module('3aAuctionsApp')
             }
           }
         })
+        modalInstance.result.then(function (data) {
+          $scope.user=data;
+        }, function () {
+          $log.info('modal-component dismissed at: ' + new Date());
+        });
     }
 
     $scope.auctionMiniview=function(allAuction, index, filters, limits){
@@ -74,8 +84,6 @@ angular.module('3aAuctionsApp')
             limits: function () {
               return limits;
             },
-
-
           }
         })
         modalInstance.result.then(function (option) {
@@ -87,7 +95,7 @@ angular.module('3aAuctionsApp')
 
 
 }])
-.controller('regSignModalInstanceCtrl', ['$scope', '$rootScope', '$uibModalInstance', '$location', 'cfpLoadingBar', 'userData', 'option','appActions', 'appService', '$http', function ($scope, $rootScope,  $modalInstance, $location, cfpLoadingBar, userData, option, appActions, appService, $http){
+.controller('regSignModalInstanceCtrl', ['$scope', '$rootScope', '$uibModalInstance', '$location', 'cfpLoadingBar', 'userData', 'option','appActions', 'appService', '$http', function ($scope, $rootScope,  $uibModalInstance, $location, cfpLoadingBar, userData, option, appActions, appService, $http){
     $scope.regState=option;
     $scope.user=userData.data();
     $scope.infoRev=false;
@@ -108,33 +116,32 @@ angular.module('3aAuctionsApp')
             }
             else{
                 $scope.user=data;
-                $location.path()="#/profile";
+                console.log($scope.user);
+                $location.path("/profile/"+$scope.user.userName);
+                $scope.cancel();
             }
         });
     }
     $scope.login=function(){
         cfpLoadingBar.start()
         $scope.infoRev=true;
-
-        appActions.admin('userLogin/').save($scope.user, function(data){
+        $scope.info='Please wait...';
+        $scope.getUser=appActions.admin('userLogin/').save($scope.user);
+        $scope.getUser.$promise.then(function(data){
             cfpLoadingBar.complete()
-            if(data.length==1){
-                $scope.user.id=data[0]._id;
-                $scope.user.userName=data[0].userName;
-                $scope.user.firstName=data[0].firstName;
-                $scope.user.lastName=data[0].lastName;
-                $scope.user.email=data[0].firstName;
-                $scope.user.bids=data[0].userBids;
-                $scope.user.auctions=data[0].userAuctions;
-                $scope.user.userInfo=false;
-                $modalInstance.dismiss('cancel');
-                //$location.path("/profile/"+data[0]._id);
+            $scope.user=data;
+            console.log($scope.user)
+            $scope.user.userInfo=false;
+            $uibModalInstance.close(data);
+        },
+        function(err){
+            cfpLoadingBar.complete()
+            console.log(err);
+            if(err.status=='401'){
+                $scope.info="Wrong Username or Password... Please try again";
             }
-            else{
-                $scope.info="Users Can't be Authenticated. Please review your credentials.";
-            }
-
-        })
+        }
+        )
     }
   $scope.cancel = function () {
     $modalInstance.dismiss('cancel');

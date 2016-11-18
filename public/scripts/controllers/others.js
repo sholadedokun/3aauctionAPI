@@ -15,7 +15,7 @@ angular.module('3aAuctionsApp')
           appActions.admin('contact/').save(contact, function(data){
               cfpLoadingBar.complete()
               if(data.error){
-                  $scope.info=data.error
+                  $scope.info=data.error;
               }
               else{
                   $scope.info='Your message was received our representative will contact you shorlty.';
@@ -67,33 +67,31 @@ angular.module('3aAuctionsApp')
    //         })
    //     }
    //  }])
-   //  .controller('ProfileCtrl', ['$scope','$location', 'userData', 'cfpLoadingBar', 'appActions', '$routeParams', function ($scope, $location, userData, cfpLoadingBar, appActions, $routeParams) {
-   //      $scope.user=userData.data();
-   //      $scope.user.id= $routeParams.id;
-   //      $scope.inventory=[];
-   //      cfpLoadingBar.start()
-   //      appActions.admin('userProfile/').get({id:$scope.user.id}, function(data){
-   //          cfpLoadingBar.complete();
-   //          $scope.user=data;
-   //          $scope.user.fullname=data.firstName+" "+data.lastName;
-   //          $scope.user.userName=data.userName;
-   //          $scope.inventory=$scope.getUniqueInventory($scope.user.userBids);
-   //          console.log(data);
-   //      })
-   //      $scope.getUniqueInventory=function(list){
-   //          var uniqueList=[]
-   //          var keylist="";
-   //          for ( var key in list ) {
-   //              if(keylist.indexOf(list[key]._id)<0){
-   //                  uniqueList.push(list[key]);
-   //                  keylist=keylist+list[key]._id;
-   //              }
-   //          }
-   //          return uniqueList;
-   //      }
-   //      $scope.Profilestate="";
-   //      $scope.changeState=function(state){$scope.regState=state;}
-   //   }])
+    .controller('ProfileCtrl', ['$scope','$location', 'userData', 'cfpLoadingBar', 'appActions', '$routeParams', 'data', function ($scope, $location, userData, cfpLoadingBar, appActions, $routeParams,data) {
+    //    $scope.user=userData.data();
+        $scope.user= data;
+        $scope.inventory=[];
+        console.log($scope.user)
+        $scope.getUniqueInventory=function(list){
+            var uniqueList=[]
+            var keylist="";
+            for ( var key in list ) {
+                if(keylist.indexOf(list[key]._id)<0){
+                    uniqueList.push(list[key]);
+                    keylist=keylist+list[key]._id;
+                }
+            }
+            return uniqueList;
+        }
+        $scope.inventory=$scope.getUniqueInventory($scope.user.userBids);
+
+
+
+    //    $scope.inventory=$scope.getUniqueInventory($scope.user.userBids);
+
+        $scope.Profilestate="";
+        $scope.changeState=function(state){$scope.regState=state;}
+     }])
   .controller('MenuCtrl', ['$scope','$location', function ($scope, $location) {
       $scope.getPath = function (path) {
       return $location.path() == path;

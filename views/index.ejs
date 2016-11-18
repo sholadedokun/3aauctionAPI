@@ -50,10 +50,10 @@
             <ul class="nav navbar-nav" ng-controller="MenuCtrl">
               <li><a ng-class="{active: getPath('/')}" data-toggle="collapse" data-target=".navbar-collapse" href="#/">HOME</a></li>
               <li><a ng-class="{active: getPath('/auction')}" data-toggle="collapse" data-target=".navbar-collapse" ng-href="#/auction">AUCTIONS</a></li>
-              <li ng-show="user.id==0"><a href="" ng-click="regSign('signup')" data-toggle="collapse" data-target=".navbar-collapse">SIGN IN</a></li>
-              <li ng-show="user.id==0"><a href="" ng-click="regSign('register')" class="primary_button registerBut" data-toggle="collapse" data-target=".navbar-collapse">REGISTER</a></li>
+              <li ng-show="user._id==0"><a href="" ng-click="regSign('signup')" data-toggle="collapse" data-target=".navbar-collapse">SIGN IN</a></li>
+              <li ng-show="user._id==0"><a href="" ng-click="regSign('register')" class="primary_button registerBut" data-toggle="collapse" data-target=".navbar-collapse">REGISTER</a></li>
               <!-- <li><a ng-class="{active: getPath('/auction_details')}" ng-href="#/auction_details">HOW IT WORKS</a></li> -->
-              <li class="dropdown"  ng-hide="user.id==0">
+              <li class="dropdown"  ng-hide="user._id==0">
                   <a  href="" data-toggle="collapse" data-target=".navbar-collapse" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                       <div class="col-xs-12 profileTcon">
                           <div class="profileThumb glyphicon glyphicon-user"></div>
@@ -62,7 +62,7 @@
                       </div>
                   </a>
                   <ul class="dropdown-menu">
-                    <li><a href="#/profile/{{user.id}}">View Profile</a></li>
+                    <li><a href="#/profile/{{user.userName}}">View Profile</a></li>
                     <li role="separator" class="divider"></li>
                     <li><a href="" ng-click="signOut()">Sign Out</a></li>
                   </ul>
@@ -104,7 +104,6 @@
             <div class="col-xs-12 search">
                 <form ng-submit="subscriber(emailAddress)">
                 <div class="col-xs-6 col-xs-offset-2  form_container">
-
                     <input class="col-xs-12" type="email" placeholder="Your Email Address" ng-model="emailAddress" />
                 </div>
                 <div class="col-xs-2 np">
@@ -112,7 +111,6 @@
                         <input type="submit" class="col-xs-12 primary_button" value="SIGN UP"/>
                     </div>
                 </div>
-
                 <span class="col-xs-12" ng-bind="info"></span>
             </form>
             </div>
@@ -159,12 +157,8 @@
                 <span class="glyphicon glyphicon-copyright-mark"></span>
                 <span>3A Auction House | 2016 All Rights Reserved</span>
             </div>
-
-
           </div>
     </div>
-
-
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
      <script>
        !function(A,n,g,u,l,a,r){A.GoogleAnalyticsObject=l,A[l]=A[l]||function(){

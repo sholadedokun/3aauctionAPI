@@ -43,10 +43,77 @@ appServices.directive('fileModel', ['$parse', function ($parse) {
     };
 }]);
 appServices.service('userData', ['$rootScope','$location', function($rootScope,$location){
- var savedData =  {name:'',  id:0, email:''}
+ var savedData =  {name:'',  _id:0, email:''}
  return{
     data:function() {   return savedData; }
  }
+}])
+appServices.service('checkLoggedin', ['$rootScope','$location', '$http', '$q',  function($rootScope,$location, $http, $q){
+
+return{
+    getStatus:function(access, routeId){
+        var deferred = $q.defer();
+        $http.get('/appActions/checkLoggedin').success(function(data){
+            if (data.user){
+                $http.get('/appActions/userProfile/'+data.user).success(function(userData){
+                    if(userData){
+                        $rootScope.user=userData;
+                        if(access=='route' && routeId!=$rootScope.user.userName){
+                            deferred.reject();
+                            $location.url('/login');
+                        }
+                        deferred.resolve($rootScope.user);
+                        console.log($rootScope.user);
+                    }
+                },
+                function(err){
+                    console.log(err);
+                    if(access!='init'){
+                        $rootScope.regSign('signin');
+                    }
+                })
+                //deferred.resolve(data.user);
+            }
+            // Not Authenticated
+            else {
+                console.log('here')
+                $rootScope.message = 'You need to log in.';
+                deferred.reject();
+                if(access=='route'){$location.url('/login');}
+
+            }
+        });
+        return deferred.promise;
+
+        // user=userData.data();
+        // loginChecker=appActions.admin('checkLoggedin/').get({});
+        // loginChecker.$promise.then(function(data){
+        //     if(data.user){
+        //         console.log('here');
+        //         var getUser=appActions.admin('userProfile/').get({id:data.user});
+        //         getUser.$promise.then(function(data){
+        //
+        //             user=data;
+        //             return 'logged-in';
+        //         },
+        //         function(err){
+        //             console.log(err);
+        //             if(access!='init'){
+        //                 $rootScope.regSign('signin');
+        //             }
+        //             else{return 'not logged-in';}
+        //         })
+        //     }
+        //     else{
+        //         return 'not logged-in';
+        //     }
+        // },
+        // function(err){
+        //     console.log('please check your internet connection')
+        // })
+    }
+}
+
 }])
 appServices.factory('appActions', ['$resource', function($resource){
     return {

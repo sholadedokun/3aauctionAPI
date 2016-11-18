@@ -13,7 +13,7 @@ passport.use(new LocalStrategy({
     passwordField: "password"
   },
   function(username, password, done) {
-        return done(null, false, {message:'Unable to login'})
+    //    return done(null, false, {message:'Unable to login'})
     // adminSchema.user.findOne({ userName: username }, function (err, user) {
     //   if (err) { return done(err); }
     //   if (!user) {
@@ -24,15 +24,37 @@ passport.use(new LocalStrategy({
     //   }
     //   return done(null, user);
     // });
+
+    adminSchema.user.findOne({$or:[{userName:username}, {email:username}]}, function(err, userData) {
+        if (err) return done(err);
+        if (!userData){
+            return done(null, false, {message: "Wrong Username"} )
+        }
+        // test a matching password
+        userData.comparePassword(password, function(err, isMatch) {
+            if (err) return done(err);
+            if(isMatch){
+                return done(null, userData);
+            //    res.json(userData);
+            }
+            else{
+                return done(null, false, { message: 'Incorrect password.' });
+            }
+        });
+    })
+
   }
 ));
 passport.serializeUser(function (user, done) {
-        done(null,user);
+        done(null,user._id);
 //    done(user.Id); // the user id that you have in the session
 });
 
 passport.deserializeUser(function (id, done) {
-    done(null,user);
+    adminSchema.user.findById(id, function(err, user) {
+    done(err, user);
+  });
+
 //    done({id: Id}); // generally this is done against user database as validation
 });
 //email configurations
@@ -76,6 +98,13 @@ function prepareEmail(from, to, subject, message, bcc){
 
 router.get('/serverDate', function(req, res, next) {
     res.json({date:Date.now()});
+})
+router.get('/checkLoggedin', function(req, res, next) {
+    res.json(req.session.passport);
+})
+router.get('/logOut', function(req, res, next) {
+    req.logout();
+    res.send(200);
 })
 router.get('/inventory', function(req, res, next) {
     adminSchema.inventory.find({status:'active'})
@@ -253,7 +282,7 @@ router.post('/contact', function(req, res, next){
     console.log(params)
     var emailbody='<b>Dear '+params.name+', </b> <br>';
     emailbody+='Thank you for contacting our Auction House. Our representative will contact you shortly.';
-    emailbody+='<br><br><b><em>3A Auction House Team</em></b>';
+    emailbody+='<br><br><b>3A Auction House Team</b>';
     var fromE="3A Auction House<info@3aauctions.com>";
     var subject="Thanks for contacting 3A Auction House";
     console.log(prepareEmail(fromE, params.email, subject, emailbody))
@@ -286,7 +315,7 @@ router.post('/addSubscriber', function(req, res, next){
                 // setup e-mail data with unicode symbols
                 emailbody='<b>Dear Subscriber, </b> <br>';
                 emailbody+='Thank you for subscribing to our Newsletter. We are glad to have you on board.';
-                emailbody+='<br><br><b><em>3A Auction House Team</em></b>';
+                emailbody+='<br><br><b>3A Auction House Team</b>';
                 subject='Thanks for subscribing to our Newsletter.';
             })
             res.json(prepareEmail('3A Auction House<info@3aauctions.com>', req.body.emailAddress, subject, emailbody));
@@ -295,8 +324,7 @@ router.post('/addSubscriber', function(req, res, next){
     })
 });
 router.post('/userLogin', passport.authenticate('local'), function(req, res, next) {
-//    console.log(req.query);
-    res.json( 'hey');
+    res.json(req.user);
 });
 router.put('/:id', function(req, res, next){
     Inventory.findByIdAndUpdate(req.params.id, req.body, function(err, post){

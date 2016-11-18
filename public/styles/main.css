@@ -10194,4 +10194,13 @@ dropdown-menu .divider {
   text-decoration: underline;
 }
 
+/* line 1072, main.scss */
+.info {
+  padding: 10px;
+  border-radius: 5px;
+  color: #f99742;
+  margin: 5px 0;
+  text-align: center;
+}
+
 /*# sourceMappingURL=main.css.map */
