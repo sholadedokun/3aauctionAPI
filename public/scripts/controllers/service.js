@@ -85,32 +85,6 @@ return{
         });
         return deferred.promise;
 
-        // user=userData.data();
-        // loginChecker=appActions.admin('checkLoggedin/').get({});
-        // loginChecker.$promise.then(function(data){
-        //     if(data.user){
-        //         console.log('here');
-        //         var getUser=appActions.admin('userProfile/').get({id:data.user});
-        //         getUser.$promise.then(function(data){
-        //
-        //             user=data;
-        //             return 'logged-in';
-        //         },
-        //         function(err){
-        //             console.log(err);
-        //             if(access!='init'){
-        //                 $rootScope.regSign('signin');
-        //             }
-        //             else{return 'not logged-in';}
-        //         })
-        //     }
-        //     else{
-        //         return 'not logged-in';
-        //     }
-        // },
-        // function(err){
-        //     console.log('please check your internet connection')
-        // })
     }
 }
 

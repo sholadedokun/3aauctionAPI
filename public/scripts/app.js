@@ -25,34 +25,8 @@ angular
     $rootScope.user=userData.data();
     appActions.admin('serverDate/').get({},function(data){
         $rootScope.serverTime=data.date;
-        // var stimer=setInterval(function(){
-        //     $rootScope.serverTime=$rootScope.serverTime - 1000;
-        // }, 1000);
     })
     checkLoggedin.getStatus('init');
-    // $rootScope.checkLoggedin=function(access){
-    //     $rootScope.loginChecker=appActions.admin('checkLoggedin/').get({});
-    //     $rootScope.loginChecker.$promise.then(function(data){
-    //         if(data.user){
-    //             var getUser=appActions.admin('userProfile/').get({id:data.user});
-    //             getUser.$promise.then(function(data){
-    //                 $rootScope.user=data;
-    //
-    //                 console.log($rootScope.user);
-    //             },
-    //             function(err){
-    //                 console.log(err);
-    //                 if(access!='init'){
-    //                     $rootScope.regSign('signin');
-    //                 }
-    //             })
-    //         };
-    //     },
-    //     function(err){
-    //         console.log('please check your internet connection')
-    //     })
-    // }
-    //$rootScope.checkLoggedin('init');
     var socket = io.connect('http://localhost');
     }])
   .config(['$routeProvider', '$locationProvider', '$httpProvider', function ($routeProvider, $locationProvider, $httpProvider) {
@@ -65,7 +39,6 @@ angular
           responseError: function(response) {
             if (response.status === 401)
                 console.log('i got 401ed');
-            //  $location.url('/login');
             return $q.reject(response);
           }
         };
@@ -135,7 +108,6 @@ angular
             data: function (checkLoggedin, $route) {
                 return checkLoggedin.getStatus('route', $route.current.params.id);
             }
-
         }
       })
       .otherwise({
