@@ -256,7 +256,7 @@ angular.module('3aAuctionsApp')
     }
     $scope.submitBid=function(){
         $scope.user.userInfo=true;
-        if($scope.user.id==0){
+        if($scope.user._id==0){
             $scope.user.userInfo=true;
             return;
         }
