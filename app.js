@@ -33,7 +33,8 @@ var appActions = require('./routes/appActions');
 //mongoose configurations
 var mongoose=require('mongoose');
 mongoose.Promise=global.Promise;
-mongoose.connect('mongodb://3aauctiondb:dkCxSfuN2uUkty5QbyFKuwIG2nF3nCbBJVy3UYQHVS3uReUxb2RBTbSfhyTWtrFalIJQFpcRLH9fSd6uk8s4uA==@3aauctiondb.documents.azure.com:10250/?ssl=true').then(() => console.log('database connected')).catch((err) => console.error(err))
+//mongodb://3aauctiondb:dkCxSfuN2uUkty5QbyFKuwIG2nF3nCbBJVy3UYQHVS3uReUxb2RBTbSfhyTWtrFalIJQFpcRLH9fSd6uk8s4uA==@3aauctiondb.documents.azure.com:10250/?ssl=true
+mongoose.connect("mongodb://sholadedokun:Kennyade@cluster0-shard-00-00-awdqr.mongodb.net:27017,cluster0-shard-00-01-awdqr.mongodb.net:27017,cluster0-shard-00-02-awdqr.mongodb.net:27017/admin?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin" ).then(() => console.log('database connected')).catch((err) => console.error(err))
 var app = express();
 var server = require('http').Server(app);
 

@@ -9,7 +9,7 @@
  */
 angular.module('3aAuctionsApp')
 .controller('indexCtrl',['$scope', '$rootScope', 'appService', '$uibModal', 'userData', 'appActions','cfpLoadingBar', function ($scope, $rootScope, appService, $uibModal, userData, appActions, cfpLoadingBar) {
-
+    $scope.user=userData.data()
     $scope.sumenu=[
         [   {url:'#/generalInfo', value:'General Informaton'},
             {url:'#/aboutUs', value:'About Us'},
@@ -39,7 +39,9 @@ angular.module('3aAuctionsApp')
     $scope.signOut=function(){
         var logout=appActions.admin('logout/').get({})
         logout.$promise.then(function(data){
+
             $scope.user={_id:0};
+            console.log($scope.user)
         },
         function(err){
             console.log(err);
@@ -149,7 +151,8 @@ angular.module('3aAuctionsApp')
 }])
 .controller('detailModalInstanceCtrl', ['$scope', '$filter', '$rootScope', '$uibModalInstance', 'index','allAuction', 'filters','limits','appActions', 'userData', function ($scope, $filter, $rootScope,  $uibModalInstance, index, allAuction, filters, limits, appActions, userData){
     $scope.auction;
-    console.log($scope.serverTime)
+    $scope.user=userData.data();
+    console.log($scope.user)
     $scope.revHistory=false;
     $scope.bidIsClose=false;
     $scope.user=userData.data();
@@ -256,6 +259,7 @@ angular.module('3aAuctionsApp')
     }
     $scope.submitBid=function(){
         $scope.user.userInfo=true;
+        console.log('user is', $scope.user)
         if($scope.user._id==0){
             $scope.user.userInfo=true;
             return;

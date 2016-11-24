@@ -42,28 +42,30 @@ appServices.directive('fileModel', ['$parse', function ($parse) {
         }
     };
 }]);
-appServices.service('userData', ['$rootScope','$location', function($rootScope,$location){
+appServices.service('userData', ['$rootScope', function($rootScope){
  var savedData =  {name:'',  _id:0, email:''}
  return{
-    data:function() {   return savedData; }
+    data:function() {   return savedData; },
+    saveData:function(data){savedData=data}
  }
 }])
-appServices.service('checkLoggedin', ['$rootScope','$location', '$http', '$q',  function($rootScope,$location, $http, $q){
+appServices.service('checkLoggedin', ['$rootScope','$location',  'userData', '$http', '$q',  function($rootScope,$location, userData, $http, $q){
 
 return{
     getStatus:function(access, routeId){
+        $rootScope.user= userData.data()
         var deferred = $q.defer();
         $http.get('/appActions/checkLoggedin').success(function(data){
             if (data.user){
-                $http.get('/appActions/userProfile/'+data.user).success(function(userData){
+                $http.get('/appActions/userProfile/'+data.user).success(function(userDat){
                     if(userData){
-                        $rootScope.user=userData;
+                        userData.saveData(userDat);
                         if(access=='route' && routeId!=$rootScope.user.userName){
                             deferred.reject();
                             $location.url('/login');
                         }
-                        deferred.resolve($rootScope.user);
-                        console.log($rootScope.user);
+                        deferred.resolve(userDat);
+                        console.log(userDat);
                     }
                 },
                 function(err){
