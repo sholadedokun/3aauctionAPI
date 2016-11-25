@@ -257,18 +257,33 @@ router.post('/user', function(req, res, next){
     .exec(function(err, user){
         if(err) return next(err);
         if(user.length==0){
+                delete req.body["_id"];
                 var newuser= new adminSchema.user(req.body);
-                newuser.save(function(err){
-                    if (err) throw err;
+                newuser.save(function(err, resp){
+                    if (err) return next(err);
                     // fetch user and test password verification
                     adminSchema.user.findOne({$or:[{userName:req.body.userName}, {email:req.body.email}]}, function(err, userData) {
                         if (err) throw err;
-
                         // test a matching password
                         userData.comparePassword(req.body.password, function(err, isMatch) {
                             if (err) throw err;
                             if(isMatch){
-                                res.json(userData);
+                                req.body.identity=req.body.userName;
+
+                                var emailbody='<b>Dear '+req.body.firstName+' '+req.body.lastName+', </b> <br>';
+                                emailbody+='Thank you for registering at our Auction House, we are glad to have you on-board.';
+                                emailbody+='<br><br><b>3A Auction House Team</b>';
+                                var fromE="3A Auction House<info@3aauctions.com>";
+                                var subject="Thanks for Registering at 3A Auction House";
+                                prepareEmail(fromE, req.body.email, subject, emailbody)
+                                passport.authenticate('local', function(err, user, info) {
+                                    if (err) { return next(err); }
+                                    req.logIn(user, function(err) {
+                                        if (err) { return next(err); }
+
+                                        res.json(userData);
+                                    });
+                                })(req, res, next);
                             };
                         });
                     })

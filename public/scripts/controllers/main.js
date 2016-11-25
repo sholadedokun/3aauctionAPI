@@ -103,26 +103,38 @@ angular.module('3aAuctionsApp')
     $scope.infoRev=false;
     $scope.changeState=function(state){$scope.regState=state; $scope.info='';}
     $scope.register=function(){
-        cfpLoadingBar.start()
+
         $scope.infoRev=true;
         $scope.info='Please Wait...';
-        appActions.admin('user/').save($scope.user, function(data){
-            cfpLoadingBar.complete()
-            if(data.error){
-                if(data.data[0].email==$scope.user.email){
-                    $scope.info="Error Occured : Email Already Registered";
-                }
-                else{
-                    $scope.info="Error Occured : Username already taken, Please select another Username";
-                }
+        if($scope.user.password==$scope.user.repassword){
+            if($scope.user.password.length>=8){
+                cfpLoadingBar.start()
+                appActions.admin('user/').save($scope.user, function(data){
+                    cfpLoadingBar.complete()
+                    if(data.error){
+                        if(data.data[0].email==$scope.user.email){
+                            $scope.info="Opps!! Your email address is already Registered";
+                        }
+                        else{
+                            $scope.info="Opps!!  Username already taken, Please select another Username";
+                        }
+                    }
+                    else{
+                        $scope.user=data;
+                        $location.path("/profile/"+$scope.user.userName)
+                        $scope.cancel();
+
+                    }
+                });
             }
             else{
-                $scope.user=data;
-                console.log($scope.user);
-                $location.path("/profile/"+$scope.user.userName);
-                $scope.cancel();
+                $scope.info="Opps!! Your password must be atleast 8 characters";
             }
-        });
+        }
+        else{
+            $scope.info="Opps!! The passwords provided doesn't match ";
+        }
+
     }
     $scope.login=function(){
         cfpLoadingBar.start()
@@ -146,7 +158,7 @@ angular.module('3aAuctionsApp')
         )
     }
   $scope.cancel = function () {
-    $modalInstance.dismiss('cancel');
+    $uibModalInstance.dismiss('cancel');
   };
 }])
 .controller('detailModalInstanceCtrl', ['$scope', '$filter', '$rootScope', '$uibModalInstance', 'index','allAuction', 'filters','limits','appActions', 'userData', function ($scope, $filter, $rootScope,  $uibModalInstance, index, allAuction, filters, limits, appActions, userData){

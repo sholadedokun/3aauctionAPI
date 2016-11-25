@@ -46,7 +46,7 @@ appServices.service('userData', ['$rootScope', function($rootScope){
  var savedData =  {name:'',  _id:0, email:''}
  return{
     data:function() {   return savedData; },
-    saveData:function(data){savedData=data}
+    saveData:function(data){savedData=data; return savedData}
  }
 }])
 appServices.service('checkLoggedin', ['$rootScope','$location',  'userData', '$http', '$q',  function($rootScope,$location, userData, $http, $q){
@@ -58,8 +58,8 @@ return{
         $http.get('/appActions/checkLoggedin').success(function(data){
             if (data.user){
                 $http.get('/appActions/userProfile/'+data.user).success(function(userDat){
-                    if(userData){
-                        userData.saveData(userDat);
+                    if(userDat){
+                        $rootScope.user=userData.saveData(userDat);
                         if(access=='route' && routeId!=$rootScope.user.userName){
                             deferred.reject();
                             $location.url('/login');

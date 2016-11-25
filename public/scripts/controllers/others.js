@@ -46,7 +46,9 @@ angular.module('3aAuctionsApp')
         $scope.Profilestate="";
         $scope.changeState=function(state){$scope.regState=state;}
      }])
-  .controller('MenuCtrl', ['$scope','$location', function ($scope, $location) {
+  .controller('MenuCtrl', ['$scope','$location','userData', function ($scope, $location, userData) {
+      $scope.user=userData.data();
+      console.log($scope.user);
       $scope.getPath = function (path) {
       return $location.path() == path;
     };
