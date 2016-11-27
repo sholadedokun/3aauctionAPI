@@ -323,7 +323,7 @@ angular.module('3aAuctionsApp')
   };
 
   $scope.cancel = function () {
-    $modalInstance.dismiss('cancel');
+    $uibModalInstance.dismiss('cancel');
   };
 }])
   .controller('MainCtrl',['$scope', 'appService',  function ($scope, appService) {
