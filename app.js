@@ -75,7 +75,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(expressSession({
-    secret: 'bytes-And-Binaries-Secrets-with-3A-Auctions',
+    secret: '****************',
     saveUninitialized: true,
     resave:true,
     store: new MongoStore({ mongooseConnection: mongoose.connection })
