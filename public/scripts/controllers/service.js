@@ -59,29 +59,33 @@ return{
             if (data.user){
                 $http.get('/appActions/userProfile/'+data.user).success(function(userDat){
                     if(userDat){
-                        $rootScope.user=userData.saveData(userDat);
+                        $rootScope.user=userDat;
+                        userData.saveData(userDat);
                         if(access=='route' && routeId!=$rootScope.user.userName){
                             deferred.reject();
                             $location.url('/login');
                         }
                         deferred.resolve(userDat);
-                        console.log(userDat);
+                        console.log(userData.data());
+                        $rootScope.$broadcast('authenticationOccured');
                     }
                 },
                 function(err){
                     console.log(err);
                     if(access!='init'){
                         $rootScope.regSign('signin');
+                        $rootScope.$broadcast('authenticationOccured');
                     }
                 })
                 //deferred.resolve(data.user);
             }
             // Not Authenticated
             else {
-                console.log('here')
+            
                 $rootScope.message = 'You need to log in.';
                 deferred.reject();
                 if(access=='route'){$location.url('/login');}
+                $rootScope.$broadcast('authenticationOccured');
 
             }
         });

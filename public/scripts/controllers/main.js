@@ -8,7 +8,7 @@
  * Controller of the 3aAuctionsApp
  */
 angular.module('3aAuctionsApp')
-.controller('indexCtrl',['$scope', '$rootScope', 'appService', '$uibModal', 'userData', 'appActions','cfpLoadingBar', function ($scope, $rootScope, appService, $uibModal, userData, appActions, cfpLoadingBar) {
+.controller('indexCtrl',['$scope', '$rootScope', 'appService', '$uibModal', 'userData', 'appActions', 'cfpLoadingBar', '$location', function ($scope, $rootScope, appService, $uibModal, userData, appActions, cfpLoadingBar, $location) {
     $scope.user=userData.data()
     $scope.sumenu=[
         [   {url:'#/generalInfo', value:'General Informaton'},
@@ -39,9 +39,11 @@ angular.module('3aAuctionsApp')
     $scope.signOut=function(){
         var logout=appActions.admin('logout/').get({})
         logout.$promise.then(function(data){
-
             $scope.user={_id:0};
-            console.log($scope.user)
+            userData.saveData($scope.user);
+            $location.path('/');
+            $rootScope.$broadcast('authenticationOccured');
+            console.log(userData.data())
         },
         function(err){
             console.log(err);
@@ -61,8 +63,9 @@ angular.module('3aAuctionsApp')
         })
         modalInstance.result.then(function (data) {
           $scope.user=data;
+          $rootScope.$broadcast('authenticationOccured');
         }, function () {
-          $log.info('modal-component dismissed at: ' + new Date());
+
         });
     }
 
@@ -91,7 +94,7 @@ angular.module('3aAuctionsApp')
         modalInstance.result.then(function (option) {
           $scope.regSign(option);
         }, function () {
-          $log.info('modal-component dismissed at: ' + new Date());
+
         });
     };
 
@@ -103,7 +106,6 @@ angular.module('3aAuctionsApp')
     $scope.infoRev=false;
     $scope.changeState=function(state){$scope.regState=state; $scope.info='';}
     $scope.register=function(){
-
         $scope.infoRev=true;
         $scope.info='Please Wait...';
         if($scope.user.password==$scope.user.repassword){
@@ -121,6 +123,7 @@ angular.module('3aAuctionsApp')
                     }
                     else{
                         $scope.user=data;
+                        userData.saveData(data);
                         $location.path("/profile/"+$scope.user.userName)
                         $scope.cancel();
 
@@ -144,6 +147,7 @@ angular.module('3aAuctionsApp')
         $scope.getUser.$promise.then(function(data){
             cfpLoadingBar.complete()
             $scope.user=data;
+            userData.saveData(data);
             console.log($scope.user)
             $scope.user.userInfo=false;
             $uibModalInstance.close(data);
@@ -158,7 +162,7 @@ angular.module('3aAuctionsApp')
         )
     }
   $scope.cancel = function () {
-    $uibModalInstance.dismiss('cancel');
+      $uibModalInstance.dismiss('cancel');
   };
 }])
 .controller('detailModalInstanceCtrl', ['$scope', '$filter', '$rootScope', '$uibModalInstance', 'index','allAuction', 'filters','limits','appActions', 'userData', function ($scope, $filter, $rootScope,  $uibModalInstance, index, allAuction, filters, limits, appActions, userData){
@@ -304,29 +308,13 @@ angular.module('3aAuctionsApp')
         $uibModalInstance.close(option);
     }
     $scope.ok = function (user) {
-    // $scope.regUser = registerUser.get({title:user.title, fname:user.fname, lname:user.lname, email:user.email, pass:user.password, phone:user.phone, date_birth:user.dbirth, con_add:user.caddress, city:user.city, state:user.state, postal_c:user.pcode, country:user.country, national:user.nationality, agent:user.agent },	function(regUser) {
-	// if($scope.regUser[0]=='o'){
-	// 	userData.setData(user);
-	// 	setCookie('getCentreUser',user, 30 )
-	// 	function setCookie(cname, cvalue, exdays) {
-	// 		var d = new Date();
-	// 		d.setTime(d.getTime() + (exdays*24*60*60*1000));
-	// 		var expires = "expires="+d.toUTCString();
-	// 		document.cookie = cname + "=" + JSON.stringify(cvalue) + "; " + expires;
-	// 	}
-	// $scope.getUdata=userData.data();
-	// $scope.getUdata[0].status="Logged_in";
-	// $rootScope.$broadcast('logged-in');
-	// $modalInstance.dismiss('cancel');
-	//}
-	//})
   };
 
   $scope.cancel = function () {
     $uibModalInstance.dismiss('cancel');
   };
 }])
-  .controller('MainCtrl',['$scope', 'appService',  function ($scope, appService) {
+.controller('MainCtrl',['$scope', 'appService',  function ($scope, appService) {
       $scope.startSlider=function(){
           jQuery('.bxslider').bxSlider({
               pager:false,

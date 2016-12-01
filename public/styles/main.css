@@ -9909,9 +9909,10 @@ dropdown-menu .divider {
   top: 0% !important;
   background: #ddd;
   color: #888;
+  cursor: pointer;
 }
 
-/* line 866, main.scss */
+/* line 867, main.scss */
 .Bleft {
   position: absolute;
   left: 0;
@@ -9919,7 +9920,7 @@ dropdown-menu .divider {
   margin-left: 0;
 }
 
-/* line 873, main.scss */
+/* line 874, main.scss */
 .Bright {
   position: absolute;
   right: 0;
@@ -9927,14 +9928,14 @@ dropdown-menu .divider {
   margin-right: 0;
 }
 
-/* line 879, main.scss */
+/* line 880, main.scss */
 .thumbContainer_slide {
   position: relative;
   overflow: hidden;
   max-height: 100px;
 }
 
-/* line 884, main.scss */
+/* line 885, main.scss */
 .thumb_container {
   position: relative;
   overflow: hidden;
@@ -9942,7 +9943,7 @@ dropdown-menu .divider {
   margin-top: 30px;
 }
 
-/* line 890, main.scss */
+/* line 891, main.scss */
 .thumbImg {
   width: 20%;
   overflow: hidden;
@@ -9950,18 +9951,18 @@ dropdown-menu .divider {
   cursor: pointer;
 }
 
-/* line 896, main.scss */
+/* line 897, main.scss */
 .thumbImg img {
   width: 100%;
 }
 
-/* line 899, main.scss */
+/* line 900, main.scss */
 .slideViewer {
   height: 350px;
   overflow: hidden;
 }
 
-/* line 903, main.scss */
+/* line 904, main.scss */
 .slideMover {
   position: absolute;
   z-index: 1;
@@ -9973,55 +9974,55 @@ dropdown-menu .divider {
   cursor: pointer;
 }
 
-/* line 913, main.scss */
+/* line 914, main.scss */
 .slideMover img {
   margin: 30% 40%;
 }
 
-/* line 916, main.scss */
+/* line 917, main.scss */
 .slideMoveL {
   left: 0;
 }
 
-/* line 919, main.scss */
+/* line 920, main.scss */
 .slideMoveL img:hover {
   margin-left: 38%;
 }
 
-/* line 922, main.scss */
+/* line 923, main.scss */
 .slideMoveR {
   right: 0;
 }
 
-/* line 925, main.scss */
+/* line 926, main.scss */
 .slideMoveR img:hover {
   margin-right: 38%;
 }
 
-/* line 928, main.scss */
+/* line 929, main.scss */
 .bidCon {
   padding: 15px;
   margin: 0 0 20px;
   border-radius: 3px;
 }
 
-/* line 933, main.scss */
+/* line 934, main.scss */
 .timeTitle {
   font-size: 0.8em;
   color: #555;
 }
 
-/* line 938, main.scss */
+/* line 939, main.scss */
 .timeNum {
   font-size: 2em;
 }
 
-/* line 941, main.scss */
+/* line 942, main.scss */
 .timeCon {
   position: relative;
 }
 
-/* line 945, main.scss */
+/* line 946, main.scss */
 .timeDot {
   font-size: 2em;
   position: absolute;
@@ -10029,32 +10030,32 @@ dropdown-menu .divider {
   right: 30%;
 }
 
-/* line 951, main.scss */
+/* line 952, main.scss */
 .arrCon {
   height: auto;
   padding: 40em 0 0;
 }
 
-/* line 955, main.scss */
+/* line 956, main.scss */
 .priceCon {
   padding-left: 15px;
   color: #D0021B;
 }
 
-/* line 959, main.scss */
+/* line 960, main.scss */
 .bidderCon {
   text-align: center;
   background: #f4f4f4;
   font-size: 1.5em;
 }
 
-/* line 964, main.scss */
+/* line 965, main.scss */
 .bidform {
   font-size: 1.5em;
   margin-top: 15px;
 }
 
-/* line 968, main.scss */
+/* line 969, main.scss */
 .bidbut {
   background: #9b9b9b;
   padding: 25px 10px;
@@ -10062,20 +10063,20 @@ dropdown-menu .divider {
   cursor: pointer;
 }
 
-/* line 974, main.scss */
+/* line 975, main.scss */
 .bidbutton {
   padding: 20px;
   margin-top: 20px;
   font-size: 1.2em;
 }
 
-/* line 979, main.scss */
+/* line 980, main.scss */
 .bidCur {
   margin-top: 10px;
   padding: 0;
 }
 
-/* line 985, main.scss */
+/* line 986, main.scss */
 .forms {
   border: 1px solid #ccc;
   padding: 15px;
@@ -10083,27 +10084,27 @@ dropdown-menu .divider {
   color: #333;
 }
 
-/* line 991, main.scss */
+/* line 992, main.scss */
 .formMenu {
   border-bottom: 2px solid #ccc;
   font-size: 1.6em;
   margin: 30px 0;
 }
 
-/* line 996, main.scss */
+/* line 997, main.scss */
 .menuList {
   padding: 20px;
   text-align: center;
   cursor: pointer;
 }
 
-/* line 1001, main.scss */
+/* line 1002, main.scss */
 .act {
   border-bottom: 4px solid #E8B964;
   font-weight: bold;
 }
 
-/* line 1005, main.scss */
+/* line 1006, main.scss */
 .checkCon {
   padding: 3px 5px;
   width: 24px;
@@ -10112,50 +10113,50 @@ dropdown-menu .divider {
   margin: -3px 20px 10px 0px;
 }
 
-/* line 1013, main.scss */
+/* line 1014, main.scss */
 .termsCon {
   paddin: 0;
   margin: 23px 0 20px;
 }
 
-/* line 1017, main.scss */
+/* line 1018, main.scss */
 .termsCon label {
   font-size: 0.8em;
 }
 
-/* line 1018, main.scss */
+/* line 1019, main.scss */
 .signupbg {
   padding: 30% 10% 0 0;
   margin: 0;
   color: #fff !important;
 }
 
-/* line 1023, main.scss */
+/* line 1024, main.scss */
 .signupintro {
   margin: 0 0 10% 0;
   padding: 0;
 }
 
-/* line 1027, main.scss */
+/* line 1028, main.scss */
 .regSignBg {
   position: absolute;
   border-top-left-radius: 10px;
   border-bottom-left-radius: 10px;
 }
 
-/* line 1032, main.scss */
+/* line 1033, main.scss */
 .regSignForm {
   padding: 60px 0;
   min-height: 800px;
 }
 
-/* line 1036, main.scss */
+/* line 1037, main.scss */
 .regHead {
   color: #eee;
   text-shadow: 1px 1px 2px #000000;
 }
 
-/* line 1037, main.scss */
+/* line 1038, main.scss */
 .profileThumb {
   background: #E8B964;
   width: 40px;
@@ -10169,39 +10170,39 @@ dropdown-menu .divider {
   font-size: 1.4em;
 }
 
-/* line 1049, main.scss */
+/* line 1050, main.scss */
 .userInfo {
   font-weight: bold;
   font-size: 1.4em;
   cursor: pointer;
 }
 
-/* line 1054, main.scss */
+/* line 1055, main.scss */
 .userP {
   margin-top: 10px;
   text-align: center;
   font-size: 1.2em;
 }
 
-/* line 1059, main.scss */
+/* line 1060, main.scss */
 .username {
   float: left;
   font-size: 1em;
   margin-right: 10px;
 }
 
-/* line 1064, main.scss */
+/* line 1065, main.scss */
 .profileCon {
   padding: 60px 0;
   margin-top: 100px;
 }
 
-/* line 1068, main.scss */
+/* line 1069, main.scss */
 .historyCon {
   padding: 100px 0 20px 5%;
 }
 
-/* line 1072, main.scss */
+/* line 1073, main.scss */
 .imgCon {
   width: 100%;
   text-align: center;
@@ -10209,37 +10210,37 @@ dropdown-menu .divider {
   font-size: 120px;
 }
 
-/* line 1078, main.scss */
+/* line 1079, main.scss */
 .profileName {
   margin-top: 15px;
   padding: 5px 0;
   font-size: 1.6em;
 }
 
-/* line 1083, main.scss */
+/* line 1084, main.scss */
 .profileState {
   font-size: 1.2em;
   margin-bottom: 5px;
 }
 
-/* line 1087, main.scss */
+/* line 1088, main.scss */
 .profile_det .divider {
   margin: 20px 0 5px;
 }
 
-/* line 1091, main.scss */
+/* line 1092, main.scss */
 .des_link {
   color: #d8c964;
   text-decoration: underline;
 }
 
-/* line 1095, main.scss */
+/* line 1096, main.scss */
 .des_link:hover {
   color: #b6a742;
   text-decoration: underline;
 }
 
-/* line 1099, main.scss */
+/* line 1100, main.scss */
 .info {
   padding: 10px;
   border-radius: 5px;

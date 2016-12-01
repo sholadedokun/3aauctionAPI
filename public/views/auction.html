@@ -7,11 +7,11 @@
                 </span>
                 <div class="col-xs-12 np search">
 
-                    <div class="col-xs-9  col-sm-5 col-sm-offset-3 form_container ">
+                    <div class="col-xs-9  col-sm-8 col-sm-offset-1 form_container ">
                         <span  class="glyphicon glyphicon-zoom-in icon"></span>
                         <input class="col-xs-11 pull-right" type="text" />
                     </div>
-                    <div class="col-xs-3 np">
+                    <div class="col-xs-2 np">
                         <span class="col-xs-12 np">
                             <a href="" class="col-xs-12 primary_button">Search</a>
                         </div>
@@ -90,7 +90,7 @@
                         </span>
                     </div>
                     <div class="col-xs-12 auction_thumbDetails ">
-                        <span class="col-xs-12 title np" ng-bind="item.name"></span>
+                        <span class="col-xs-12 title np" ng-bind="item.name | limitTo:35"></span>
                         <span class="col-xs-12 price np"><span> &#8358; </span><span ng-bind="item  | getHighestBid | number"></span></span>
                         <span class="col-xs-12 secondary_but s_but" ng-click="auctionMiniview(allInventory, $index)">Bid Now <span class="icon left_arrow"></span></span>
                     </div>
