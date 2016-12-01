@@ -284,7 +284,7 @@ angular.module('3aAuctionsApp')
         $scope.user.process=true;
         $scope.user.userMessage='Please wait';
         $scope.biddings={
-            userId:$scope.user.id,
+            userId:$scope.user._id,
             inventory:$scope.auction._id,
             price:$scope.currentBid,
             state:'Lagos',
